@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-color: #e3e2e8;
+  --color: #726aa0
+  --text: #ededed;
+  --text-muted: #888;
+  --accent: #745dac;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /*background colors*/
+  --color--bg-primary:#FAF9F6;
+  --color--bg-secondary:#F5F3EF;
+  --color--bg-tertiary:#EEEAE4;
+
+  /*text colors*/
+  --color--text-primary:#1A1A1A;
+  --color--text-secondary:#555555;
+  --color-text-tertiary: #999999;
+
+
+  /*Accent -- purple*/
+  --color-accent: #745DAC;
+  --color-accent-light: #E2DBF4;
+  --color-accent-dark: #513D82;
+  --color-accent-muted: #ADA1CA;
+
+  /* ---- Borders ---- */
+  --color-border: #E5E2DC;
+  --color-border-hover: #D1CCC4;
+
+  
+  /* ---- Fonts---- */
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/*Base style*/
+html{
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FAF9F6;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* ---- Selection highlight with purple ---- */
+::selection {
+  background-color: #E2DBF4;
+  color: #513D82;
+}
+
+
+
