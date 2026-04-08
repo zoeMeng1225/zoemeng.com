@@ -2,8 +2,7 @@
 
 :root {
   --background-color: #e3e2e8;
-  --color: #726aa0
-  --text: #ededed;
+  --color: #726aa0 --text: #ededed;
   --text-muted: #888;
   --accent: #745dac;
   -webkit-font-smoothing: antialiased;
@@ -12,27 +11,25 @@
 
 @theme inline {
   /*background colors*/
-  --color--bg-primary:#FAF9F6;
-  --color--bg-secondary:#F5F3EF;
-  --color--bg-tertiary:#EEEAE4;
+  --color--bg-primary: #faf9f6;
+  --color--bg-secondary: #f5f3ef;
+  --color--bg-tertiary: #eeeae4;
 
   /*text colors*/
-  --color--text-primary:#1A1A1A;
-  --color--text-secondary:#555555;
+  --color--text-primary: #1a1a1a;
+  --color--text-secondary: #555555;
   --color-text-tertiary: #999999;
 
-
   /*Accent -- purple*/
-  --color-accent: #745DAC;
-  --color-accent-light: #E2DBF4;
-  --color-accent-dark: #513D82;
-  --color-accent-muted: #ADA1CA;
+  --color-accent: #745dac;
+  --color-accent-light: #e2dbf4;
+  --color-accent-dark: #513d82;
+  --color-accent-muted: #ada1ca;
 
   /* ---- Borders ---- */
-  --color-border: #E5E2DC;
-  --color-border-hover: #D1CCC4;
+  --color-border: #e5e2dc;
+  --color-border-hover: #d1ccc4;
 
-  
   /* ---- Fonts---- */
   --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
@@ -40,23 +37,19 @@
 }
 
 /*Base style*/
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #FAF9F6;
-  color: #1A1A1A;
+  background: #faf9f6;
+  color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 /* ---- Selection highlight with purple ---- */
 ::selection {
-  background-color: #E2DBF4;
-  color: #513D82;
+  background-color: #e2dbf4;
+  color: #513d82;
 }
-
-
-

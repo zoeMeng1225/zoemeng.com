@@ -8,10 +8,10 @@ interface FadeInProps {
   children: ReactNode;
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
-  className: string;
+  className?: string;
 }
 
-export function FedeIn({
+export function FadeIn({
   children,
   delay = 0,
   direction = "up",
