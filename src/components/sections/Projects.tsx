@@ -20,7 +20,7 @@ const projects = [
       "Polaris UI",
     ],
     href: "/projects/b2b-quote",
-    image: "/images/projects/b2b-quote.webp", // project screenshot
+    image: "/images/projects/b2b-quote-hero.webp", // project screenshot
     metrics: [
       { label: "Faster processing", value: "83%" },
       { label: "Test coverage", value: "90%" },
@@ -36,6 +36,7 @@ const projects = [
       "Prisma ORM",
       "OpenAI API",
       "Tailwind CSS",
+      "Shopify App Bridge",
     ],
     href: "/projects/tagwise-ai",
     image: "/images/projects/tagwise.webp",
