@@ -21,9 +21,10 @@ export function Contact() {
       <FadeIn delay={0.2}>
         <a
           href="mailto:zoemeng1225@gmail.com"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full
-                     bg-accent text-white font-medium
-                     hover:bg-accent-dark transition-colors"
+          className={cn(
+            "inline-flex items-center gap-2 px-6 py-3 rounded-full",
+            "bg-accent text-white font-medium hover:bg-accent-dark transition-colors",
+          )}
         >
           Say hello
         </a>

@@ -102,7 +102,7 @@ export default function B2BQuotePage() {
           )}
         >
           <Image
-            src="/images/projects/b2b-quote-hero.webp"
+            src="/images/projects/b2b-quote/b2b-quote-hero.webp"
             alt="B2B Quote Automation Dashboard"
             width={1200}
             height={675}

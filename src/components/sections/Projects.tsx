@@ -51,7 +51,7 @@ const projects = [
       "Generate React components from natural language with real-time preview. Features streaming AI responses, Monaco Editor, and sandboxed code execution.",
     tags: ["Next.js", "TypeScript", "OpenAI API", "Monaco Editor", "Sandpack"],
     href: "/projects/ai-playground",
-    image: "/images/projects/ai-playground.webp",
+    image: "/images/projects/mti/mti_website.webp",
     metrics: [{ label: "Initial load", value: "<2s" }],
   },
 ];
