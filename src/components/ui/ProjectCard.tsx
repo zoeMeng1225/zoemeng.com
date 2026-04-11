@@ -45,6 +45,7 @@ export function ProjectCard({
               className={cn(
                 "w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]",
               )}
+              priority
             />
           </div>
         )}

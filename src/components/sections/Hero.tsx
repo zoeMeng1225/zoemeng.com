@@ -41,7 +41,7 @@ export function Hero() {
           <a
             href="mailto:zoemeng1225@gmail.com"
             className={cn(
-              "inline-flex items-center gap-2 px-4 py-2 rounded-full",
+              "inline-flex items-center gap-2 px-4 py-2 rounded-md",
               "bg-accent text-white text-sm font-medium",
               "hover:bg-accent-dark transition-colors",
             )}

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface ProjectVideoProps {
   src: string;
-  poster?: string; //视频加载前显示的封面图
+  poster?: string;
   caption?: string;
 }
 
@@ -26,7 +26,7 @@ export function ProjectVideo({ src, poster, caption }: ProjectVideoProps) {
   };
 
   return (
-    <figure className={cn("my-8")}>
+    <figure className={cn("border-b border-border pb-3")}>
       <div
         className={cn(
           "relative rounded-xl overflow-hidden border",
@@ -45,7 +45,7 @@ export function ProjectVideo({ src, poster, caption }: ProjectVideoProps) {
           className={cn("w-full")}
         />
 
-        {/* 播放按钮 overlay — 没播放时显示 */}
+        {/* play button: overlay —when no playing  */}
         {!isPlaying && (
           <div
             className={cn(

@@ -20,7 +20,7 @@ const projects = [
       "Polaris UI",
     ],
     href: "/projects/b2b-quote",
-    image: "/images/projects/b2b-quote-hero.webp", // project screenshot
+    image: "/images/projects/b2b-quote/b2b-quote-hero.webp", // project screenshot
     metrics: [
       { label: "Faster processing", value: "83%" },
       { label: "Test coverage", value: "90%" },
@@ -39,10 +39,22 @@ const projects = [
       "Shopify App Bridge",
     ],
     href: "/projects/tagwise-ai",
-    image: "/images/projects/tagwise.webp",
+    image: "/images/projects/tagwise/tagwise.webp",
     metrics: [
       { label: "Latency reduction", value: "40%" },
       { label: "60fps catalog", value: "100+" },
+    ],
+  },
+  {
+    title: "High-Performance B2B E-commerce Platform",
+    description:
+      "Architected a modular Shopify theme with advanced fuzzy search and role-based access control (RBAC) for a 10,000+ SKU catalog, reducing frontend maintenance by 60%.",
+    tags: ["Liquid", "JavaScript (ES6+)", "SCSS", "JSON", "Shopify"],
+    href: "/projects/mti",
+    image: "/images/projects/mti/mti_website.webp",
+    metrics: [
+      { label: "Maintenance reduction", value: "60%" },
+      { label: "Active SKUs", value: "10k+" },
     ],
   },
   {
