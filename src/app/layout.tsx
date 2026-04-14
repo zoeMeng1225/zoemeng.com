@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit, Syne } from "next/font/google";
+import { ScrollToTop } from "@/components/ui/Scrolltotop";
 import "./globals.css";
 
 const syne = Syne({
@@ -48,6 +49,7 @@ export default function RootLayout({
     >
       <body className="font-body bg-bg-primary text-text-primary antialiased">
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
