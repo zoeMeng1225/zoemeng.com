@@ -2,7 +2,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { LightboxImage } from "./lightboxImage";
 
 interface MediaItem {
   src: string;
@@ -25,23 +25,16 @@ export function MediaGrid({ items, columns = 2, caption }: MediaGridProps) {
         : "grid-cols-2 md:grid-cols-4";
 
   return (
-    <figure className={cn("border-b border-border pb-3")}>
+    <figure className="my-8">
       <div className={`grid ${colClass} gap-3`}>
         {items.map((item, i) => (
           <div
+            key={i}
             className={cn(
               "rounded-lg overflow-hidden border border-border bg-bg-secondary",
             )}
-            key={i}
           >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={600}
-              height={400}
-              className={cn("w-full h-full object-cover")}
-              unoptimized={item.gif}
-            />
+            <LightboxImage src={item.src} alt={item.alt} gif={item.gif} />
           </div>
         ))}
       </div>

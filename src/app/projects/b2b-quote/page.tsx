@@ -1,6 +1,5 @@
 // src/app/projects/b2b-quote/page.tsx
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";

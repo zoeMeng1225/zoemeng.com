@@ -1,8 +1,8 @@
 // src/components/ui/ProjectImage.tsx
 "use client";
 
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { LightboxImage } from "./lightboxImage";
 
 interface ProjectImageProps {
   src: string;
@@ -16,20 +16,17 @@ export function ProjectImage({
   src,
   alt,
   caption,
-  priority = false,
   gif = false,
 }: ProjectImageProps) {
   return (
-    <figure className={cn("border-b border-border pb-3")}>
+    <figure className="my-8">
       <div className={cn("rounded-xl overflow-hidden border border-border")}>
-        <Image
+        <LightboxImage
           src={src}
           alt={alt}
           width={1200}
           height={675}
-          className={cn("w-full")}
-          priority={priority}
-          unoptimized={gif}
+          gif={gif}
         />
       </div>
       {caption && (
