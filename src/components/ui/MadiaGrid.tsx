@@ -1,29 +1,28 @@
 // src/components/ui/MadiaGrid.tsx
 "use client";
 
-import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-interface MadiaItem {
+interface MediaItem {
   src: string;
   alt: string;
-  gif: boolean;
+  gif?: boolean;
 }
 
-interface MadiaGridProps {
-  items: MadiaItem[];
+interface MediaGridProps {
+  items: MediaItem[];
   columns?: 2 | 3 | 4;
   caption?: string;
 }
 
-export function MediaGrid({ items, columns = 2, caption }: MadiaGridProps) {
+export function MediaGrid({ items, columns = 2, caption }: MediaGridProps) {
   const colClass =
     columns === 2
       ? "grid-cols-2"
       : columns === 3
         ? "grid-cols-3"
-        : "grid-col2-2 md:grid-cols-4";
+        : "grid-cols-2 md:grid-cols-4";
 
   return (
     <figure className={cn("border-b border-border pb-3")}>
