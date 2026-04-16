@@ -46,6 +46,15 @@ const projects = [
     ],
   },
   {
+    title: "AI Component Playground",
+    description:
+      "Generate React components from natural language with real-time preview. Features streaming AI responses, Monaco Editor, and sandboxed code execution.",
+    tags: ["Next.js", "TypeScript", "OpenAI API", "Monaco Editor", "Sandpack"],
+    href: "/projects/ai-playground",
+    image: "/images/projects/ai-playground/ai-playground-hero.webp",
+    metrics: [{ label: "Initial load", value: "<2s" }],
+  },
+  {
     title: "High-Performance B2B E-commerce Platform",
     description:
       "Architected a modular Shopify theme with advanced fuzzy search and role-based access control (RBAC) for a 10,000+ SKU catalog, reducing frontend maintenance by 60%.",
@@ -56,15 +65,6 @@ const projects = [
       { label: "Maintenance reduction", value: "60%" },
       { label: "Active SKUs", value: "10k+" },
     ],
-  },
-  {
-    title: "AI Component Playground",
-    description:
-      "Generate React components from natural language with real-time preview. Features streaming AI responses, Monaco Editor, and sandboxed code execution.",
-    tags: ["Next.js", "TypeScript", "OpenAI API", "Monaco Editor", "Sandpack"],
-    href: "/projects/ai-playground",
-    image: "/images/projects/mti/mti_website.webp",
-    metrics: [{ label: "Initial load", value: "<2s" }],
   },
 ];
 

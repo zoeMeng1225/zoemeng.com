@@ -15,7 +15,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.screenY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -24,7 +24,9 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
-        scrolled ? "bg-bg-primary shadow-sm" : "bg-transparent",
+        scrolled
+          ? "bg-bg-primary/80 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent border-b border-transparent",
       )}
     >
       <nav
@@ -57,9 +59,12 @@ export function Header() {
             href="/FrontendEngineer_ZoeMeng_Resume.pdf"
             target="_blank"
             className={cn(
-              "text-sm text-accent hover:text-accent-dark transition-colors",
+              "text-sm font-medium text-text-primary px-4 py-1.5 rounded-md border border-border",
+              "hover:bg-bg-secondary transition-colors",
             )}
-          ></a>
+          >
+            Resume
+          </a>
         </div>
       </nav>
     </header>

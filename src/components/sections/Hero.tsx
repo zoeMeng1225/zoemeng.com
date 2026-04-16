@@ -28,7 +28,7 @@ export function Hero() {
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
-        <p className={cn("text-lg text-text-secondary leading-relaxed md-8")}>
+        <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
           Previously, I engineered internal automation tools that{" "}
           <span className={cn("text-accent font-medium")}>
             reduced manual workflows by 83%
@@ -54,7 +54,9 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "text-text-tertiary hover:text-text-primary transition-colors",
+              "font-medium text-text-secondary",
+              "hover:text-text-primary hover:-translate-y-0.5",
+              "transition-all duration-200",
             )}
           >
             {" "}
@@ -65,7 +67,9 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "text-text-tertiary hover:text-text-primary transition-colors",
+              "font-medium text-text-secondary",
+              "hover:text-text-primary hover:-translate-y-0.5",
+              "transition-all duration-200",
             )}
           >
             {" "}
