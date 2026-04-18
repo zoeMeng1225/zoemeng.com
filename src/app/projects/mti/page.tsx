@@ -3,8 +3,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";
-import { MediaGrid } from "@/components/ui/MadiaGrid";
+import { MediaGrid } from "@/components/ui/MediaGrid";
 import { ProjectImage } from "@/components/ui/ProjectImage";
+import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
   title: "High-Performance B2B E-commerce Platform — Zoe Meng",
@@ -15,14 +16,7 @@ export const metadata: Metadata = {
 export default function Mti() {
   return (
     <main className={cn("max-w-3xl mx-auto px-6 pt-32 pb-16")}>
-      <FadeIn>
-        <Link
-          href="/#projects"
-          className="inline-flex items-center gap-1 text-sm text-text-tertiary hover:text-text-primary transition-colors mb-12"
-        >
-          ← Back to home
-        </Link>
-      </FadeIn>
+      <BackToHome />
 
       {/* ============================================
           HERO
@@ -343,69 +337,57 @@ export default function Mti() {
         </FadeIn>
 
         <FadeIn>
-          <div className={cn("space-y-4")}>
-            <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4")}>
-              <div
+          <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4")}>
+            <div
+              className={cn(
+                "p-5 rounded-lg bg-bg-secondary border border-border",
+              )}
+            >
+              <h4
                 className={cn(
-                  "p-5 rounded-lg bg-bg-secondary border border-border",
+                  "font-display text-sm font-semibold text-accent mb-1",
                 )}
               >
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-text-primary mb-1",
-                  )}
-                >
-                  Guest
-                </h4>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  Standard storefront with product catalog, search, and quote
-                  cart. No access to technical manuals or internal notes.
-                </p>
-              </div>
-              <div
+                Guest
+              </h4>
+              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
+                Standard storefront with product catalog, search, and quote
+                cart. No access to technical manuals or internal notes.
+              </p>
+            </div>
+            <div
+              className={cn(
+                "p-5 rounded-lg bg-bg-secondary border border-border",
+              )}
+            >
+              <h4
                 className={cn(
-                  "p-5 rounded-lg bg-bg-secondary border border-border",
+                  "font-display text-sm font-semibold text-accent mb-1",
                 )}
               >
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-accent mb-1",
-                  )}
-                >
-                  Member
-                </h4>
-                <p
-                  className={cn(
-                    "font-display text-sm font-semibold text-accent mb-1",
-                  )}
-                >
-                  Exclusive technical manuals (PDFs), wholesale pricing, and
-                  auto tax exemption based on customer tags.
-                </p>
-              </div>
-              <div
+                Member
+              </h4>
+              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
+                Exclusive technical manuals (PDFs), wholesale pricing, and auto
+                tax exemption based on customer tags.
+              </p>
+            </div>
+            <div
+              className={cn(
+                "p-5 rounded-lg bg-bg-secondary border border-border",
+              )}
+            >
+              <h4
                 className={cn(
-                  "p-5 rounded-lg bg-bg-secondary border border-border",
+                  "font-display text-sm font-semibold text-accent mb-1",
                 )}
               >
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-text-primary mb-1",
-                  )}
-                >
-                  Employee
-                </h4>
-                <p
-                  className={cn(
-                    "font-display text-sm font-semibold text-accent mb-1",
-                  )}
-                >
-                  Hidden staff communication layer on product pages for internal
-                  notes and collaboration.
-                </p>
-              </div>
+                Employee
+              </h4>
+              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
+                Hidden staff communication layer on product pages for internal
+                notes and collaboration.
+              </p>
             </div>
           </div>
         </FadeIn>
@@ -591,18 +573,20 @@ export default function Mti() {
           )}
         >
           <Link
-            href="/projects/tagwise-ai"
+            href="/projects/ai-playground"
             className={cn(
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Previous: TagWise AI
+            ← Previous: AI Playground
           </Link>
           <Link
-            href="/#projects"
-            className="text-sm text-accent hover:text-accent-dark transition-colors"
+            href="/projects/b2b-quote"
+            className={cn(
+              "text-sm text-accent hover:text-accent-dark transition-colors",
+            )}
           >
-            Back to all projects →
+            Next project: B2B Quote Platform →
           </Link>
         </div>
       </FadeIn>

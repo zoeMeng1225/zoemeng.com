@@ -40,7 +40,7 @@ export function Experiences() {
         <SectionHeading id="work">Work Experience</SectionHeading>
       </FadeIn>
 
-      <div className={cn("space-y-12")}>
+      <div className={cn("space-y-12 mt-1")}>
         {experiences.map((exp, index) => (
           <FadeIn key={index} delay={index * 0.1}>
             <div className={cn("flex items-baseline justify-between mb-1")}>
@@ -68,7 +68,7 @@ export function Experiences() {
                   key={j}
                   className={cn(
                     "text-sm text-text-secondary leading-relaxed pl-4",
-                    "border-1-2 border-border hover:border-accent",
+                    "border-l-2 border-border hover:border-accent",
                     "transition-colors",
                   )}
                 >

@@ -12,10 +12,12 @@ export function About() {
         <SectionHeading id="about">About Me</SectionHeading>
       </FadeIn>
 
-      <div className={cn("space-y-4 text-text-secondary leading-relaxed")}>
+      <div
+        className={cn("space-y-12 text-text-secondary leading-relaxed mt-1")}
+      >
         <FadeIn>
           <p>
-            I'm Zoe. I'm a frontend engineer with a background in design — I
+            I'm Zoe. I'm a frontend engineer with a background in design, I
             studied Web Design & New Media at the Academy of Art University in
             San Francisco. That foundation shapes how I approach code: I don't
             just think about whether something works, but whether it{" "}
@@ -24,11 +26,11 @@ export function About() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <p>
-            My focus is on the React ecosystem — TypeScript, Remix, Next.js —
-            with a particular interest in web performance and developer
-            experience. I enjoy the challenge of making complex interfaces feel
-            simple and fast, whether that's optimizing Core Web Vitals or
-            engineering state management systems that scale.
+            My focus is on the React ecosystem: TypeScript, Remix, Next.js, with
+            a particular interest in web performance and developer experience. I
+            enjoy the challenge of making complex interfaces feel simple and
+            fast, whether that's optimizing Core Web Vitals or engineering state
+            management systems that scale.
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>

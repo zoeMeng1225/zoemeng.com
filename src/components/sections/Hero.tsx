@@ -23,7 +23,7 @@ export function Hero() {
             product-focused frontend engineer
           </span>{" "}
           based in the San Francisco Bay Area. I specialize in React,
-          TypeScript, and web performance — building interfaces that are fast,
+          TypeScript, and web performance, building interfaces that are fast,
           accessible, and crafted with care.
         </p>
       </FadeIn>

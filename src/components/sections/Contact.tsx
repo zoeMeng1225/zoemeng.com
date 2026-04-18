@@ -11,7 +11,7 @@ export function Contact() {
         <SectionHeading>Get In Touch</SectionHeading>
       </FadeIn>
 
-      <FadeIn delay={0.1}>
+      <FadeIn delay={0.1} className={cn("mt-1")}>
         <p className={cn("text-text-secondary leading-relaxed mb-6")}>
           {" "}
           I'm actively looking for my next frontend engineering role in the Bay

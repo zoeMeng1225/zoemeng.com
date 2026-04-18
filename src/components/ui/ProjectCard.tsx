@@ -13,6 +13,7 @@ interface ProjectCardProps {
   href: string;
   image?: string;
   metrics?: { label: string; value: string }[];
+  isCompact?: boolean;
 }
 
 export function ProjectCard({
@@ -22,6 +23,7 @@ export function ProjectCard({
   href,
   image,
   metrics,
+  isCompact = false,
 }: ProjectCardProps) {
   return (
     <Link href={href}>
@@ -31,11 +33,11 @@ export function ProjectCard({
         className={cn(
           "group relative rounded-xl border-border bg-bg-secondary",
           "p-6 transition-all duration-300 ",
-          "hover:border-accent/40 hover:shadow-[0_0_0_1px_rgba(124,92,252,0.1),0_4px_20px_rgba(124,92,252,06)]",
+          "hover:border-accent/40 hover:shadow-[0_0_0_1px_rgba(124,92,252,0.1),0_4px_20px_rgba(124,92,252,0.06)]",
         )}
       >
         {/*project image*/}
-        {image && (
+        {!isCompact && image && (
           <div className={cn("mb-4 overflow-hidden rounded-lg bg-bg-tertiary")}>
             <Image
               src={image}
@@ -54,7 +56,7 @@ export function ProjectCard({
         <h3
           className={cn(
             "font-display font-semibold text-text-primary ",
-            "mb-2 group-hover: text-accent transition-colors",
+            "mb-2 group-hover:text-accent transition-colors",
           )}
         >
           {title}
@@ -62,7 +64,7 @@ export function ProjectCard({
             className={cn(
               "inline-block ml-1 opacity-0 -translate-x-1",
               "group-hover:opacity-100 group-hover:translate-x-0",
-              "transtion-all duration-200",
+              "transition-all duration-200",
             )}
           >
             {" "}
@@ -99,7 +101,8 @@ export function ProjectCard({
             <span
               key={tag}
               className={cn(
-                "text-xs px-2.5 py-1 rounded-full bg-accent-light text-accent-dark font-medium",
+                "text-xs px-2.5 py-1 rounded-full font-medium",
+                "bg-accent/10 text-accent border border-transparent",
               )}
             >
               {tag}

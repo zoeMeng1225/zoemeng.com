@@ -20,7 +20,7 @@ const projects = [
       "Polaris UI",
     ],
     href: "/projects/b2b-quote",
-    image: "/images/projects/b2b-quote/b2b-quote-hero.webp", // project screenshot
+    image: "/images/projects/b2b-quote/b2b-quote-hero1.webp", // project screenshot
     metrics: [
       { label: "Faster processing", value: "83%" },
       { label: "Test coverage", value: "90%" },
@@ -48,11 +48,15 @@ const projects = [
   {
     title: "AI Component Playground",
     description:
-      "Generate React components from natural language with real-time preview. Features streaming AI responses, Monaco Editor, and sandboxed code execution.",
-    tags: ["Next.js", "TypeScript", "OpenAI API", "Monaco Editor", "Sandpack"],
+      "Describe a UI in plain English, get a working React + Tailwind component with real-time preview. Features streaming AI generation via Vercel AI SDK and live Sandpack preview.",
+    tags: ["Next.js", "TypeScript", "OpenAI API", "Sandpack", "Streaming"],
     href: "/projects/ai-playground",
-    image: "/images/projects/ai-playground/ai-playground-hero.webp",
-    metrics: [{ label: "Initial load", value: "<2s" }],
+    image: "/images/projects/ai-playground/aiPlayground_hero.webp",
+    metrics: [
+      { label: "First token", value: "<2s" },
+      { label: "Templates", value: "10" },
+      { label: "Live preview", value: "✓" },
+    ],
   },
   {
     title: "High-Performance B2B E-commerce Platform",
@@ -75,7 +79,7 @@ export function Projects() {
         <SectionHeading id="projects">Selected Projects</SectionHeading>
       </FadeIn>
 
-      <div className={cn("space-y-6")}>
+      <div className={cn("space-y-12")}>
         {projects.map((project, index) => (
           <FadeIn key={project.title} delay={index * 0.1}>
             <ProjectCard {...project} />

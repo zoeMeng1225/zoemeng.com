@@ -5,7 +5,8 @@ import { ProjectImage } from "@/components/ui/ProjectImage";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";
-import { MediaGrid } from "@/components/ui/MadiaGrid";
+import { MediaGrid } from "@/components/ui/MediaGrid";
+import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
   title: "TagWise AI — SEO Tagging Platform — Zoe Meng",
@@ -17,18 +18,8 @@ export default function TagWise() {
   return (
     <main className={cn("max-w-3xl mx-auto px-6 pt-32 pb-16")}>
       {/* return to nav*/}
-      <FadeIn>
-        <Link
-          href="/"
-          className={cn(
-            "inline-flex items-center gap-1 text-sm text-text-tertiary",
-          )}
-        >
-          {" "}
-          ← Back to home
-        </Link>
-      </FadeIn>
 
+      <BackToHome />
       {/* ============================================
           HERO
           ============================================ */}
@@ -47,26 +38,26 @@ export default function TagWise() {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
+        <p className={cn("text-lg text-text-secondary leading-relaxed mb-6")}>
           An AI-powered Shopify embedded app that generates, scores, and
           optimizes product tags for SEO. Instead of blindly overwriting
           metadata, TagWise uses a{" "}
           <span className={cn("text-text-primary font-medium")}>
             human-in-the-loop staging workflow
           </span>{" "}
-          — AI-generated tags are reviewed and edited before they ever touch the
+          , AI-generated tags are reviewed and edited before they ever touch the
           database.
         </p>
       </FadeIn>
 
       <FadeIn delay={0.15}>
-        <p className={cn("text-text-secondary leading-relaxed mb-6")}>
+        <p className={cn("text-text-secondary leading-relaxed mb-10")}>
           The platform includes a{" "}
           <span className={cn("text-text-primary font-medium")}>
             proprietary scoring engine
           </span>{" "}
           with industry-specific keyword databases across 13 categories, giving
-          merchants actionable feedback on tag quality — not just a number, but
+          merchants actionable feedback on tag quality, not just a number, but
           specific optimization suggestions.
         </p>
       </FadeIn>
@@ -145,7 +136,7 @@ export default function TagWise() {
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               For Shopify merchants with large catalogs, product tagging is a
               nightmare. Manually tagging thousands of products is a time sink
-              that leads to inconsistency — humans tend to use spammy, generic
+              that leads to inconsistency; humans tend to use spammy, generic
               tags like &quot;hot&quot;, &quot;new&quot;, or
               &quot;best-seller&quot; that actually hurt SEO. There&apos;s no
               strategy behind the tags, no way to know which ones drive traffic,
@@ -247,7 +238,7 @@ export default function TagWise() {
               <p>
                 Select up to 10 products and click &quot;Generate AI Tags.&quot;
                 The OpenAI API analyzes each product&apos;s title and
-                description to generate context-aware tags — understanding
+                description to generate context-aware tags, understanding
                 material, usage, target audience, and SEO relevance. But
                 here&apos;s the key difference from other tools:{" "}
                 <span className={cn("text-text-primary font-medium")}>
@@ -282,7 +273,7 @@ export default function TagWise() {
               <p>
                 This non-destructive staging workflow is the core architectural
                 decision of the entire app. I designed it because the cost of a
-                bad tag update on a live store is high — broken filters,
+                bad tag update on a live store is high, broken filters,
                 incorrect search results, lost customer trust. Zero data
                 accidents is a feature, not a coincidence.
               </p>
@@ -313,7 +304,7 @@ export default function TagWise() {
               </h4>
               <p className={cn("text-sm text-text-secondary leading-relaxed")}>
                 AI tags stored in local frontend state first. Shopify API only
-                called on explicit &quot;Confirm&quot; — zero risk of accidental
+                called on explicit &quot;Confirm&quot; zero risk of accidental
                 overwrites.
               </p>
             </div>
@@ -394,8 +385,8 @@ export default function TagWise() {
                 <span className={cn("text-text-primary font-medium")}>
                   industry-specific keyword databases
                 </span>
-                . I built 13 category-specific dictionaries — fashion,
-                electronics, industrial, beauty, sports, food, and more — each
+                . I built 13 category-specific dictionaries, fashion,
+                electronics, industrial, beauty, sports, food, and more, each
                 containing curated lists of functional, material, and
                 scene-based keywords. The algorithm matches tags against the
                 relevant industry dictionary, so a &quot;waterproof&quot; tag
@@ -406,7 +397,7 @@ export default function TagWise() {
                 Scores and the top suggestion appear inline in the product list.
                 Clicking &quot;View Report&quot; opens a detailed breakdown page
                 with the full score and up to three specific optimization
-                recommendations — for example, &quot;Contains weak words (e.g.,
+                recommendations, for example, &quot;Contains weak words (e.g.,
                 &apos;hot&apos;). Try using more specific terms&quot; or
                 &quot;Try including keywords from the product title.&quot;
               </p>
@@ -579,7 +570,7 @@ export default function TagWise() {
                     "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
                   )}
                 >
-                  <pre>{`// State flow: Original → AI Draft (staging) → Final (committed)
+                  <pre className="language-typescript">{`// State flow: Original → AI Draft (staging) → Final (committed)
 // Shopify productUpdate mutation ONLY fires on explicit confirm
 const mutation = \`
   mutation productUpdate($input: ProductInput!) {
@@ -747,7 +738,7 @@ while (hasNextPage) {
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               Building TagWise taught me that AI features need more UX
               guardrails, not fewer. The temptation was to make the flow as
-              frictionless as possible — &quot;click button, get tags,
+              frictionless as possible, &quot;click button, get tags,
               done.&quot; But talking to merchants revealed that trust is the
               bottleneck: they don&apos;t want AI silently changing their live
               store data. The staging workflow adds one extra step, but
@@ -756,7 +747,7 @@ while (hasNextPage) {
             </p>
             <p className={cn("text-text-secondary leading-relaxed")}>
               The scoring engine was also a lesson in domain specificity. A
-              generic &quot;tag quality&quot; algorithm is nearly useless — what
+              generic &quot;tag quality&quot; algorithm is nearly useless, what
               makes a good tag for a snowboard is completely different from what
               makes a good tag for a lab instrument. Building 13 keyword
               databases was tedious, but it&apos;s what makes the scoring
@@ -774,15 +765,15 @@ while (hasNextPage) {
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Previous: B2B Quote
+            ← Previous: B2B Quote Platform
           </Link>
           <Link
-            href="/#projects"
+            href="/projects/ai-playground"
             className={cn(
               "text-sm text-accent hover:text-accent-dark transition-colors",
             )}
           >
-            Back to all projects →
+            Next project: AI Playground →
           </Link>
         </div>
       </FadeIn>

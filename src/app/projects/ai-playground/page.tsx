@@ -1,11 +1,11 @@
-// src/app/projects/mti/page.tsx
+// src/app/projects/ai-playground/page.tsx
 import { Metadata } from "next";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ProjectVideo } from "@/components/ui/ProjectVideo";
-import { ProjectImage } from "@/components/ui/ProjectImage";
-import { MediaGrid } from "@/components/ui/MadiaGrid";
+import { MediaGrid } from "@/components/ui/MediaGrid";
 import { cn } from "@/lib/utils";
+import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
   title: "AI Component Playground — Zoe Meng",
@@ -16,17 +16,7 @@ export const metadata: Metadata = {
 export default function AIPlaygroundPage() {
   return (
     <main className={cn("max-w-3xl mx-auto px-6 pt-32 pb-16")}>
-      <FadeIn>
-        <Link
-          href="/#projects"
-          className={cn(
-            "inline-flex items-center gap-1 text-sm text-text-tertiary hover:text-text-primary transition-colors mb-12",
-          )}
-        >
-          ← Back to home
-        </Link>
-      </FadeIn>
-
+      <BackToHome />
       {/* ============================================
           HERO
           ============================================ */}
@@ -48,7 +38,7 @@ export default function AIPlaygroundPage() {
           <span className={cn("text-text-primary font-medium")}>
             working React + Tailwind component
           </span>{" "}
-          with live preview — generated in real time via streaming AI. The code
+          with live preview, generated in real time via streaming AI. The code
           is fully editable: change a color, swap a layout, add an interaction,
           and watch the preview update instantly.
         </p>
@@ -112,10 +102,9 @@ export default function AIPlaygroundPage() {
 
       {/* ---- Hero media ---- */}
       <FadeIn delay={0.3}>
-        {/* 方案 A: 有视频用视频 */}
         <ProjectVideo
-          src="/images/projects/ai-playground/demo.mp4"
-          poster="/images/projects/ai-playground/hero.webp"
+          src="/images/projects/ai-playground/aiPlayground_done.mp4"
+          poster="/images/projects/ai-playground/aiPlayground_hero.webp"
           caption="Full workflow: describe a component → AI streams the code → live preview renders in real time"
         />
       </FadeIn>
@@ -132,7 +121,7 @@ export default function AIPlaygroundPage() {
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               AI code generation tools like v0 and Bolt have shown that natural
               language → UI is a real workflow. But most of them are closed
-              platforms — you can&apos;t see the code until you export, you
+              platforms, you can&apos;t see the code until you export, you
               can&apos;t edit it in real time, and you can&apos;t understand how
               the generation actually works.
             </p>
@@ -177,13 +166,13 @@ export default function AIPlaygroundPage() {
                 <span className={cn("text-text-primary font-medium")}>
                   streams token by token
                 </span>{" "}
-                into the code editor — you can watch the component being written
+                into the code editor, you can watch the component being written
                 in real time. As soon as enough valid JSX accumulates, the
                 Sandpack preview compiles and renders it live.
               </p>
               <p>
                 Once generation completes, the code is fully yours. Edit
-                anything — change a color from{" "}
+                anything, change a color from{" "}
                 <code
                   className={cn(
                     "text-xs font-mono bg-bg-secondary px-1.5 py-0.5 rounded",
@@ -199,9 +188,8 @@ export default function AIPlaygroundPage() {
                 >
                   bg-blue-600
                 </code>
-                , add a hover animation, restructure the layout — and the
-                preview updates instantly. No save button, no refresh, no
-                waiting.
+                , add a hover animation, restructure the layout, and the preview
+                updates instantly. No save button, no refresh, no waiting.
               </p>
               <p>
                 For users who don&apos;t know what to type, five{" "}
@@ -404,7 +392,7 @@ export default function AIPlaygroundPage() {
                 <span className={cn("text-text-primary font-medium")}>
                   Sandpack
                 </span>{" "}
-                (by CodeSandbox) — a browser-based bundler that compiles React +
+                (by CodeSandbox), a browser-based bundler that compiles React +
                 TypeScript in a sandboxed iframe. I chose Sandpack over a custom
                 iframe solution because it provides a complete React compilation
                 pipeline (Babel, module resolution, HMR), a built-in code editor
@@ -423,7 +411,7 @@ export default function AIPlaygroundPage() {
                 ) as an external resource in the Sandpack config, so
                 AI-generated components can use any Tailwind utility class
                 without build configuration. The generated components are
-                self-contained — no external imports beyond React, making them
+                self-contained, no external imports beyond React, making them
                 portable and easy to copy into any project.
               </p>
             </div>
@@ -584,27 +572,51 @@ Rules:
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl bg-bg-secondary border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold">
+              <div
+                className={cn(
+                  "p-6 rounded-xl bg-bg-secondary border border-border",
+                )}
+              >
+                <div className={cn("flex items-center gap-3 mb-3")}>
+                  <span
+                    className={cn(
+                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
+                    )}
+                  >
                     3
                   </span>
-                  <h4 className="font-display font-semibold text-text-primary">
+                  <h4
+                    className={cn(
+                      "font-display font-semibold text-text-primary",
+                    )}
+                  >
                     Sandpack configuration for AI output
                   </h4>
                 </div>
-                <p className="text-sm text-text-secondary leading-relaxed mb-3">
+                <p
+                  className={cn(
+                    "text-sm text-text-secondary leading-relaxed mb-3",
+                  )}
+                >
                   Sandpack runs a full React + TypeScript compilation pipeline
                   in the browser. The configuration loads Tailwind via CDN, maps
                   the AI output to{" "}
-                  <code className="text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded">
+                  <code
+                    className={cn(
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
+                    )}
+                  >
                     /App.tsx
                   </code>
                   , and enables inline error display so compilation failures
                   during streaming show a helpful message instead of a blank
                   screen.
                 </p>
-                <div className="rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto">
+                <div
+                  className={cn(
+                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
+                  )}
+                >
                   <pre>{`<SandpackProvider
   template="react-ts"
   files={{ "/App.tsx": code }}
@@ -641,18 +653,28 @@ Rules:
                     Error resilience during streaming
                   </h4>
                 </div>
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p
+                  className={cn("text-sm text-text-secondary leading-relaxed")}
+                >
                   During the streaming phase, the code is inherently incomplete
-                  — unclosed tags, missing brackets, partial classNames. Rather
+                  :unclosed tags, missing brackets, partial classNames. Rather
                   than suppressing errors or debouncing compilation, I rely on
                   Sandpack&apos;s built-in error boundary: it displays a clean
                   error panel while the code is invalid and automatically
                   re-compiles when valid JSX accumulates. The{" "}
-                  <code className="text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded">
+                  <code
+                    className={cn(
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
+                    )}
+                  >
                     onError
                   </code>{" "}
                   callback on{" "}
-                  <code className="text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded">
+                  <code
+                    className={cn(
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
+                    )}
+                  >
                     useCompletion
                   </code>{" "}
                   catches API-level failures (rate limits, network errors) and
@@ -675,14 +697,14 @@ Rules:
                 "font-display font-semibold text-text-primary mb-2",
               )}
             >
-              Try it yourself
+              Open live demo
             </h4>
             <p className={cn("text-sm text-text-secondary mb-4")}>
-              The playground is live — describe any component and watch it
+              The playground is live: describe any component and watch it
               generate in real time.
             </p>
             <a
-              href="https://ai-playground.zoemeng.com"
+              href="https://playground.zoemeng.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-md
@@ -715,20 +737,20 @@ Rules:
           )}
         >
           <Link
-            href="/projects/mti"
+            href="/projects/tagwise-ai"
             className={cn(
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Previous: MTI Platform
+            ← Previous: TagWise AI
           </Link>
           <Link
-            href="/#projects"
+            href="/projects/mti"
             className={cn(
               "text-sm text-accent hover:text-accent-dark transition-colors",
             )}
           >
-            Back to all projects →
+            Next project: B2B E-commerce Platform →
           </Link>
         </div>
       </FadeIn>

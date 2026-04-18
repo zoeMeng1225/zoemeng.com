@@ -5,8 +5,9 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";
 import { ProjectVideo } from "@/components/ui/ProjectVideo";
 import { ProjectImage } from "@/components/ui/ProjectImage";
-import { MediaGrid } from "@/components/ui/MadiaGrid";
+import { MediaGrid } from "@/components/ui/MediaGrid";
 import { B2BArchitectureDiagram } from "@/components/ui/B2BArchitechtureDiagram";
+import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
   title: "B2B Quote Automation Ecosystem — Zoe Meng",
@@ -18,17 +19,7 @@ export default function B2BQuotePage() {
   return (
     <main className={cn("max-w-3xl mx-auto px-6 pt-32 pb-16")}>
       {/* return to nav*/}
-      <FadeIn>
-        <Link
-          href="/"
-          className={cn(
-            "inline-flex items-center gap-1 text-sm text-text-tertiary",
-          )}
-        >
-          {" "}
-          ← Back to home
-        </Link>
-      </FadeIn>
+      <BackToHome />
 
       {/* ============================================
           HERO
@@ -226,7 +217,7 @@ export default function B2BQuotePage() {
                 <span className={cn("text-text-primary font-medium")}>
                   choose which staff members to CC
                 </span>{" "}
-                when submitting their quote — the same email chip system used on
+                when submitting their quote, the same email chip system used on
                 the admin side. A Review Page lets users verify everything
                 before final submission.
               </p>
@@ -240,7 +231,7 @@ export default function B2BQuotePage() {
                 page, (2) an admin-wide alert, and (3) a confirmation email to
                 the customer with a summary of their request. If the customer is
                 new, the system auto-creates their Shopify account and sends an
-                activation email — with optional tax exemption file upload that
+                activation email, with optional tax exemption file upload that
                 routes to the finance team.
               </p>
             </div>
@@ -304,7 +295,7 @@ export default function B2BQuotePage() {
               </h4>
               <p className={cn("text-sm text-text-secondary leading-relaxed")}>
                 Event-driven AWS SES emails to staff, admin, and customer on
-                every submission — with deep links to admin.
+                every submission, with deep links to admin.
               </p>
             </div>
             <div
@@ -367,7 +358,7 @@ export default function B2BQuotePage() {
                 <span className={cn("text-text-primary font-medium")}>
                   product search across 20,000+ items
                 </span>
-                — staff can search by product name and filter by Category,
+                , staff can search by product name and filter by Category,
                 Collection, Type, or Vendor using Shopify&apos;s ResourcePicker
                 API. For items not in the catalog (like shipping fees or custom
                 fabrication charges), the{" "}
@@ -436,8 +427,8 @@ export default function B2BQuotePage() {
             </p>
 
             <p className="text-text-secondary leading-relaxed mb-4">
-              This is the core workspace — a 2,300-line React component where
-              80% of daily work happens. The design principle was simple:{" "}
+              This is the core workspace, a 2,300-line React component where 80%
+              of daily work happens. The design principle was simple:{" "}
               <span className="text-text-primary font-medium">
                 never leave the page
               </span>
@@ -446,7 +437,7 @@ export default function B2BQuotePage() {
               one workspace.
             </p>
             <p className="text-text-secondary leading-relaxed">
-              Every B2B customer has unique requirements — different pricing for
+              Every B2B customer has unique requirements, different pricing for
               the same product, tax-exempt status on certain items, custom
               shipping terms. Staff can{" "}
               <span className="text-text-primary font-medium">
@@ -507,7 +498,7 @@ export default function B2BQuotePage() {
                 </span>
                 . From, To, and CC fields auto-populate from the quote data. The
                 subject line auto-generates with the Quote ID. The email body
-                loads a pre-written template customizable through SunEditor — a
+                loads a pre-written template customizable through SunEditor, a
                 rich text editor with formatting, links, and file uploads. The
                 auto-generated PDF attaches with one click.
               </p>
@@ -520,7 +511,7 @@ export default function B2BQuotePage() {
                 staff during storefront submission, those selections carry over.
                 Managers can reassign by clicking different chips. Selected
                 assignees appear in the &quot;Selected Emails&quot; area and are
-                automatically CC&apos;d on outgoing communication — eliminating
+                automatically CC&apos;d on outgoing communication, eliminating
                 overlapping work where multiple reps unknowingly respond to the
                 same customer.
               </p>
@@ -555,12 +546,20 @@ export default function B2BQuotePage() {
                 10 min → 30 sec transformation
               </h4>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-text-secondary">
-              <div>
-                <p className="font-medium text-text-tertiary mb-2 uppercase tracking-wider text-xs">
+            <div
+              className={cn(
+                "grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-text-secondary",
+              )}
+            >
+              <div className={cn("border-l-2 border-border-hover pl-4 py-1")}>
+                <p
+                  className={cn(
+                    "font-medium text-text-tertiary mb-2 uppercase tracking-wider text-xs",
+                  )}
+                >
                   Before (manual)
                 </p>
-                <ol className="space-y-1.5 list-decimal list-inside">
+                <ol className={cn("space-y-1.5 list-decimal list-inside")}>
                   <li>Open Shopify to find product details</li>
                   <li>Copy pricing into a spreadsheet</li>
                   <li>Manually calculate tax and totals</li>
@@ -570,8 +569,8 @@ export default function B2BQuotePage() {
                   <li>Send — ~10 minutes per quote</li>
                 </ol>
               </div>
-              <div>
-                <p className="font-medium text-text-tertiary mb-2 uppercase tracking-wider text-xs">
+              <div className="border-l-2 border-accent pl-4 py-1 bg-accent/5 rounded-r-md">
+                <p className="font-medium text-accent mb-2 uppercase tracking-wider text-xs">
                   After (automated)
                 </p>
                 <ol className="space-y-1.5 list-decimal list-inside">
@@ -650,7 +649,7 @@ export default function B2BQuotePage() {
                 </code>{" "}
                 GraphQL mutation that creates a Shopify Draft Order with all
                 line items, customer info, shipping/billing addresses, and
-                custom shipping. The draft order is an unpaid order — when the
+                custom shipping. The draft order is an unpaid order, when the
                 customer pays, it automatically converts to a finalized order.
                 This eliminates manual data re-entry and closes the quote →
                 payment loop entirely within Shopify.
@@ -671,7 +670,7 @@ export default function B2BQuotePage() {
               <p className={cn("text-sm text-text-secondary leading-relaxed")}>
                 Client-side PDF generation using jsPDF + html2canvas. Captures
                 the exact layout of the quote — product details, pricing with
-                tax breakdown, customer information — as a downloadable PDF. The
+                tax breakdown, customer information, as a downloadable PDF. The
                 &quot;Hide Price&quot; toggle on individual items is respected
                 in the PDF output for cases where pricing is confidential.
               </p>
@@ -692,7 +691,7 @@ export default function B2BQuotePage() {
                 <p
                   className={cn("text-sm text-text-secondary leading-relaxed")}
                 >
-                  Deep copy with a new auto-generated Quote ID — useful for
+                  Deep copy with a new auto-generated Quote ID, useful for
                   repeat orders or creating variations of an existing quote for
                   the same customer.
                 </p>
@@ -788,7 +787,7 @@ const quoteCartSlice = createSlice({
                 >
                   The Quote Detail loader fetches quote data, then dynamically
                   builds a batch GraphQL query to resolve all product variants
-                  in a single request — instead of N sequential calls for N
+                  in a single request, instead of N sequential calls for N
                   products. Combined with Remix&apos;s loader pattern, data is
                   server-rendered before the page reaches the client.
                 </p>
@@ -837,7 +836,7 @@ const { data } = await admin.graphql(\`{ \${productQueries.join("\\n")} }\`);`}<
                   shipping address using California&apos;s official tax rate
                   API. The rate updates live as the address changes, and
                   per-item tax toggles let reps mark individual products as
-                  tax-exempt — the total recalculates with each toggle.
+                  tax-exempt, the total recalculates with each toggle.
                 </p>
               </div>
 
@@ -869,9 +868,9 @@ const { data } = await admin.graphql(\`{ \${productQueries.join("\\n")} }\`);`}<
                 >
                   The Quick Search in Quote Detail supports exact match by Quote
                   ID, exact match by Shopify Customer ID (with GID format
-                  normalization), and fuzzy search across name, email, and phone
-                  — with phone number normalization that strips dashes, spaces,
-                  parentheses, and plus signs.
+                  normalization), and fuzzy search across name, email, and
+                  phone, with phone number normalization that strips dashes,
+                  spaces, parentheses, and plus signs.
                 </p>
                 <div
                   className={cn(
@@ -932,8 +931,8 @@ const phoneExpr = sql\`
             </h2>
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               This project taught me that the hardest engineering problems often
-              aren&apos;t technical — they&apos;re about understanding how
-              people actually work. The sales team&apos;s domain knowledge was
+              aren&apos;t technical, they&apos;re about understanding how people
+              actually work. The sales team&apos;s domain knowledge was
               essential for designing workflows that fit their reality. Features
               I assumed were important turned out to be unnecessary, while the
               Quick-Jump Navigation I almost deprioritized became the most-used
@@ -941,7 +940,7 @@ const phoneExpr = sql\`
             </p>
             <p className={cn("text-text-secondary leading-relaxed")}>
               The 83% processing time reduction didn&apos;t come from frontend
-              performance tricks — it came from eliminating manual steps:
+              performance tricks, it came from eliminating manual steps:
               auto-populating email fields, pre-calculating tax, batch-querying
               product data, and making the quote → draft order conversion a
               single click instead of a multi-step manual process. Performance
@@ -960,12 +959,12 @@ const phoneExpr = sql\`
           )}
         >
           <Link
-            href="/"
+            href="/projects/mti"
             className={cn(
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Back to home
+            ← Previous: B2B E-commerce Platform
           </Link>
           <Link
             href="/projects/tagwise-ai"
