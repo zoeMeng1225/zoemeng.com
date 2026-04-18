@@ -5,7 +5,7 @@ import Image from "next/image";
 interface LightboxImageProps {
   src: string;
   alt: string;
-  width: number;
+  width?: number;
   height?: number;
   className?: string;
   gif?: boolean;
