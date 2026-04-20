@@ -12,9 +12,7 @@ export function About() {
         <SectionHeading id="about">About Me</SectionHeading>
       </FadeIn>
 
-      <div
-        className={cn("space-y-12 text-text-secondary leading-relaxed mt-1")}
-      >
+      <div className={cn("space-y-4 text-text-secondary leading-relaxed mt-1")}>
         <FadeIn>
           <p>
             I'm Zoe. I'm a frontend engineer with a background in design, I
