@@ -33,6 +33,7 @@ export function Header() {
         className={cn(
           "max-w-3xl mx-auto px-6 h-16 flex items-center justify-between",
         )}
+        aria-label="Main navigation"
       >
         <Link
           href="/"
