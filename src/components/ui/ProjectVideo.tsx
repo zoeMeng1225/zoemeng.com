@@ -45,7 +45,6 @@ export function ProjectVideo({ src, poster, caption }: ProjectVideoProps) {
           className={cn("w-full")}
         />
 
-        {/* play button: overlay —when no playing  */}
         {!isPlaying && (
           <div
             className={cn(

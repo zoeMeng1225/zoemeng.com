@@ -422,7 +422,6 @@ export default function TagWise() {
           />
         </FadeIn>
 
-        {/* ---- Scoring breakdown card ---- */}
         <FadeIn>
           <div
             className={cn(

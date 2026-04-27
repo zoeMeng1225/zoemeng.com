@@ -127,7 +127,6 @@ export default function B2BQuotePage() {
           CONTENT
           ============================================ */}
 
-      {/* The main content - prose style, not bullet points*/}
       <article className={cn("space-y-16 mt-16")}>
         {/* ---- System Architecture ---- */}
         <FadeIn>
@@ -238,7 +237,6 @@ export default function B2BQuotePage() {
           </section>
         </FadeIn>
 
-        {/* ---- Storefront screenshots ---- */}
         <FadeIn>
           <MediaGrid
             items={[
@@ -459,7 +457,6 @@ export default function B2BQuotePage() {
           />
         </FadeIn>
 
-        {/* ---- KEY: Product editing video ---- */}
         <FadeIn>
           <ProjectVideo
             src="/images/projects/b2b-quote/productEdit_done.mp4"
@@ -535,7 +532,6 @@ export default function B2BQuotePage() {
           />
         </FadeIn>
 
-        {/* ---- Before / After comparison ---- */}
         <FadeIn>
           <div className="p-6 rounded-xl bg-bg-secondary border border-border">
             <div className="flex items-center gap-3 mb-4">

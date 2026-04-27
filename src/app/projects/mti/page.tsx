@@ -103,7 +103,6 @@ export default function Mti() {
         </div>
       </FadeIn>
 
-      {/* ---- Hero screenshot ---- */}
       <FadeIn delay={0.3}>
         <ProjectImage
           src="/images/projects/mti/homepage-editor.webp"
@@ -117,7 +116,6 @@ export default function Mti() {
           CONTENT
           ============================================ */}
       <article className="space-y-16 mt-16">
-        {/* ---- Story 1: Modular Theme Architecture ---- */}
         <FadeIn>
           <section>
             <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2">
@@ -226,7 +224,9 @@ export default function Mti() {
           </div>
         </FadeIn>
 
-        {/* ---- Story 2: Catalog Engine ---- */}
+        {/* ============================================
+            Story 2: Catalog Engine 
+            ============================================ */}
         <FadeIn>
           <section>
             <p
@@ -287,7 +287,9 @@ export default function Mti() {
           />
         </FadeIn>
 
-        {/* ---- Story 3: RBAC ---- */}
+        {/* ============================================
+            Story 3: RBAC
+            ============================================ */}
         <FadeIn>
           <section>
             <p

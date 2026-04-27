@@ -55,7 +55,7 @@ export function LightboxImage({
           )}
           onClick={close}
         >
-          {/* Close button */}
+          {/* close button */}
           <button
             onClick={close}
             className={cn(

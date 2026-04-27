@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+zoemeng.com
+Personal portfolio site for Zoe Meng — a frontend engineer specializing in React, TypeScript, and AI-integrated web applications.
+
+**Live Site**: [zoemeng.com](https://zoemeng.com)
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-animations-FF0055?logo=framer&logoColor=white)
+
+## About
+
+A custom-built portfolio showcasing my frontend engineering work, including Shopify embedded apps, AI-powered tools, and e-commerce platforms. Designed with a warm cream and purple aesthetic, featuring smooth animations and responsive layouts across all devices.
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion (scroll-triggered fade-ins, page transitions)
+- **Deployment**: Vercel
+
+## Features
+
+- Responsive design optimized for desktop, tablet, and mobile
+- Custom lightbox component for project screenshots
+- Flexible media grid with mixed image/video support
+- Scroll-triggered fade-in animations
+- Scroll-to-top navigation
+- Four detailed project case study pages
+
+## Featured Projects
+
+| Project                     | Description                                                                                        |
+| --------------------------- | -------------------------------------------------------------------------------------------------- |
+| **B2B Quote Automation**    | Shopify embedded app for wholesale quoting: React, Remix, Redux Toolkit, GraphQL, Drizzle ORM      |
+| **TagWise AI**              | AI-powered product tagging platform with human-in-the-loop workflow and proprietary scoring engine |
+| **MTI E-commerce**          | Full-stack e-commerce rebuild with performance optimization                                        |
+| **AI Component Playground** | Interactive AI coding tool built with Vercel AI SDK and Sandpack                                   |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/zoeMeng1225/zoemeng.com.git
+
+# Navigate to the project
+cd zoemeng.com
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file in the root directory. See `.env.example` for required variables.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Next.js App Router pages
+│   ├── page.tsx      # Home page
+│   └── projects/     # Individual project pages
+├── components/       # Reusable UI components
+│   ├── MediaGrid.tsx
+│   ├── FadeIn.tsx
+│   ├── ScrollToTop.tsx
+│   ├── BackToHome.tsx
+│   ├── LightboxImage.tsx
+│   ├── ProjectCard.tsx
+│   ├── ProjectImage.tsx
+│   ├── ProjectVideo.tsx
+│   ├── SectionHeading.tsx
+│   ├── B2BArchitechtureDiagram.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+├── lib/              # Utilities and helpers
+└── globals.css       # Global styles
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is open source under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Portfolio**: [zoemeng.com](https://zoemeng.com)
+- **GitHub**: [@zoeMeng1225](https://github.com/zoeMeng1225)
+- **LinkedIn**: [Zoe Meng](https://www.linkedin.com/in/zoe-meng)

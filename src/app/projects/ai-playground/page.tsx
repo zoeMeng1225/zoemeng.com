@@ -205,7 +205,6 @@ export default function AIPlaygroundPage() {
           </section>
         </FadeIn>
 
-        {/* ---- Generated component previews ---- */}
         <FadeIn>
           <MediaGrid
             items={[
@@ -292,7 +291,6 @@ export default function AIPlaygroundPage() {
           </section>
         </FadeIn>
 
-        {/* ---- Streaming state diagram ---- */}
         <FadeIn>
           <div
             className={cn(
@@ -685,7 +683,6 @@ Rules:
           </section>
         </FadeIn>
 
-        {/* ---- Live demo CTA ---- */}
         <FadeIn>
           <div
             className={cn(

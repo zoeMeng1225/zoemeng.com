@@ -20,7 +20,7 @@ const projects = [
       "Polaris UI",
     ],
     href: "/projects/b2b-quote",
-    image: "/images/projects/b2b-quote/b2b-quote-hero1.webp", // project screenshot
+    image: "/images/projects/b2b-quote/b2b-quote-hero1.webp",
     metrics: [
       { label: "Faster processing", value: "83%" },
       { label: "Test coverage", value: "90%" },
