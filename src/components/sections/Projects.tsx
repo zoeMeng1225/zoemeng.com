@@ -41,8 +41,8 @@ const projects = [
     href: "/projects/tagwise-ai",
     image: "/images/projects/tagwise/tagwise.webp",
     metrics: [
-      { label: "Latency reduction", value: "40%" },
-      { label: "60fps catalog", value: "100+" },
+      { label: "Industry categories", value: "13" },
+      { label: "Scoring dimensions", value: "6" },
     ],
   },
   {
