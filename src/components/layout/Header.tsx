@@ -57,7 +57,7 @@ export function Header() {
             </a>
           ))}
           <a
-            href="https://drive.google.com/file/d/1_vCe5XFfLtr6t5-I989fXLeCFlvzVPS_/view?usp=sharing"
+            href="/FrontendEngineer_ZoeMeng_Resume.pdf"
             target="_blank"
             className={cn(
               "text-sm font-medium text-text-primary px-4 py-1.5 rounded-md border border-border",
