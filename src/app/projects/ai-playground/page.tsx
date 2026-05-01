@@ -742,12 +742,12 @@ Rules:
             ← Previous: TagWise AI
           </Link>
           <Link
-            href="/projects/mti"
+            href="/projects/ai-code-reviewer"
             className={cn(
               "text-sm text-accent hover:text-accent-dark transition-colors",
             )}
           >
-            Next project: B2B E-commerce Platform →
+            Next project: AI Code Reviewer →
           </Link>
         </div>
       </FadeIn>

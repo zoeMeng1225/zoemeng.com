@@ -575,12 +575,12 @@ export default function Mti() {
           )}
         >
           <Link
-            href="/projects/ai-playground"
+            href="/projects/ai-code-reviewer"
             className={cn(
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Previous: AI Playground
+            ← Previous: AI Code Reviewer
           </Link>
           <Link
             href="/projects/b2b-quote"

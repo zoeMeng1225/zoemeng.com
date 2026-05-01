@@ -59,6 +59,25 @@ const projects = [
     ],
   },
   {
+    title: "AI Code Reviewer",
+    description:
+      "Paste code and get instant, structured AI feedback with real-time streaming. Supports three review modes (Quick, Deep, Security), severity-tagged issues, and a 0-100 code quality score.",
+    tags: [
+      "Next.js 14",
+      "TypeScript",
+      "OpenAI API",
+      "Streaming",
+      "Monaco Editor",
+    ],
+    href: "/projects/ai-code-reviewer",
+    image: "/images/projects/ai-code-reviewer/code-reviewer-hero.webp",
+    metrics: [
+      { label: "Review modes", value: "3" },
+      { label: "Languages", value: "8" },
+      { label: "Open source", value: "✓" },
+    ],
+  },
+  {
     title: "High-Performance B2B E-commerce Platform",
     description:
       "Architected a modular Shopify theme with advanced fuzzy search and role-based access control (RBAC) for a 10,000+ SKU catalog, reducing frontend maintenance by 60%.",

@@ -37,6 +37,7 @@ A custom-built portfolio showcasing my frontend engineering work, including Shop
 | **TagWise AI**              | AI-powered product tagging platform with human-in-the-loop workflow and proprietary scoring engine |
 | **MTI E-commerce**          | Full-stack e-commerce rebuild with performance optimization                                        |
 | **AI Component Playground** | Interactive AI coding tool built with Vercel AI SDK and Sandpack                                   |
+| **AI Code Reviewer**        | Open-source AI code review tool with real-time streaming, powered by GPT-4o-mini                   |
 
 ## Getting Started
 
