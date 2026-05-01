@@ -5,13 +5,12 @@ import { ProjectImage } from "@/components/ui/ProjectImage";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";
-import { MediaGrid } from "@/components/ui/MediaGrid";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
   title: "AI Code Reviewer — Instant AI-Powered Code Reviews — Zoe Meng",
   description:
-    "An open-source AI code review tool with real-time streaming, structured feedback, and multiple review modes. Built with Next.js 14, TypeScript, and GPT-4o.",
+    "An open-source AI code review tool with real-time streaming, structured feedback, and multiple review modes. Built with Next.js 14, TypeScript, and GPT-4o-mini.",
 };
 
 export default function AICodeReviewer() {
@@ -39,12 +38,12 @@ export default function AICodeReviewer() {
       <FadeIn delay={0.1}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-6")}>
           An open-source code review tool that provides instant, structured
-          feedback powered by GPT-4o. Paste your code, select a review mode, and
-          watch the AI analysis{" "}
+          feedback powered by GPT-4o-mini. Paste your code, select a review
+          mode, and watch the AI analysis{" "}
           <span className={cn("text-text-primary font-medium")}>
             stream in real-time
           </span>{" "}
-          — token by token — into categorized, actionable review panels.
+          , token by token, into categorized, actionable review panels.
         </p>
       </FadeIn>
 
@@ -55,7 +54,7 @@ export default function AICodeReviewer() {
             streaming UI pipeline
           </span>{" "}
           that consumes the OpenAI response as a ReadableStream, parses markdown
-          chunks on the fly, and renders them into structured sections — all
+          chunks on the fly, and renders them into structured sections: all
           while handling connection drops, abort signals, and rate limiting
           gracefully.
         </p>
@@ -91,7 +90,7 @@ export default function AICodeReviewer() {
           {[
             "Next.js 14",
             "TypeScript",
-            "OpenAI GPT-4o",
+            "OpenAI GPT-4o-mini",
             "Streaming API",
             "Monaco Editor",
             "Zustand",
@@ -133,7 +132,7 @@ export default function AICodeReviewer() {
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               Code reviews are one of the biggest bottlenecks in development
               workflows. Senior engineers spend hours reviewing pull requests,
-              often catching the same patterns repeatedly — missing error
+              often catching the same patterns repeatedly: missing error
               handling, performance anti-patterns, security vulnerabilities.
               Junior developers wait hours or days for feedback, slowing down
               their learning cycle.
@@ -172,9 +171,9 @@ export default function AICodeReviewer() {
               className={cn("space-y-4 text-text-secondary leading-relaxed")}
             >
               <p>
-                The review result streams in real-time as GPT-4o generates it.
-                Instead of waiting 5-10 seconds for a complete response, users
-                see the analysis appear{" "}
+                The review result streams in real-time as GPT-4o-mini generates
+                it. Instead of waiting 5-10 seconds for a complete response,
+                users see the analysis appear{" "}
                 <span className={cn("text-text-primary font-medium")}>
                   token by token
                 </span>{" "}
@@ -256,7 +255,7 @@ export default function AICodeReviewer() {
                   Quick
                 </span>{" "}
                 mode limits output to the top 3-5 issues with concise
-                explanations — ideal for a fast sanity check.{" "}
+                explanations, ideal for a fast sanity check.{" "}
                 <span className={cn("text-text-primary font-medium")}>
                   Deep
                 </span>{" "}
@@ -376,11 +375,11 @@ export default function AICodeReviewer() {
                 (general improvements).
               </p>
               <p>
-                Each issue is tagged with a severity level — 🔴 Critical for
-                bugs and security flaws, 🟡 Warning for performance issues and
-                bad practices, 🟢 Info for style and readability improvements —
-                along with the specific line number and category (Performance,
-                Bug Risk, Readability, Best Practice, Security). A custom
+                Each issue is tagged with a severity level: 🔴 Critical for bugs
+                and security flaws, 🟡 Warning for performance issues and bad
+                practices, 🟢 Info for style and readability improvements, along
+                with the specific line number and category (Performance, Bug
+                Risk, Readability, Best Practice, Security). A custom
                 lightweight markdown renderer parses the streaming output into
                 styled React components without any external dependency.
               </p>
@@ -524,7 +523,7 @@ while (true) {
                   the specific review output format. It parses headings, bullet
                   points, numbered lists, code blocks, bold text, and the score
                   line into styled React components. The score line gets special
-                  treatment — it extracts the numeric value via regex and
+                  treatment, and it extracts the numeric value via regex and
                   renders a color-coded progress bar (green ≥ 80, amber ≥ 60,
                   red below).
                 </p>
@@ -725,16 +724,16 @@ function checkRateLimit(ip: string): boolean {
             </h2>
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               Building AI Code Reviewer taught me that the real complexity of AI
-              integration isn&apos;t the API call — it&apos;s the streaming UX.
-              Getting a response from GPT-4o is straightforward; making that
-              response feel responsive, structured, and trustworthy as it
+              integration isn&apos;t the API call, it&apos;s the streaming UX.
+              Getting a response from GPT-4o-mini is straightforward; making
+              that response feel responsive, structured, and trustworthy as it
               streams in required careful state management, error recovery, and
               UI decisions like the pulsing cursor and progressive rendering.
             </p>
             <p className={cn("text-text-secondary leading-relaxed")}>
               Prompt engineering was also more nuanced than expected. Getting
               consistent, well-structured markdown output required iterating on
-              the system prompt extensively — specifying the exact heading
+              the system prompt extensively, specifying the exact heading
               hierarchy, severity format, and score format so the custom
               renderer could parse it reliably. The lesson: when you own both
               the prompt and the renderer, you can build a much tighter feedback
