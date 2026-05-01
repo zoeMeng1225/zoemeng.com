@@ -13,8 +13,8 @@ export default function Home() {
       <Header />
       <main className={cn("max-w-3xl mx-auto px-6 pb-16")}>
         <Hero />
-        <Experiences />
         <Projects />
+        <Experiences />
         <About />
         <Contact />
       </main>
