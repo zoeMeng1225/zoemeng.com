@@ -24,16 +24,15 @@ export function Hero() {
           </span>{" "}
           based in the San Francisco Bay Area. I specialize in React,
           TypeScript, and web performance, building interfaces that are fast,
-          accessible, and crafted with care.
+          accessible, and optimized for real business impact.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
-          Previously, I engineered internal automation tools that{" "}
-          <span className={cn("text-accent font-medium")}>
-            reduced manual workflows by 83%
-          </span>{" "}
-          and built AI-powered SaaS products to optimize SEO efficiency.
+          I've built a B2B platform that reduced quote processing time by 83%
+          and AI-powered tools for e-commerce — from SEO tagging systems to
+          real-time component generators. Currently open to frontend engineering
+          roles at product-driven companies.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
