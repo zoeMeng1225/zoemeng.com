@@ -30,7 +30,7 @@ export function Hero() {
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
           I've built a B2B platform that reduced quote processing time by 83%
-          and AI-powered tools for e-commerce — from SEO tagging systems to
+          and AI-powered tools for e-commerce, from SEO tagging systems to
           real-time component generators. Currently open to frontend engineering
           roles at product-driven companies.
         </p>
