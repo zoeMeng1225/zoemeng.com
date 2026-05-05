@@ -13,10 +13,11 @@ const experiences = [
       "Materials Science Equipment, Est. by MIT & UC Berkeley Researchers",
     location: "Richmond, CA",
     highlights: [
-      "Architected a B2B quote ecosystem using React, Remix, and Polaris UI — reducing quote processing time by 83% through optimized server-side data fetching and parallelized API requests.",
-      "Engineered a decoupled state management system using Redux Toolkit, enabling conflict-free simultaneous management of Retail and Wholesale carts.",
-      "Built an automated document pipeline combining jsPDF, html2canvas, and AWS SES for client-side PDFs and transactional emails.",
-      "Achieved 90% test coverage on critical checkout flows using Jest and React Testing Library.",
+      "Built a B2B quote management app using Remix and Polaris Design System. Set up server-side data fetching and parallelized API calls, which reduced quote processing time by 83%.",
+      "Created a dual-cart system with Redux Toolkit so Retail and Wholesale customers could be managed separately without data conflicts.",
+      "Set up an automated PDF generation flow using jsPDF, html2canvas, and AWS SES to create quotes and send them via email, replacing a manual process",
+      "Added unit tests with Jest and React Testing Library, reaching 90% coverage on checkout flows and catching regressions earlier.",
+      "Worked with sales and ops teams to scope features, and wrote internal docs to help new devs get up to speed faster",
     ],
   },
   {
@@ -26,9 +27,8 @@ const experiences = [
     companyDetail: null,
     location: "Remote",
     highlights: [
-      "Built a travel planning dashboard with React and Google Maps API, featuring real-time route optimization across 50+ locations.",
-      "Optimized Core Web Vitals (LCP reduced by 25%) for a SaaS application through route-based code splitting and lazy loading.",
-      "Developed SEO-optimized marketing sites using Next.js SSG/ISR with responsive Figma-to-code layouts.",
+      "Built marketing sites and real-time dashboards with React, Next.js (SSG/ISR), and Google Maps API during a training program.",
+      "Practiced performance tuning on these projects, reduced LCP by 25% through route-based code splitting and lazy loading.",
     ],
   },
 ];
