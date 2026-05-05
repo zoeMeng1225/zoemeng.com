@@ -13,11 +13,12 @@ const experiences = [
       "Materials Science Equipment, Est. by MIT & UC Berkeley Researchers",
     location: "Richmond, CA",
     highlights: [
-      "Built a B2B quote management app using Remix and Polaris Design System. Set up server-side data fetching and parallelized API calls, which reduced quote processing time by 83%.",
-      "Created a dual-cart system with Redux Toolkit so Retail and Wholesale customers could be managed separately without data conflicts.",
-      "Set up an automated PDF generation flow using jsPDF, html2canvas, and AWS SES to create quotes and send them via email, replacing a manual process",
-      "Added unit tests with Jest and React Testing Library, reaching 90% coverage on checkout flows and catching regressions earlier.",
-      "Worked with sales and ops teams to scope features, and wrote internal docs to help new devs get up to speed faster",
+      "Joined when the site was on Network Solutions with no custom code. Migrated to Shopify and built the full stack from scratch – Remix (Node.js) on the server, Prisma ORM for data, React on the frontend.",
+      "Replaced a manual quote workflow (Excel + email) with a full-stack quote system. Built server-side data loaders and REST/GraphQL endpoints to handle Retail vs. Wholesale pricing logic, cutting processing time by 83%.",
+      "Built a multi-level tagging and categorization system for 30K+ products using Shopify's Collection and Tag APIs. Set up server-side logic to auto-assign products to collections based on tag hierarchy.",
+      "Rebuilt the Product Detail Page with wholesale tiered pricing, add-on products, staff-only internal notes, and purchase-gated product manuals – gating logic built with Shopify Customer ID API on the server side.",
+      "Set up a server-side pipeline with Node.js, html2canvas, and AWS SES that generates PDF quotes and emails them automatically, replacing a fully manual process.",
+      "Added E2E tests with Cypress and unit tests with Jest, reaching 90% coverage on critical data mutations.",
     ],
   },
   {
