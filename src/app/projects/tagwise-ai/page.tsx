@@ -167,7 +167,7 @@ export default function TagWise() {
               Product discovery & filtering
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
-              Find the right products to optimize across a 20k+ catalog
+              Find the right products to optimize across a 30k+ catalog
             </p>
 
             <div
@@ -664,7 +664,7 @@ const keywords = KEYWORD_MAP[productType] || generalKeywords;`}</pre>
                   crawler that fetches all products 100 at a time using
                   cursor-based pagination, aggregates every tag into a Set (for
                   O(1) dedup), and returns the complete unique tag list. For a
-                  20k+ catalog, this runs on the server via Remix loader to
+                  30k+ catalog, this runs on the server via Remix loader to
                   avoid blocking the UI.
                 </p>
                 <div
