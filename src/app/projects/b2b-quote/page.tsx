@@ -65,7 +65,7 @@ export default function B2BQuotePage() {
           {[
             { value: "83%", label: "Faster processing" },
             { value: "90%", label: "Test coverage" },
-            { value: "20k+", label: "Products searchable" },
+            { value: "30k+", label: "Products searchable" },
             { value: "2", label: "Synced interfaces" },
           ].map((m) => (
             <div
@@ -404,7 +404,7 @@ export default function B2BQuotePage() {
               },
             ]}
             columns={3}
-            caption="Left: Search 20k+ products with filters — Center: Custom item modal — Right: Mixed catalog + custom items"
+            caption="Left: Search 30k+ products with filters — Center: Custom item modal — Right: Mixed catalog + custom items"
           />
         </FadeIn>
 
