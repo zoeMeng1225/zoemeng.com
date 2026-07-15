@@ -10,7 +10,7 @@ import { BackToHome } from "@/components/ui/BackToHome";
 export const metadata: Metadata = {
   title: "High-Performance B2B E-commerce Platform — Zoe Meng",
   description:
-    "Custom Shopify theme architecture serving 10,000+ SKUs with modular Liquid sections, role-based access, and advanced catalog filtering for MTI Corporation.",
+    "Custom Shopify theme architecture serving 30,000+ SKUs with modular Liquid sections, role-based access, and advanced catalog filtering for MTI Corporation.",
 };
 
 export default function Mti() {
@@ -38,7 +38,7 @@ export default function Mti() {
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
           A custom Shopify theme architecture built to serve a catalog of{" "}
           <span className={cn("text-text-primary font-medium")}>
-            10,000+ SKUs
+            30,000+ SKUs
           </span>{" "}
           of precision materials science equipment. I re-architected the
           storefront using modular Liquid sections that let the marketing team
@@ -59,7 +59,7 @@ export default function Mti() {
       <FadeIn delay={0.2}>
         <div className={cn("grid grid-cols-3 gap-3 mb-8")}>
           {[
-            { value: "10k+", label: "SKUs managed" },
+            { value: "30k+", label: "SKUs managed" },
             { value: "60%", label: "Fewer maintenance requests" },
             { value: "3", label: "Access roles" },
           ].map((m) => (
@@ -218,7 +218,7 @@ export default function Mti() {
               </h4>
               <p className={cn("text-sm text-text-secondary leading-relaxed")}>
                 Custom breadcrumb system that understands the deep hierarchy of
-                a 10k+ product catalog, improving navigation and SEO structure.
+                a 30k+ product catalog, improving navigation and SEO structure.
               </p>
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function Mti() {
               High-performance catalog engine
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
-              Making 10,000+ products discoverable and navigable
+              Making 30,000+ products discoverable and navigable
             </p>
 
             <div
@@ -259,7 +259,7 @@ export default function Mti() {
                 &quot;IMCS-2000A-LD&quot; correctly.
               </p>
               <p>
-                The multi-faceted filtering system handles 10k+ SKUs with
+                The multi-faceted filtering system handles 30k+ SKUs with
                 instant sort and filter by specs, availability, and category.
                 Product pages are built with rich detail views: high-resolution
                 images with component labels, variant selection, and inventory
