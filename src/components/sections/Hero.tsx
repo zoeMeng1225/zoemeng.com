@@ -16,23 +16,28 @@ export function Hero() {
           Zoe Meng
         </h1>
       </FadeIn>
+      <br />
+      <br />
       <FadeIn delay={0.1}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
           I'm a{" "}
           <span className={cn("text-text-primary font-medium")}>
-            product-focused frontend engineer
+            front-end developer specializing in UX/UI
           </span>{" "}
-          based in the San Francisco Bay Area. I specialize in React,
-          TypeScript, and web performance, building interfaces that are fast,
-          accessible, and optimized for real business impact.
+          based in the San Francisco Bay Area. I design and build responsive,
+          accessible web interfaces end to end, user flows, design systems, and
+          interaction details on one side; production React and TypeScript on
+          the other.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
-          I've built a B2B platform that reduced quote processing time by 83%
-          and AI-powered tools for e-commerce, from SEO tagging systems to
-          real-time component generators. Currently open to frontend engineering
-          roles at product-driven companies.
+          I've built a B2B platform that cut quote processing time by 83%, and
+          AI tools where the hard problems were as much about trust and
+          interaction design as engineering. Trained in design at the Academy of
+          Art University, I care about why an interface should work a certain
+          way as much as how to build it. Open to front-end, UX/UI, and web
+          developer roles.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
