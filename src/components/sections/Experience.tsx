@@ -13,12 +13,12 @@ const experiences = [
       "Materials Science Equipment, Est. by MIT & UC Berkeley Researchers",
     location: "Richmond, CA",
     highlights: [
-      "Joined when the site was on Network Solutions with no custom code. Migrated to Shopify and built the full stack from scratch – Remix (Node.js) on the server, Prisma ORM for data, React on the frontend.",
-      "Replaced a manual quote workflow (Excel + email) with a full-stack quote system. Built server-side data loaders and REST/GraphQL endpoints to handle Retail vs. Wholesale pricing logic, cutting processing time by 83%.",
-      "Built a multi-level tagging and categorization system for 30K+ products using Shopify's Collection and Tag APIs. Set up server-side logic to auto-assign products to collections based on tag hierarchy.",
-      "Rebuilt the Product Detail Page with wholesale tiered pricing, add-on products, staff-only internal notes, and purchase-gated product manuals – gating logic built with Shopify Customer ID API on the server side.",
-      "Set up a server-side pipeline with Node.js, html2canvas, and AWS SES that generates PDF quotes and emails them automatically, replacing a fully manual process.",
-      "Added E2E tests with Cypress and unit tests with Jest, reaching 90% coverage on critical data mutations.",
+      "Joined when the site was on Network Solutions with no custom code. Migrated to Shopify and rebuilt both the customer-facing storefront (Liquid theme with JSON section schemas) and staff-facing admin tools (Remix + Polaris embedded apps) from scratch.",
+      "Designed and built a two-sided quote system replacing a manual Excel + email workflow: a customer quote cart in the Liquid storefront, a staff admin in Remix + Polaris; server-side data fetching and parallelized API calls cut processing time by 83%.",
+      "Redesigned the information architecture for 30K+ products using Shopify's Collection and Tag APIs,  multi-level categorization, hierarchy-based breadcrumb navigation, and A-Z sorting for large categories.",
+      "Rebuilt the Product Detail Page around user needs: accordion layout, wholesale tiered pricing, add-ons, cross-sell modules, staff-only notes, and purchase-gated manuals via the Shopify Customer ID API,  fully responsive across breakpoints.",
+      "Set up automated PDF quote generation with jsPDF, html2canvas, and AWS SES for email delivery, matching print output to the on-screen design.",
+      "Added unit tests with Jest and React Testing Library, reaching 90% coverage on checkout flows.",
     ],
   },
   {
@@ -28,8 +28,8 @@ const experiences = [
     companyDetail: null,
     location: "Remote",
     highlights: [
-      "Built marketing sites and real-time dashboards with React, Next.js (SSG/ISR), and Google Maps API during a training program.",
-      "Practiced performance tuning on these projects, reduced LCP by 25% through route-based code splitting and lazy loading.",
+      "Designed and built marketing sites and real-time dashboards with React, Next.js (SSG/ISR), and Google Maps API; reduced LCP by 25% through route-based code splitting and lazy loading.",
+      "Designed and built a WordPress blog for a community organization: multi-level category structure, custom theming, and per-post commenting.",
     ],
   },
 ];
