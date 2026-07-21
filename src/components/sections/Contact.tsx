@@ -14,8 +14,8 @@ export function Contact() {
       <FadeIn delay={0.1} className={cn("mt-1")}>
         <p className={cn("text-text-secondary leading-relaxed mb-6")}>
           {" "}
-          I'm actively looking for my next frontend engineering role in the Bay
-          Area. If you think I'd be a good fit for your team, I'd love to chat.
+          I'm actively looking for my next role, frontend, UX/UI developer, or
+          web developer in the Bay Area
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
