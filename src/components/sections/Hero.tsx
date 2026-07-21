@@ -34,10 +34,8 @@ export function Hero() {
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
           I've built a B2B platform that cut quote processing time by 83%, and
           AI tools where the hard problems were as much about trust and
-          interaction design as engineering. Trained in design at the Academy of
-          Art University, I care about why an interface should work a certain
-          way as much as how to build it. Currently open to frontend, UX/UI
-          developer, and web developer roles at product-driven companies.
+          interaction design as engineering. Currently open to frontend, UX/UI,
+          and web developer roles at product-driven companies.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>

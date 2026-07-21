@@ -22,17 +22,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zoe Meng - Frontend Engineer",
+  metadataBase: new URL("https://zoemeng.com"),
+  title: "Zoe Meng - Frontend Engineer | UX/UI Developer",
   description:
-    "Frontend engineer specializing in React, Typescript, and web performance.",
+    "Frontend engineer in the SF Bay Area specializing in UX/UI, designing and building responsive, accessible web interfaces with React and TypeScript.",
   openGraph: {
     title: "Zoe Meng - Frontend Engineer",
     description:
-      "Frontend engineer specializing in React, Typescript, and web performance.",
+      "Frontend engineer in the SF Bay Area specializing in UX/UI, designing and building responsive, accessible web interfaces with React and TypeScript.",
     url: "https://zoemeng.com",
     siteName: "Zoe Meng",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
