@@ -22,12 +22,12 @@ export function Hero() {
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
           I'm a{" "}
           <span className={cn("text-text-primary font-medium")}>
-            front-end developer specializing in UX/UI
+            product-focused frontend engineer
           </span>{" "}
-          based in the San Francisco Bay Area. I design and build responsive,
-          accessible web interfaces end to end, user flows, design systems, and
-          interaction details on one side; production React and TypeScript on
-          the other.
+          based in the San Francisco Bay Area, specializing in UX/UI. I work in
+          React, TypeScript, and web performance, and because I trained as a
+          designer, I shape the user flows and interaction details as well as
+          the code behind them.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
@@ -36,8 +36,8 @@ export function Hero() {
           AI tools where the hard problems were as much about trust and
           interaction design as engineering. Trained in design at the Academy of
           Art University, I care about why an interface should work a certain
-          way as much as how to build it. Open to front-end, UX/UI, and web
-          developer roles.
+          way as much as how to build it. Currently open to frontend, UX/UI
+          developer, and web developer roles at product-driven companies.
         </p>
       </FadeIn>
       <FadeIn delay={0.2}>
