@@ -15,11 +15,14 @@ export function About() {
       <div className={cn("space-y-4 text-text-secondary leading-relaxed mt-1")}>
         <FadeIn>
           <p>
-            I'm Zoe. I'm a frontend engineer with a background in design, I
-            studied Web Design & New Media at the Academy of Art University in
-            San Francisco. That foundation shapes how I approach code: I don't
-            just think about whether something works, but whether it feels
-            right.
+            I'm Zoe, a frontend engineer who came from the design side. I hold
+            an M.A. in Web Design & New Media from the Academy of Art University
+            in San Francisco, where the coursework ran from interaction design
+            and visual prototyping through HTML, CSS, and JavaScript. I moved
+            into engineering because I wanted to build the interfaces I was
+            designing rather than hand them off. That foundation still shapes
+            how I approach code: I don't just think about whether something
+            works, but whether it feels right.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -38,7 +41,7 @@ export function About() {
             <span className={cn("text-text-primary font-semibold")}>
               Core Web Vitals
             </span>{" "}
-            , engineering{" "}
+            ,engineering{" "}
             <span className={cn("text-text-primary font-semibold")}>
               state management systems
             </span>{" "}
@@ -46,6 +49,7 @@ export function About() {
             <span className={cn("text-accent font-semibold")}>
               human-AI interaction patterns
             </span>
+            .
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>
