@@ -67,7 +67,7 @@ export default function AICodeReviewer() {
             { value: "3", label: "Review modes" },
             { value: "8", label: "Languages supported" },
             { value: "< 5s", label: "Avg review time" },
-            { value: "100", label: "Code quality score" },
+            { value: "10/hr", label: "Rate limit per IP" },
           ].map((m) => (
             <div
               key={m.label}
@@ -375,13 +375,16 @@ export default function AICodeReviewer() {
                 (general improvements).
               </p>
               <p>
-                Each issue is tagged with a severity level: 🔴 Critical for bugs
-                and security flaws, 🟡 Warning for performance issues and bad
-                practices, 🟢 Info for style and readability improvements, along
-                with the specific line number and category (Performance, Bug
-                Risk, Readability, Best Practice, Security). A custom
-                lightweight markdown renderer parses the streaming output into
-                styled React components without any external dependency.
+                Each issue is tagged with a severity level:{" "}
+                <span aria-hidden="true">🔴 </span>Critical for bugs and
+                security flaws, <span aria-hidden="true">🟡 </span>Warning for
+                performance issues and bad practices,{" "}
+                <span aria-hidden="true">🟢</span> Info for style and
+                readability improvements, along with the specific line number
+                and category (Performance, Bug Risk, Readability, Best Practice,
+                Security). A custom lightweight markdown renderer parses the
+                streaming output into styled React components without any
+                external dependency.
               </p>
               <p>
                 Completed reviews can be{" "}
