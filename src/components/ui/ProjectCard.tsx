@@ -14,7 +14,7 @@ interface ProjectCardProps {
   image?: string;
   metrics?: { label: string; value: string }[];
   isCompact?: boolean;
-  kind: string;
+  kind?: string;
 }
 
 export function ProjectCard({
