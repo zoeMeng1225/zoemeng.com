@@ -1,26 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  --background-color: #e3e2e8;
-  --color: #726aa0 --text: #ededed;
-  --text-muted: #888;
-  --accent: #745dac;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 [id] {
   scroll-margin-top: 100px;
 }
 
 @theme inline {
   /*background colors*/
-  --color--bg-primary: #faf9f6;
-  --color--bg-secondary: #f5f3ef;
-  --color--bg-tertiary: #eeeae4;
+  --color-bg-primary: #faf9f6;
+  --color-bg-secondary: #f5f3ef;
+  --color-bg-tertiary: #eeeae4;
 
   /*text colors*/
-  --color--text-primary: #1a1a1a;
-  --color--text-secondary: #555555;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
   --color-text-tertiary: #999999;
 
   /*Accent -- purple*/
@@ -34,9 +26,9 @@
   --color-border-hover: #d1ccc4;
 
   /* ---- Fonts---- */
-  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
 /*Base style*/

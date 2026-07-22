@@ -1,4 +1,4 @@
-// src/components/ui/ProjectCard.text
+// src/components/ui/ProjectCard.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,6 +14,7 @@ interface ProjectCardProps {
   image?: string;
   metrics?: { label: string; value: string }[];
   isCompact?: boolean;
+  kind: string;
 }
 
 export function ProjectCard({
@@ -24,6 +25,7 @@ export function ProjectCard({
   image,
   metrics,
   isCompact = false,
+  kind,
 }: ProjectCardProps) {
   return (
     <Link href={href}>
@@ -50,6 +52,19 @@ export function ProjectCard({
               priority
             />
           </div>
+        )}
+        {/**kind badge */}
+        {kind && (
+          <span
+            className={cn(
+              "inline-block mb-2 text-[11px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full",
+              kind.includes("UX")
+                ? "bg-accent/15 text-accent"
+                : "bg-bg-tertiary text-text-tertiary",
+            )}
+          >
+            {kind}
+          </span>
         )}
 
         {/*title*/}

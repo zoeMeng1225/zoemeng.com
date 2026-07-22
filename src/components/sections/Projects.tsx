@@ -23,16 +23,19 @@ const projects = [
     image: "/images/projects/b2b-quote/b2b-quote-hero1.webp",
     metrics: [
       { label: "Faster processing", value: "83%" },
-      { label: "Test coverage", value: "90%" },
+      { label: "Products searchable", value: "30k+" },
     ],
   },
   {
     title: "TagWise AI — SEO Tagging Platform",
+    kind: "UX Case Study",
     description:
       "AI-powered SEO tag generation with human-in-the-loop staging workflow. Designed a non-destructive staging system to ensure data integrity before committing via Shopify GraphQL API.",
     tags: [
       "React 18",
       "TypeScript",
+      "UX Research",
+      "Interaction Design",
       "Prisma ORM",
       "OpenAI API",
       "Tailwind CSS",

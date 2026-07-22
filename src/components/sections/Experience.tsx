@@ -18,7 +18,7 @@ const experiences = [
       "Redesigned the information architecture for 30K+ products using Shopify's Collection and Tag APIs,  multi-level categorization, hierarchy-based breadcrumb navigation, and A-Z sorting for large categories.",
       "Rebuilt the Product Detail Page around user needs: accordion layout, wholesale tiered pricing, add-ons, cross-sell modules, staff-only notes, and purchase-gated manuals via the Shopify Customer ID API,  fully responsive across breakpoints.",
       "Set up automated PDF quote generation with jsPDF, html2canvas, and AWS SES for email delivery, matching print output to the on-screen design.",
-      "Added unit tests with Jest and React Testing Library, reaching 90% coverage on checkout flows.",
+      "Wrote unit tests for the critical quote and checkout flows with Jest and React Testing Library.",
     ],
   },
   {

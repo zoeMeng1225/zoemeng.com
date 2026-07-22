@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { ProjectVideo } from "@/components/ui/ProjectVideo";
 import { ProjectImage } from "@/components/ui/ProjectImage";
 import { MediaGrid } from "@/components/ui/MediaGrid";
-import { B2BArchitectureDiagram } from "@/components/ui/B2BArchitechtureDiagram";
+import { B2BArchitectureDiagram } from "@/components/ui/B2BArchitectureDiagram";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
@@ -64,8 +64,8 @@ export default function B2BQuotePage() {
         <div className={cn("grid grid-cols-4 gap-3 mb-8")}>
           {[
             { value: "83%", label: "Faster processing" },
-            { value: "90%", label: "Test coverage" },
             { value: "30k+", label: "Products searchable" },
+            { value: "100%", label: "Automated PDF flow" },
             { value: "2", label: "Synced interfaces" },
           ].map((m) => (
             <div

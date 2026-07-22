@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Work", href: "#work" },
   { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
+  { label: "Design", href: "/design" },
 ];
 
 export function Header() {
@@ -31,7 +32,7 @@ export function Header() {
     >
       <nav
         className={cn(
-          "max-w-3xl mx-auto px-6 h-16 flex items-center justify-between",
+          "max-w-3xl mx-auto px-6 py-4 flex items-center justify-between",
         )}
         aria-label="Main navigation"
       >
