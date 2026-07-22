@@ -418,13 +418,6 @@ export default function TagWise() {
                 with AI Tags&quot; option for merchants who want a clean slate,
                 and a &quot;Cancel&quot; button that discards all changes.
               </p>
-              <p>
-                This non-destructive staging workflow is the core architectural
-                decision of the entire app. I designed it because the cost of a
-                bad tag update on a live store is high, broken filters,
-                incorrect search results, lost customer trust. Zero data
-                accidents is a feature, not a coincidence.
-              </p>
             </div>
           </section>
         </FadeIn>

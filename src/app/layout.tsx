@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit, Syne } from "next/font/google";
 import { ScrollToTop } from "@/components/ui/Scrolltotop";
+import { MotionProvider } from "@/components/ui/motionProvider";
 import "./globals.css";
 
 const syne = Syne({
@@ -17,7 +18,7 @@ const outfit = Outfit({
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -52,8 +53,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="font-body bg-bg-primary text-text-primary antialiased">
-        {children}
-        <ScrollToTop />
+        <MotionProvider>
+          {children}
+          <ScrollToTop />
+        </MotionProvider>
       </body>
     </html>
   );

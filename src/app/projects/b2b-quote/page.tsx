@@ -901,14 +901,14 @@ const phoneExpr = sql\`
                       "font-display font-semibold text-text-primary",
                     )}
                   >
-                    90% test coverage on critical paths
+                    Test coverage across the quote lifecycle
                   </h4>
                 </div>
                 <p
                   className={cn("text-sm text-text-secondary leading-relaxed")}
                 >
-                  Jest + React Testing Library covering the full quote
-                  lifecycle: cart operations, form validation, pricing
+                  Jest + React Testing Library covering the critical paths of
+                  the quote lifecycle: cart operations, form validation, pricing
                   calculations, PDF generation, and email dispatch. Tests catch
                   regressions across the complex interaction between Shopify
                   GraphQL, Drizzle ORM, and the CDTFA tax API.
