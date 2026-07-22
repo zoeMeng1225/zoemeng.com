@@ -212,6 +212,154 @@ export default function TagWise() {
             caption="Four-dimensional product search: by name, sort order, existing tags, and collection"
           />
         </FadeIn>
+        {/* ============================================
+            The decision behind Story 2
+            ============================================ */}
+        <FadeIn>
+          <section>
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
+              )}
+            >
+              Design decision
+            </p>
+            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
+              Why the staging workflow exists
+            </h2>
+            <p className={cn("text-sm text-accent mb-6")}>
+              Trust, not speed, was the bottleneck
+            </p>
+
+            <div
+              className={cn(
+                "space-y-4 text-text-secondary leading-relaxed mb-6",
+              )}
+            >
+              <p>
+                My first sketch had no staging state at all: select products,
+                click Generate, tags written straight to the store. One click,
+                done. Talking to merchants changed the product. Their anxiety
+                wasn&apos;t efficiency — it was{" "}
+                <span className={cn("text-text-primary font-medium")}>
+                  control
+                </span>
+                . Tags drive their collections, filters, and search, so a silent
+                change from an AI they can&apos;t see is exactly the kind of
+                automation they&apos;ve learned not to trust. They wanted to see
+                what the AI would do <em>before</em> it did it.
+              </p>
+            </div>
+
+            <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4 mb-6")}>
+              <div
+                className={cn(
+                  "p-5 rounded-lg bg-bg-secondary border border-border",
+                )}
+              >
+                <p
+                  className={cn(
+                    "text-xs uppercase tracking-wider text-text-tertiary mb-2",
+                  )}
+                >
+                  Considered
+                </p>
+                <h4
+                  className={cn(
+                    "font-display text-sm font-semibold text-text-primary mb-2",
+                  )}
+                >
+                  Fully automatic
+                </h4>
+                <p
+                  className={cn("text-sm text-text-secondary leading-relaxed")}
+                >
+                  Fastest flow, and the one merchants said they wouldn&apos;t
+                  trust. A single bad batch could silently break collections and
+                  filters.
+                </p>
+              </div>
+              <div
+                className={cn(
+                  "p-5 rounded-lg bg-bg-secondary border border-border",
+                )}
+              >
+                <p
+                  className={cn(
+                    "text-xs uppercase tracking-wider text-text-tertiary mb-2",
+                  )}
+                >
+                  Considered
+                </p>
+                <h4
+                  className={cn(
+                    "font-display text-sm font-semibold text-text-primary mb-2",
+                  )}
+                >
+                  Confirm everything
+                </h4>
+                <p
+                  className={cn("text-sm text-text-secondary leading-relaxed")}
+                >
+                  Safe on paper — but across 2,000 products the dialogs become
+                  noise, and users click through noise. Safety you stop reading
+                  isn&apos;t safety.
+                </p>
+              </div>
+              <div
+                className={cn(
+                  "p-5 rounded-lg bg-bg-primary border-2 border-accent",
+                )}
+              >
+                <p
+                  className={cn(
+                    "text-xs uppercase tracking-wider text-accent mb-2",
+                  )}
+                >
+                  Shipped
+                </p>
+                <h4
+                  className={cn(
+                    "font-display text-sm font-semibold text-text-primary mb-2",
+                  )}
+                >
+                  Batch staging
+                </h4>
+                <p
+                  className={cn("text-sm text-text-secondary leading-relaxed")}
+                >
+                  Generate for up to 10 products; results land in an editable
+                  staging state, visually distinct from live data. One
+                  deliberate Confirm commits the batch.
+                </p>
+              </div>
+            </div>
+
+            <p className={cn("text-text-secondary leading-relaxed mb-6")}>
+              The design bet:{" "}
+              <span className={cn("text-text-primary font-medium")}>
+                one well-placed step of friction builds more trust than zero
+                friction
+              </span>{" "}
+              , and causes far less fatigue than constant confirmation.
+              Interface-level decisions follow from it: staged tags render
+              orange against gray live tags, and state is carried by affordance
+              too (an &quot;×&quot; to remove, an input to add) rather than
+              color alone. Committing is explicit, never ambient, there is no
+              autosave.
+            </p>
+
+            {/* TODO(Figma): 流程对比图导出为
+                /public/images/projects/tagwise/flow-comparison.webp 后取消注释 */}
+            {/*
+            <ProjectImage
+              src="/images/projects/tagwise/flow-comparison.webp"
+              alt="Flow comparison: fully automatic vs per-item confirmation vs batch staging"
+              caption="The three flows side by side — made in Figma"
+            />
+            */}
+          </section>
+        </FadeIn>
 
         {/* ============================================
             STORY 2: AI Tag Generation + Human-in-the-Loop
