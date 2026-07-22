@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit, Syne } from "next/font/google";
 import { ScrollToTop } from "@/components/ui/Scrolltotop";
-import { MotionProvider } from "@/components/ui/MotionProvider";
+import { MotionProvider } from "@/components/ui/motionProvider";
 import "./globals.css";
 
 const syne = Syne({
