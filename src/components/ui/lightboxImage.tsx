@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -9,6 +10,7 @@ interface LightboxImageProps {
   height?: number;
   className?: string;
   gif?: boolean;
+  priority?:boolean;
 }
 
 export function LightboxImage({
@@ -17,6 +19,7 @@ export function LightboxImage({
   width = 600,
   height = 400,
   className = "",
+  priority = false,
   gif = false,
 }: LightboxImageProps) {
   const [open, setOpen] = useState(false);
@@ -46,6 +49,8 @@ export function LightboxImage({
         unoptimized={gif}
         className={`${className} cursor-zoom-in w-full h-full object-cover`}
         onClick={() => setOpen(true)}
+        fetchPriority={priority ? "high" : undefined}
+        loading={priority ? "eager" : undefined}
       />
 
       {open && (

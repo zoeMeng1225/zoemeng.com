@@ -17,6 +17,7 @@ export function ProjectImage({
   alt,
   caption,
   gif = false,
+  priority=false
 }: ProjectImageProps) {
   return (
     <figure className="my-8">
@@ -27,6 +28,7 @@ export function ProjectImage({
           width={1200}
           height={675}
           gif={gif}
+          priority={priority}
         />
       </div>
       {caption && (

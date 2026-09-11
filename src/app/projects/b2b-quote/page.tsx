@@ -451,7 +451,7 @@ export default function B2BQuotePage() {
         </FadeIn>
         <FadeIn>
           <ProjectImage
-            src="/images/projects/b2b-quote/admin-detail.webp"
+            src="/images/projects/b2b-quote/admin-detail-v2.webp"
             alt="Quote Detail command center"
             caption="Quote Detail: product info, customer details, staff assignment, email — all on one page"
           />
