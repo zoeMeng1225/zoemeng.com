@@ -8,9 +8,9 @@ import { ProjectImage } from "@/components/ui/ProjectImage";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
-  title: "High-Performance B2B E-commerce Platform — Zoe Meng",
+  title: "MTI Storefront — Information architecture for 30K products — Zoe Meng",
   description:
-    "Custom Shopify theme architecture serving 30,000+ SKUs with modular Liquid sections, role-based access, and advanced catalog filtering for MTI Corporation.",
+    "Rebuilding a 30K-product B2B catalog on Shopify: navigable categories, part-number search, modular sections marketing edits on its own, and pages that adapt to guests, customers, and staff.",
 };
 
 export default function Mti() {
@@ -60,7 +60,6 @@ export default function Mti() {
         <div className={cn("grid grid-cols-3 gap-3 mb-8")}>
           {[
             { value: "30k+", label: "SKUs managed" },
-            { value: "60%", label: "Fewer maintenance requests" },
             { value: "3", label: "Access roles" },
           ].map((m) => (
             <div
@@ -323,16 +322,9 @@ export default function Mti() {
                 collaborate without leaving the storefront.
               </p>
               <p>
-                At the cart level, I engineered a{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  smart tax exemption system
-                </span>{" "}
-                that automatically detects customers with specific tax-exempt
-                tags. It dynamically recalculates totals and removes tax line
-                items — automating what was previously a manual accounting task.
-                The cart also includes a &quot;Special Instructions&quot; module
-                where customers attach shipping or handling requests that sync
-                directly to the fulfillment dashboard.
+                The cart also includes a &quot;Special Instructions&quot; module where
+                customers attach shipping or handling requests that sync directly to the
+                fulfillment dashboard.
               </p>
             </div>
           </section>
@@ -370,8 +362,7 @@ export default function Mti() {
                 Member
               </h4>
               <p className={cn("text-sm text-text-secondary leading-relaxed")}>
-                Exclusive technical manuals (PDFs), wholesale pricing, and auto
-                tax exemption based on customer tags.
+               Exclusive technical manuals (PDFs) and wholesale pricing.
               </p>
             </div>
             <div
@@ -504,38 +495,6 @@ export default function Mti() {
   {% render 'staff-notes', product: product %}
 {%- endif -%}`}</pre>
                 </div>
-              </div>
-
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    3
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Cart-level tax exemption automation
-                  </h4>
-                </div>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  A Shopify Script detects customers with tax-exempt tags at
-                  checkout, dynamically removing tax line items and
-                  recalculating totals. This eliminated manual accounting work
-                  and reduced checkout errors for wholesale customers who
-                  previously had to request tax removal via email.
-                </p>
               </div>
             </div>
           </section>
