@@ -81,15 +81,14 @@ const projects = [
     ],
   },
   {
-    title: "High-Performance B2B E-commerce Platform",
+    title: "MTI Storefront — Information architecture for 30K products",
     description:
-      "Architected a modular Shopify theme with advanced fuzzy search and role-based access control (RBAC) for a 10,000+ SKU catalog, reducing frontend maintenance by 60%.",
-    tags: ["Liquid", "JavaScript (ES6+)", "SCSS", "JSON", "Shopify"],
+      "Rebuilt a 30K-product B2B catalog on Shopify: modular sections marketing can edit on their own, multi-level navigation, search that understands industrial part numbers, and product pages that adapt to guests, verified customers, and staff.",
+    tags: ["Information architecture","Shopify","Liquid" ],
     href: "/projects/mti",
     image: "/images/projects/mti/mti_website.webp",
     metrics: [
-      { label: "Maintenance reduction", value: "60%" },
-      { label: "Active SKUs", value: "10k+" },
+      { label: "Products", value: "30K+" },
     ],
   },
 ];
