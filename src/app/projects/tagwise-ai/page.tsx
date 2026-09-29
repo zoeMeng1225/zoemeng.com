@@ -64,12 +64,12 @@ export default function TagWise() {
 
       {/* ---- Metrics ---- */}
       <FadeIn delay={0.2}>
-        <div className={cn("grid grid-cols-4 gap-3 mb-8")}>
+        <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-3 mb-8")}>
           {[
+            { value: "40%", label: "Lower perceived latency" },
+            { value: "60fps", label: "At 100+ products" },
             { value: "13", label: "Industry categories" },
             { value: "6", label: "Scoring dimensions" },
-            { value: "10", label: "Batch processing" },
-            { value: "0", label: "Data accidents" },
           ].map((m) => (
             <div
               key={m.label}

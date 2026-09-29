@@ -48,18 +48,14 @@ const projects = [
       { label: "Scoring dimensions", value: "6" },
     ],
   },
-  {
-    title: "AI Component Playground",
+    {
+    title: "AI Component Playground — Making streaming legible",
     description:
-      "Describe a UI in plain English, get a working React + Tailwind component with real-time preview. Features streaming AI generation via Vercel AI SDK and live Sandpack preview.",
-    tags: ["Next.js", "TypeScript", "OpenAI API", "Sandpack", "Streaming"],
+      "A text-to-component tool where the hard part was the wait. A two-phase streaming display turns generation into readable progress, with a live, editable preview.",
+    tags: ["Interaction design", "Next.js", "Sandpack"],
     href: "/projects/ai-playground",
     image: "/images/projects/ai-playground/aiPlayground_hero.webp",
-    metrics: [
-      { label: "First token", value: "<2s" },
-      { label: "Templates", value: "10" },
-      { label: "Live preview", value: "✓" },
-    ],
+    metrics: [{ label: "First token", value: "<2s" }],
   },
   {
     title: "AI Code Reviewer",
