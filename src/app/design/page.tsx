@@ -16,7 +16,7 @@ const colors = [
   { name: "bg-tertiary", hex: "#eeeae4", use: "Code blocks, insets" },
   { name: "text-primary", hex: "#1a1a1a", use: "Headings, body" },
   { name: "text-secondary", hex: "#555555", use: "Supporting text" },
-  { name: "text-tertiary", hex: "#999999", use: "Captions, labels" },
+  { name: "text-tertiary", hex: "#6b6b6b", use: "Captions, labels" },
   { name: "accent", hex: "#745dac", use: "Links, highlights" },
   { name: "accent-dark", hex: "#513d82", use: "Hover, emphasis" },
 ];
