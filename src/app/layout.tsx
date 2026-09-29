@@ -22,23 +22,26 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const description =
+  "Frontend and design engineer in the SF Bay Area. I design and build product interfaces in React and TypeScript, from user flow to shipped component.";
+  
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://zoemeng.com"),
-  title: "Zoe Meng - Frontend Engineer | UX/UI Developer",
-  description:
-    "Frontend engineer in the SF Bay Area specializing in UX/UI, designing and building responsive, accessible web interfaces with React and TypeScript.",
+  title: {
+    default: "Zoe Meng — Frontend & Design Engineer",
+    template: "%s — Zoe Meng",
+  },
+  description,
   openGraph: {
-    title: "Zoe Meng - Frontend Engineer",
-    description:
-      "Frontend engineer in the SF Bay Area specializing in UX/UI, designing and building responsive, accessible web interfaces with React and TypeScript.",
+    title: "Zoe Meng — Frontend & Design Engineer",
+    description,
     url: "https://zoemeng.com",
     siteName: "Zoe Meng",
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

@@ -26,9 +26,9 @@
   --color-border-hover: #d1ccc4;
 
   /* ---- Fonts---- */
-  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+--font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+--font-body: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+--font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 /*Base style*/

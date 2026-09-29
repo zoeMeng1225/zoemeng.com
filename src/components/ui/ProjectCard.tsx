@@ -70,7 +70,7 @@ export function ProjectCard({
         {/*title*/}
         <h3
           className={cn(
-            "font-display font-semibold text-text-primary ",
+            "font-body text-lg font-semibold text-text-primary",
             "mb-2 group-hover:text-accent transition-colors",
           )}
         >
@@ -98,7 +98,7 @@ export function ProjectCard({
             {metrics.map((m) => (
               <div key={m.label} className={cn("text-center")}>
                 <div
-                  className={cn("text-lg font-display font-bold text-accent")}
+                  className={cn("text-lg font-body font-semibold text-accent")}
                 >
                   {m.value}
                 </div>
