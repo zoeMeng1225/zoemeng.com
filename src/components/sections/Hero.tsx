@@ -10,7 +10,7 @@ export function Hero() {
       <FadeIn>
         <h1
           className={cn(
-            "font-display text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4",
+            "font-brand text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4",
           )}
         >
           Zoe Meng
