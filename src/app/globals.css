@@ -27,7 +27,7 @@
 
   /* ---- Fonts---- */
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-brand: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }

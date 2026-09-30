@@ -6,39 +6,49 @@ import { FadeIn } from "../ui/FadeIn";
 
 export function Hero() {
   return (
-    <section className={cn("mb-24")}>
+    <section className={cn("mb-24 pt-32 md:pt-40")}>
       <FadeIn>
         <h1
           className={cn(
-            "font-brand text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4",
+            "font-brand text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-3",
           )}
         >
           Zoe Meng
         </h1>
+        <p className={cn("text-sm font-medium text-accent mb-10")}>
+          Frontend & Design Engineer · San Francisco Bay Area
+        </p>
       </FadeIn>
-      <br />
-      <br />
+
       <FadeIn delay={0.1}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
-          I'm a{" "}
+          I{" "}
           <span className={cn("text-text-primary font-medium")}>
-            product-focused frontend engineer
-          </span>{" "}
-          based in the San Francisco Bay Area, specializing in UX/UI. I work in
-          React, TypeScript, and web performance, and because I trained as a
-          designer, I shape the user flows and interaction details as well as
-          the code behind them.
+            design and build product interfaces
+          </span>
+          . I trained as a designer (M.A., Web Design) and have spent four
+          years shipping React and TypeScript, so I work from the user flow
+          through to the shipped component instead of handing off in the
+          middle.
         </p>
       </FadeIn>
+
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
-          I've built a B2B platform that cut quote processing time by 83%, and
-          AI tools where the hard problems were as much about trust and
-          interaction design as engineering. Currently open to frontend, UX/UI,
-          and web developer roles at product-driven companies.
+          Most recently I owned the front end of a 30K-product B2B site end to
+          end, including a quote flow that cut processing time 83%. I care
+          about the details that make an interface feel trustworthy: states,
+          motion, and accessibility.
         </p>
       </FadeIn>
-      <FadeIn delay={0.2}>
+
+      <FadeIn delay={0.3}>
+        <p className={cn("text-sm text-text-tertiary mb-4")}>
+          Open to design engineer, UI engineer, and frontend roles.
+        </p>
+      </FadeIn>
+
+      <FadeIn delay={0.4}>
         <div className={cn("flex items-center gap-6 text-sm")}>
           <a
             href="mailto:zoemeng1225@gmail.com"
@@ -48,7 +58,6 @@ export function Hero() {
               "hover:bg-accent-dark transition-colors",
             )}
           >
-            {" "}
             Get in touch
           </a>
           <a
@@ -61,7 +70,6 @@ export function Hero() {
               "transition-all duration-200",
             )}
           >
-            {" "}
             GitHub
           </a>
           <a
@@ -74,7 +82,6 @@ export function Hero() {
               "transition-all duration-200",
             )}
           >
-            {" "}
             LinkedIn
           </a>
         </div>
