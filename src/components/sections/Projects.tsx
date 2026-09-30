@@ -20,6 +20,9 @@ const projects = [
     ],
     href: "/projects/b2b-quote",
     image: "/images/projects/b2b-quote/b2b-quote-hero1.webp",
+    kind: "Case study",
+    meta: "MTI Corporation · 2022 – present",
+    video: "/images/projects/b2b-quote/quote_flow_done.mp4",
     metrics: [
       { label: "Faster processing", value: "83%" },
       { label: "Products", value: "30K+" },
@@ -35,6 +38,7 @@ const projects = [
       "UX research",
       "React",
     ],
+    meta: "2025",
     href: "/projects/tagwise-ai",
     image: "/images/projects/tagwise/tagwise.webp",
     metrics: [
@@ -49,6 +53,9 @@ const projects = [
     tags: ["Interaction design", "Next.js", "Sandpack"],
     href: "/projects/ai-playground",
     image: "/images/projects/ai-playground/aiPlayground_hero.webp",
+    kind: "Case study",
+    meta: "Self-initiated · 2026",
+    video: "/images/projects/ai-playground/aiPlayground_done.mp4",
     metrics: [{ label: "First token", value: "<2s" }],
   }
 ];

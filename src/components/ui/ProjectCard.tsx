@@ -1,6 +1,7 @@
 // src/components/ui/ProjectCard.tsx
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,9 +13,11 @@ interface ProjectCardProps {
   tags: string[];
   href: string;
   image?: string;
+  video?: string;
+  kind?: string;
+  meta?: string;
   metrics?: { label: string; value: string }[];
   isCompact?: boolean;
-  kind?: string;
 }
 
 export function ProjectCard({
@@ -23,24 +26,53 @@ export function ProjectCard({
   tags,
   href,
   image,
+  video,
+  kind,
+  meta,
   metrics,
   isCompact = false,
-  kind,
 }: ProjectCardProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const play = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    v.play().catch(() => {});
+  };
+
+  const stop = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
+  };
+
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      onMouseEnter={play}
+      onMouseLeave={stop}
+      onFocus={play}
+      onBlur={stop}
+      className={cn(
+        "group block rounded-xl h-full",
+        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+      )}
+    >
       <motion.article
         whileHover={{ y: -4 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
         className={cn(
-          "group relative rounded-xl border-border bg-bg-secondary",
-          "p-6 transition-all duration-300 ",
-          "hover:border-accent/40 hover:shadow-[0_0_0_1px_rgba(124,92,252,0.1),0_4px_20px_rgba(124,92,252,0.06)]",
+          "relative rounded-xl border border-transparent bg-bg-secondary",
+          "h-full flex flex-col",
+          "p-6 transition-all duration-300",
+          "group-hover:border-accent/40 group-hover:shadow-[0_0_0_1px_rgba(124,92,252,0.1),0_4px_20px_rgba(124,92,252,0.06)]",
         )}
       >
-        {/*project image*/}
+        {/* cover: image, with a looping video on hover/focus */}
         {!isCompact && image && (
-          <div className={cn("mb-4 overflow-hidden rounded-lg bg-bg-tertiary")}>
+          <div className={cn("relative mb-4 overflow-hidden rounded-lg bg-bg-tertiary")}>
             <Image
               src={image}
               alt={title}
@@ -51,23 +83,34 @@ export function ProjectCard({
               )}
               priority
             />
+            {video && (
+              <video
+                ref={videoRef}
+                src={video}
+                muted
+                loop
+                playsInline
+                preload="none"
+                aria-hidden="true"
+                className={cn(
+                  "absolute inset-0 h-full w-full object-cover",
+                  "opacity-0 transition-opacity duration-300",
+                  "group-hover:opacity-100 group-focus-visible:opacity-100",
+                  "motion-reduce:hidden",
+                )}
+              />
+            )}
           </div>
         )}
-        {/**kind badge */}
-        {kind && (
-          <span
-            className={cn(
-              "inline-block mb-2 text-[11px] font-medium uppercase tracking-wider px-2.5 py-1 rounded-full",
-              kind.includes("UX")
-                ? "bg-accent/15 text-accent"
-                : "bg-bg-tertiary text-text-tertiary",
-            )}
-          >
-            {kind}
-          </span>
+
+        {/* meta line: kind · context */}
+        {(kind || meta) && (
+          <p className={cn("mb-2 text-xs font-medium uppercase tracking-wider text-accent")}>
+            {[kind, meta].filter(Boolean).join(" · ")}
+          </p>
         )}
 
-        {/*title*/}
+        {/* title */}
         <h3
           className={cn(
             "font-body text-lg font-semibold text-text-primary",
@@ -76,53 +119,51 @@ export function ProjectCard({
         >
           {title}
           <span
+            aria-hidden="true"
             className={cn(
               "inline-block ml-1 opacity-0 -translate-x-1",
               "group-hover:opacity-100 group-hover:translate-x-0",
               "transition-all duration-200",
             )}
           >
-            {" "}
             →
           </span>
         </h3>
 
-        {/*description*/}
+        {/* description */}
         <p className={cn("text-sm text-text-secondary leading-relaxed mb-4")}>
           {description}
         </p>
 
-        {/*key metric*/}
-        {metrics && metrics.length > 0 && (
-          <div className={cn("flex gap-4 mb-4")}>
-            {metrics.map((m) => (
-              <div key={m.label} className={cn("text-center")}>
-                <div
-                  className={cn("text-lg font-body font-semibold text-accent")}
-                >
-                  {m.value}
+        <div className={cn("mt-auto")}>
+              {/* metrics */}
+          {metrics && metrics.length > 0 && (
+            <div className={cn("flex gap-6 mb-4")}>
+              {metrics.map((m) => (
+                <div key={m.label}>
+                  <div className={cn("text-lg font-body font-semibold tabular-nums text-accent")}>
+                    {m.value}
+                  </div>
+                  <div className={cn("text-xs text-text-tertiary")}>{m.label}</div>
                 </div>
-                <div className={cn("text-xs text-text-tertiary")}>
-                  {m.label}
-                </div>
-              </div>
+              ))}
+            </div>
+          )}
+
+          {/* tags */}
+          <div className={cn("flex flex-wrap gap-1.5")}>
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className={cn(
+                  "text-[11px] px-2 py-0.5 rounded-full font-medium",
+                  "bg-accent/10 text-accent",
+                )}
+              >
+                {tag}
+              </span>
             ))}
           </div>
-        )}
-
-        {/*skill tag*/}
-        <div className={cn("flex flex-wrap gap-2")}>
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className={cn(
-                "text-xs px-2.5 py-1 rounded-full font-medium",
-                "bg-accent/10 text-accent border border-transparent",
-              )}
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </motion.article>
     </Link>
