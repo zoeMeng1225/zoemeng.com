@@ -10,9 +10,9 @@ import { B2BArchitectureDiagram } from "@/components/ui/B2BArchitectureDiagram";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
-  title: "B2B Quote Automation Ecosystem — Zoe Meng",
+  title: "B2B Quote — Replacing Excel with a two-sided flow",
   description:
-    "Dual-interface Shopify embedded app that reduced B2B quote processing from 10 minutes to 30 seconds. Built with React, Remix, Redux Toolkit, Shopify Polaris, and GraphQL.",
+    "How I replaced a manual Excel-and-email quoting workflow with a quote cart for buyers and a single workspace for staff, as the sole engineer at MTI Corporation.",
 };
 
 export default function B2BQuotePage() {
@@ -26,53 +26,49 @@ export default function B2BQuotePage() {
           ============================================ */}
       <FadeIn>
         <p className={cn("text-sm text-accent font-medium mb-3")}>
-          MTI Corporation · Richmond, CA
+          MTI Corporation · 2022 – present
         </p>
         <h1
           className={cn(
             "font-display text-3xl md:text-4xl font-bold tracking-tight mb-4",
           )}
         >
-          B2B Quote Automation Ecosystem
+          B2B Quote — Replacing Excel with a two-sided flow
         </h1>
       </FadeIn>
 
       <FadeIn delay={0.1}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
-          A dual-interface Shopify embedded app that bridges the gap between
-          customers requesting bulk material quotes and the sales team
-          processing them. As{" "}
-          <span className="text-text-primary font-medium">
-            Lead Architect & Full-stack Developer
-          </span>
-          , I designed and built both the customer-facing storefront experience
-          and the internal admin dashboard from scratch, transforming a
-          10-minute manual workflow into a 30-second automated process.
+          MTI&apos;s sales team quoted by hand: find the product in Shopify,
+          copy prices into a spreadsheet, work out tax, format a PDF, then write
+          the email. I sat with the team to see where they stalled, then
+          designed and built a two-sided flow: a quote cart for buyers on the
+          storefront, and one workspace for staff inside the Shopify admin.
         </p>
       </FadeIn>
       <FadeIn delay={0.15}>
-        <p className={cn("text-text-secondary leading-relaxed mb-6")}>
-          The system handles 20,000+ product catalog search, real-time tax
-          calculation via California CDTFA API, event-driven email
-          notifications, client-side PDF generation, and one-click conversion
-          from quotes to Shopify draft orders.
+        <p className={cn("text-sm text-text-tertiary mb-6")}>
+          Role: sole engineer, from observing the sales workflow to designing,
+          building, and maintaining both apps.
         </p>
       </FadeIn>
 
       {/* ---- Metrics ---- */}
       <FadeIn delay={0.2}>
-        <div className={cn("grid grid-cols-4 gap-3 mb-8")}>
+        <div className={cn("grid grid-cols-2 gap-3 mb-8 max-w-sm")}>
           {[
-            { value: "83%", label: "Faster processing" },
-            { value: "30k+", label: "Products searchable" },
-            { value: "100%", label: "Automated PDF flow" },
-            { value: "2", label: "Synced interfaces" },
+            { value: "83%", label: "Faster quote processing" },
+            { value: "30K+", label: "Products searchable" },
           ].map((m) => (
             <div
               key={m.label}
-              className={cn("text-center py-4 rounded-lg bg-bg-secondary")}
+              className={cn("py-4 px-4 rounded-lg bg-bg-secondary")}
             >
-              <div className={cn("text-xl font-display font-bold text-accent")}>
+              <div
+                className={cn(
+                  "text-xl font-body font-semibold tabular-nums text-accent",
+                )}
+              >
                 {m.value}
               </div>
               <div className={cn("text-xs text-text-tertiary mt-1")}>
@@ -87,20 +83,12 @@ export default function B2BQuotePage() {
       <FadeIn delay={0.25}>
         <div className={cn("flex flex-wrap gap-2 mb-10")}>
           {[
-            "React",
+            "Product design",
+            "Interaction design",
             "Remix",
-            "Redux Toolkit",
             "Shopify Polaris",
-            "Shopify App Bridge",
+            "Redux Toolkit",
             "GraphQL",
-            "Drizzle ORM",
-            "Cloudflare Workers",
-            "AWS SES",
-            "jsPDF",
-            "html2canvas",
-            "SunEditor",
-            "Jest",
-            "React Testing Library",
           ].map((tag) => (
             <span
               key={tag}
@@ -128,57 +116,8 @@ export default function B2BQuotePage() {
           ============================================ */}
 
       <article className={cn("space-y-16 mt-16")}>
-        {/* ---- System Architecture ---- */}
-        <FadeIn>
-          <section>
-            <h2 className={cn("font-display text-xl font-semibold mb-4")}>
-              System Architecture
-            </h2>
-            <p className={cn("text-text-secondary leading-relaxed mb-4")}>
-              The ecosystem consists of two synchronized applications: a{" "}
-              <span className={cn("text-text-primary font-medium")}>
-                customer-facing storefront
-              </span>{" "}
-              embedded in the Shopify store for seamless quoting, and an{" "}
-              <span className={cn("text-text-primary font-medium")}>
-                internal admin app
-              </span>{" "}
-              (Quote List, Quote Create, Quote Detail) that gives sales reps
-              full control over the quote lifecycle — from creation to draft
-              order conversion.
-            </p>
-            <p className={cn("text-text-secondary leading-relaxed")}>
-              The storefront communicates with the admin through a REST API
-              endpoint (
-              <code
-                className={cn(
-                  "text-sm font-mono bg-bg-secondary px-1.5 py-0.5 rounded",
-                )}
-              >
-                api.shopify.jsx
-              </code>
-              ) that handles quote creation, customer account provisioning, and
-              event-driven email notifications. The admin side uses Shopify
-              GraphQL for product data, Drizzle ORM on Cloudflare D1 for quote
-              persistence, and the California CDTFA API for real-time tax
-              calculation.
-            </p>
-          </section>
-        </FadeIn>
-        <FadeIn>
-          <figure className="my-8">
-            <div className="rounded-xl overflow-hidden border border-border p-6 bg-bg-secondary">
-              <B2BArchitectureDiagram />
-            </div>
-            <figcaption className="mt-3 text-sm text-text-tertiary text-center">
-              Dual-interface architecture with shared data layer and external
-              services
-            </figcaption>
-          </figure>
-        </FadeIn>
-
         {/* ============================================
-            STORY 1: Storefront
+            THE PROBLEM
             ============================================ */}
         <FadeIn>
           <section>
@@ -187,15 +126,50 @@ export default function B2BQuotePage() {
                 "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
               )}
             >
-              Story 1
+              The problem
+            </p>
+            <h2 className={cn("font-display text-xl font-semibold mb-4")}>
+              Seven manual steps across four tools
+            </h2>
+            <div
+              className={cn("space-y-4 text-text-secondary leading-relaxed")}
+            >
+              <p>
+                Every quote meant jumping between Shopify, a spreadsheet, a
+                document editor, and an email client, re-typing the same
+                product, price, and customer details at each step. Quotes also
+                came in two ways: buyers asking through the website, and reps
+                taking orders by phone or email. Both had to end up in the same
+                place.
+              </p>
+              <p>
+                So the job wasn&apos;t just a faster form. It was two surfaces,
+                one for buyers and one for staff, sharing one quote.
+              </p>
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* ============================================
+            DECISION 1: Separate quote cart
+            ============================================ */}
+        <FadeIn>
+          <section>
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
+              )}
+            >
+              Decision 1
             </p>
             <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              The Storefront Experience
+              A quote cart that doesn't touch the shopping cart
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
-              Customer-facing · Capture intent with minimal friction
+              Buyer side · Shop and request a quote in the same visit
             </p>
 
+            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
             <div
               className={cn("space-y-4 text-text-secondary leading-relaxed")}
             >
@@ -315,9 +289,132 @@ export default function B2BQuotePage() {
             </div>
           </div>
         </FadeIn>
-
         {/* ============================================
-            STORY 2: Quote List + Quote Create
+            DECISION 2: One page for the whole quote
+            ============================================ */}
+
+        <FadeIn>
+          <section>
+            <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2">
+              Decision 2
+            </p>
+            <h2 className="font-display text-xl font-semibold mb-2">
+              One page for the whole quote
+            </h2>
+            <p className="text-sm text-accent mb-6">
+              Staff side · Everything editable without leaving the page
+            </p>
+
+            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
+            <p className="text-text-secondary leading-relaxed mb-4">
+              Quote Detail is where the sales team spends their day, so the
+              design principle was simple:{" "}
+              <span className="text-text-primary font-medium">
+                never leave the page
+              </span>
+              . Product details, customer information, pricing, team
+              assignments, email composition, and lifecycle actions all live in
+              one workspace.
+            </p>
+            <p className="text-text-secondary leading-relaxed">
+              Every B2B customer has unique requirements, different pricing for
+              the same product, tax-exempt status on certain items, custom
+              shipping terms. Staff can{" "}
+              <span className="text-text-primary font-medium">
+                inline-edit any product&apos;s price, quantity, and per-item tax
+                toggle
+              </span>
+              , and the subtotal, tax (fetched live from California CDTFA API
+              based on the customer&apos;s address), and total recalculate
+              instantly. The &quot;Hide Price&quot; badge lets reps suppress
+              pricing on specific items in the generated PDF.
+            </p>
+          </section>
+        </FadeIn>
+        <FadeIn>
+          <ProjectImage
+            src="/images/projects/b2b-quote/admin-detail-v2.webp"
+            alt="Quote Detail command center"
+            caption="Quote Detail: product info, customer details, staff assignment, email — all on one page"
+          />
+        </FadeIn>
+
+        <FadeIn>
+          <ProjectVideo
+            src="/images/projects/b2b-quote/productEdit_done.mp4"
+            poster="/images/projects/b2b-quote/productEdit_hero.webp"
+            caption="Inline editing: modify price, quantity, and per-item tax — total recalculates instantly"
+          />
+        </FadeIn>
+        {/* ============================================
+            DECISION 3: Visible ownership
+            ============================================ */}
+
+        <FadeIn>
+          <section>
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
+              )}
+            >
+              Decision 3
+            </p>
+            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
+              Making ownership visible
+            </h2>
+            <p className={cn("text-sm text-accent mb-6")}>
+              Staff side · One email, one owner, no duplicate replies
+            </p>
+
+            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
+            <div
+              className={cn("space-y-4 text-text-secondary leading-relaxed")}
+            >
+              <p>
+                The bottom section of the Quote Detail page is a{" "}
+                <span className={cn("text-text-primary font-medium")}>
+                  complete email composition tool
+                </span>
+                . From, To, and CC fields auto-populate from the quote data. The
+                subject line auto-generates with the Quote ID. The email body
+                loads a pre-written template customizable through SunEditor, a
+                rich text editor with formatting, links, and file uploads. The
+                auto-generated PDF attaches with one click.
+              </p>
+              <p>
+                Above the email section, the{" "}
+                <span className={cn("text-text-primary font-medium")}>
+                  staff email chip system
+                </span>{" "}
+                handles team coordination. If the customer selected specific
+                staff during storefront submission, those selections carry over.
+                Managers can reassign by clicking different chips. Selected
+                assignees appear in the &quot;Selected Emails&quot; area and are
+                automatically CC&apos;d on outgoing communication, eliminating
+                overlapping work where multiple reps unknowingly respond to the
+                same customer.
+              </p>
+            </div>
+          </section>
+        </FadeIn>
+        <FadeIn>
+          <MediaGrid
+            items={[
+              {
+                src: "/images/projects/b2b-quote/email-composer.webp",
+                alt: "Email composer with SunEditor",
+              },
+              {
+                src: "/images/projects/b2b-quote/staff-chips.webp",
+                alt: "Staff email assignment chips",
+              },
+            ]}
+            columns={2}
+            caption="Left: One-click populated email with SunEditor — Right: Staff assignment with Selected Emails"
+          />
+        </FadeIn>
+        {/* ============================================
+            DETAILS: Finding and building quotes
             ============================================ */}
         <FadeIn>
           <section>
@@ -326,10 +423,10 @@ export default function B2BQuotePage() {
                 "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
               )}
             >
-              Story 2
+              The details
             </p>
             <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Quote Management Hub
+              Finding and building quotes
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
               Admin-facing · Search, sort, and create quotes
@@ -344,17 +441,17 @@ export default function B2BQuotePage() {
                 <span className={cn("text-text-primary font-medium")}>
                   search by Quote ID or customer name
                 </span>{" "}
-                (fuzzy search powered by Drizzle ORM with SQL LIKE queries),
-                sort by date or customer name in either direction, and see
-                Read/Unread status at a glance. Pagination handles large volumes
-                at 20 quotes per page.
+                (partial-match search with Drizzle ORM), sort by date or
+                customer name in either direction, and see Read/Unread status at
+                a glance. Pagination handles large volumes at 20 quotes per
+                page.
               </p>
               <p>
                 The &quot;Create Quote&quot; button opens a full creation form
                 for phone or email orders that bypass the storefront. The
                 standout feature here is the{" "}
                 <span className={cn("text-text-primary font-medium")}>
-                  product search across 20,000+ items
+                  product search across 30K+ items
                 </span>
                 , staff can search by product name and filter by Category,
                 Collection, Type, or Vendor using Shopify&apos;s ResourcePicker
@@ -407,183 +504,8 @@ export default function B2BQuotePage() {
             caption="Left: Search 30k+ products with filters — Center: Custom item modal — Right: Mixed catalog + custom items"
           />
         </FadeIn>
-
         {/* ============================================
-            STORY 3: Quote Detail — The Command Center
-            ============================================ */}
-
-        <FadeIn>
-          <section>
-            <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2">
-              Story 3
-            </p>
-            <h2 className="font-display text-xl font-semibold mb-2">
-              The Quote Detail Command Center
-            </h2>
-            <p className="text-sm text-accent mb-6">
-              Admin-facing · Everything on one page, fully editable
-            </p>
-
-            <p className="text-text-secondary leading-relaxed mb-4">
-              This is the core workspace, a 2,300-line React component where 80%
-              of daily work happens. The design principle was simple:{" "}
-              <span className="text-text-primary font-medium">
-                never leave the page
-              </span>
-              . Product details, customer information, pricing, team
-              assignments, email composition, and lifecycle actions all live in
-              one workspace.
-            </p>
-            <p className="text-text-secondary leading-relaxed">
-              Every B2B customer has unique requirements, different pricing for
-              the same product, tax-exempt status on certain items, custom
-              shipping terms. Staff can{" "}
-              <span className="text-text-primary font-medium">
-                inline-edit any product&apos;s price, quantity, and per-item tax
-                toggle
-              </span>
-              , and the subtotal, tax (fetched live from California CDTFA API
-              based on the customer&apos;s address), and total recalculate
-              instantly. The &quot;Hide Price&quot; badge lets reps suppress
-              pricing on specific items in the generated PDF.
-            </p>
-          </section>
-        </FadeIn>
-        <FadeIn>
-          <ProjectImage
-            src="/images/projects/b2b-quote/admin-detail-v2.webp"
-            alt="Quote Detail command center"
-            caption="Quote Detail: product info, customer details, staff assignment, email — all on one page"
-          />
-        </FadeIn>
-
-        <FadeIn>
-          <ProjectVideo
-            src="/images/projects/b2b-quote/productEdit_done.mp4"
-            poster="/images/projects/b2b-quote/productEdit_hero.webp"
-            caption="Inline editing: modify price, quantity, and per-item tax — total recalculates instantly"
-          />
-        </FadeIn>
-
-        {/* ============================================
-            STORY 4: One-Click Email + Team Coordination
-            ============================================ */}
-
-        <FadeIn>
-          <section>
-            <p
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
-              )}
-            >
-              Story 4
-            </p>
-            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              One-Click Email & Team Coordination
-            </h2>
-            <p className={cn("text-sm text-accent mb-6")}>
-              Admin-facing · From 10 minutes of manual work to 30 seconds
-            </p>
-
-            <div
-              className={cn("space-y-4 text-text-secondary leading-relaxed")}
-            >
-              <p>
-                The bottom section of the Quote Detail page is a{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  complete email composition tool
-                </span>
-                . From, To, and CC fields auto-populate from the quote data. The
-                subject line auto-generates with the Quote ID. The email body
-                loads a pre-written template customizable through SunEditor, a
-                rich text editor with formatting, links, and file uploads. The
-                auto-generated PDF attaches with one click.
-              </p>
-              <p>
-                Above the email section, the{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  staff email chip system
-                </span>{" "}
-                handles team coordination. If the customer selected specific
-                staff during storefront submission, those selections carry over.
-                Managers can reassign by clicking different chips. Selected
-                assignees appear in the &quot;Selected Emails&quot; area and are
-                automatically CC&apos;d on outgoing communication, eliminating
-                overlapping work where multiple reps unknowingly respond to the
-                same customer.
-              </p>
-            </div>
-          </section>
-        </FadeIn>
-        <FadeIn>
-          <MediaGrid
-            items={[
-              {
-                src: "/images/projects/b2b-quote/email-composer.webp",
-                alt: "Email composer with SunEditor",
-              },
-              {
-                src: "/images/projects/b2b-quote/staff-chips.webp",
-                alt: "Staff email assignment chips",
-              },
-            ]}
-            columns={2}
-            caption="Left: One-click populated email with SunEditor — Right: Staff assignment with Selected Emails"
-          />
-        </FadeIn>
-
-        <FadeIn>
-          <div className="p-6 rounded-xl bg-bg-secondary border border-border">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold">
-                !
-              </span>
-              <h4 className="font-display font-semibold text-text-primary">
-                10 min → 30 sec transformation
-              </h4>
-            </div>
-            <div
-              className={cn(
-                "grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-text-secondary",
-              )}
-            >
-              <div className={cn("border-l-2 border-border-hover pl-4 py-1")}>
-                <p
-                  className={cn(
-                    "font-medium text-text-tertiary mb-2 uppercase tracking-wider text-xs",
-                  )}
-                >
-                  Before (manual)
-                </p>
-                <ol className={cn("space-y-1.5 list-decimal list-inside")}>
-                  <li>Open Shopify to find product details</li>
-                  <li>Copy pricing into a spreadsheet</li>
-                  <li>Manually calculate tax and totals</li>
-                  <li>Format a PDF in Word/Google Docs</li>
-                  <li>Open email client, write message</li>
-                  <li>Attach PDF, CC relevant staff</li>
-                  <li>Send — ~10 minutes per quote</li>
-                </ol>
-              </div>
-              <div className="border-l-2 border-accent pl-4 py-1 bg-accent/5 rounded-r-md">
-                <p className="font-medium text-accent mb-2 uppercase tracking-wider text-xs">
-                  After (automated)
-                </p>
-                <ol className="space-y-1.5 list-decimal list-inside">
-                  <li>Open Quote Detail — all data pre-loaded</li>
-                  <li>Adjust pricing inline if needed</li>
-                  <li>Click staff email chips for CC</li>
-                  <li>Review auto-populated email</li>
-                  <li>Attach auto-generated PDF</li>
-                  <li>Send — ~30 seconds per quote</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-
-        {/* ============================================
-            STORY 5: Lifecycle Actions
+            DETAILS: Closing the loop
             ============================================ */}
         <FadeIn>
           <section>
@@ -592,10 +514,10 @@ export default function B2BQuotePage() {
                 "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
               )}
             >
-              Story 5
+              The details
             </p>
             <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Quote Lifecycle & Draft Order Conversion
+              Closing the loop: quote to order
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
               Admin-facing · From quote to paid order in one click
@@ -717,32 +639,176 @@ export default function B2BQuotePage() {
         </FadeIn>
 
         {/* ============================================
-            Technical Deep Dive
+            OUTCOME
             ============================================ */}
         <FadeIn>
           <section>
-            <h2 className={cn("font-display text-xl font-semibold mb-6")}>
-              Technical Deep Dive
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
+              )}
+            >
+              Outcome
+            </p>
+            <h2 className={cn("font-display text-xl font-semibold mb-4")}>
+              83% faster quote processing
             </h2>
-
-            <div className="space-y-4">
-              <div className="p-6 rounded-xl bg-bg-secondary border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold">
-                    1
-                  </span>
-                  <h4 className="font-display font-semibold text-text-primary">
-                    Decoupled state management
-                  </h4>
-                </div>
-                <p className="text-sm text-text-secondary leading-relaxed mb-3">
-                  Redux Toolkit slices for Quote Cart vs Shopping Cart operate
-                  independently with separate actions and selectors. The Quote
-                  Cart manages items, quantities, tax toggles, and custom
-                  products without touching the standard Shopify cart state.
+            <p className={cn("text-text-secondary leading-relaxed")}>
+              The time saved didn&apos;t come from making any single screen
+              faster. It came from removing steps: fields that fill themselves,
+              tax that&apos;s already calculated, a PDF that&apos;s already
+              attached, and a quote that becomes an order in one click.
+            </p>
+          </section>
+        </FadeIn>
+        {/* TODO(Zoe): 下面 before/after 写的是 ~10 分钟 → ~30 秒（约 95%），和 83% 对不上，确认后统一 */}
+        <FadeIn>
+          <div className="p-6 rounded-xl bg-bg-secondary border border-border">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold">
+                !
+              </span>
+              <h4 className="font-display font-semibold text-text-primary">
+                10 min → 30 sec transformation
+              </h4>
+            </div>
+            <div
+              className={cn(
+                "grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-text-secondary",
+              )}
+            >
+              <div className={cn("border-l-2 border-border-hover pl-4 py-1")}>
+                <p
+                  className={cn(
+                    "font-medium text-text-tertiary mb-2 uppercase tracking-wider text-xs",
+                  )}
+                >
+                  Before (manual)
                 </p>
-                <div className="rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto">
-                  <pre>{`// Independent slices prevent state conflicts
+                <ol className={cn("space-y-1.5 list-decimal list-inside")}>
+                  <li>Open Shopify to find product details</li>
+                  <li>Copy pricing into a spreadsheet</li>
+                  <li>Manually calculate tax and totals</li>
+                  <li>Format a PDF in Word/Google Docs</li>
+                  <li>Open email client, write message</li>
+                  <li>Attach PDF, CC relevant staff</li>
+                  <li>Send — ~10 minutes per quote</li>
+                </ol>
+              </div>
+              <div className="border-l-2 border-accent pl-4 py-1 bg-accent/5 rounded-r-md">
+                <p className="font-medium text-accent mb-2 uppercase tracking-wider text-xs">
+                  After (automated)
+                </p>
+                <ol className="space-y-1.5 list-decimal list-inside">
+                  <li>Open Quote Detail — all data pre-loaded</li>
+                  <li>Adjust pricing inline if needed</li>
+                  <li>Click staff email chips for CC</li>
+                  <li>Review auto-populated email</li>
+                  <li>Attach auto-generated PDF</li>
+                  <li>Send — ~30 seconds per quote</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+        {/* ============================================
+            Technical Deep Dive
+            ============================================ */}
+        <FadeIn>
+          <details className={cn("group rounded-xl border border-border")}>
+            <summary
+              className={cn(
+                "flex cursor-pointer list-none items-center justify-between px-6 py-5",
+                "font-display text-xl font-semibold text-text-primary",
+                "[&::-webkit-details-marker]:hidden",
+              )}
+            >
+              Technical deep dive
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "text-accent transition-transform duration-200 group-open:rotate-45",
+                )}
+              >
+                +
+              </span>
+            </summary>
+            <div className={cn("space-y-10 px-6 pb-6")}>
+              <div>
+                {/* ---- System Architecture ---- */}
+                <FadeIn>
+                  <section>
+                    <h3
+                      className={cn(
+                        "font-display font-semibold text-text-primary mb-4",
+                      )}
+                    >
+                      System architecture
+                    </h3>
+                    <p
+                      className={cn("text-text-secondary leading-relaxed mb-4")}
+                    >
+                      The ecosystem consists of two synchronized applications: a{" "}
+                      <span className={cn("text-text-primary font-medium")}>
+                        customer-facing storefront
+                      </span>{" "}
+                      embedded in the Shopify store for seamless quoting, and an{" "}
+                      <span className={cn("text-text-primary font-medium")}>
+                        internal admin app
+                      </span>{" "}
+                      (Quote List, Quote Create, Quote Detail) that gives sales
+                      reps full control over the quote lifecycle — from creation
+                      to draft order conversion.
+                    </p>
+                    <p className={cn("text-text-secondary leading-relaxed")}>
+                      The storefront communicates with the admin through a REST
+                      API endpoint (
+                      <code
+                        className={cn(
+                          "text-sm font-mono bg-bg-secondary px-1.5 py-0.5 rounded",
+                        )}
+                      >
+                        api.shopify.jsx
+                      </code>
+                      ) that handles quote creation, customer account
+                      provisioning, and event-driven email notifications. The
+                      admin side uses Shopify GraphQL for product data, Drizzle
+                      ORM on Cloudflare D1 for quote persistence, and the
+                      California CDTFA API for real-time tax calculation.
+                    </p>
+                  </section>
+                </FadeIn>
+                <FadeIn>
+                  <figure className="my-8">
+                    <div className="rounded-xl overflow-hidden border border-border p-6 bg-bg-secondary">
+                      <B2BArchitectureDiagram />
+                    </div>
+                    <figcaption className="mt-3 text-sm text-text-tertiary text-center">
+                      Dual-interface architecture with shared data layer and
+                      external services
+                    </figcaption>
+                  </figure>
+                </FadeIn>
+              </div>
+
+              <div className="space-y-4">
+                <div className="p-6 rounded-xl bg-bg-secondary border border-border">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold">
+                      1
+                    </span>
+                    <h4 className="font-display font-semibold text-text-primary">
+                      Decoupled state management
+                    </h4>
+                  </div>
+                  <p className="text-sm text-text-secondary leading-relaxed mb-3">
+                    Redux Toolkit slices for Quote Cart vs Shopping Cart operate
+                    independently with separate actions and selectors. The Quote
+                    Cart manages items, quantities, tax toggles, and custom
+                    products without touching the standard Shopify cart state.
+                  </p>
+                  <div className="rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto">
+                    <pre>{`// Independent slices prevent state conflicts
 const quoteCartSlice = createSlice({
   name: 'quoteCart',
   initialState: { items: [], inquiry: {} },
@@ -752,47 +818,47 @@ const quoteCartSlice = createSlice({
   },
 });
 // Regular shopping cart remains untouched`}</pre>
+                  </div>
                 </div>
-              </div>
 
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    2
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Server-side parallelized API requests
-                  </h4>
-                </div>
-                <p
-                  className={cn(
-                    "text-sm text-text-secondary leading-relaxed mb-3",
-                  )}
-                >
-                  The Quote Detail loader fetches quote data, then dynamically
-                  builds a batch GraphQL query to resolve all product variants
-                  in a single request, instead of N sequential calls for N
-                  products. Combined with Remix&apos;s loader pattern, data is
-                  server-rendered before the page reaches the client.
-                </p>
                 <div
                   className={cn(
-                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
+                    "p-6 rounded-xl bg-bg-secondary border border-border",
                   )}
                 >
-                  <pre>{`// Batch GraphQL: resolve N products in 1 request
+                  <div className={cn("flex items-center gap-3 mb-3")}>
+                    <span
+                      className={cn(
+                        "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
+                      )}
+                    >
+                      2
+                    </span>
+                    <h4
+                      className={cn(
+                        "font-display font-semibold text-text-primary",
+                      )}
+                    >
+                      Server-side parallelized API requests
+                    </h4>
+                  </div>
+                  <p
+                    className={cn(
+                      "text-sm text-text-secondary leading-relaxed mb-3",
+                    )}
+                  >
+                    The Quote Detail loader fetches quote data, then dynamically
+                    builds a batch GraphQL query to resolve all product variants
+                    in a single request, instead of N sequential calls for N
+                    products. Combined with Remix&apos;s loader pattern, data is
+                    server-rendered before the page reaches the client.
+                  </p>
+                  <div
+                    className={cn(
+                      "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
+                    )}
+                  >
+                    <pre>{`// Batch GraphQL: resolve N products in 1 request
 const productQueries = products.map((p, i) => \`
   variant\${i}: node(id: "gid://shopify/ProductVariant/\${p.variant_id}") {
     ... on ProductVariant { id, title, price, inventoryQuantity,
@@ -801,121 +867,127 @@ const productQueries = products.map((p, i) => \`
   }
 \`);
 const { data } = await admin.graphql(\`{ \${productQueries.join("\\n")} }\`);`}</pre>
+                  </div>
                 </div>
-              </div>
 
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    3
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Real-time tax via California CDTFA API
-                  </h4>
-                </div>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  Tax rates are fetched dynamically based on the customer&apos;s
-                  shipping address using California&apos;s official tax rate
-                  API. The rate updates live as the address changes, and
-                  per-item tax toggles let reps mark individual products as
-                  tax-exempt, the total recalculates with each toggle.
-                </p>
-              </div>
-
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    4
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Advanced search with fuzzy matching
-                  </h4>
-                </div>
-                <p
-                  className={cn(
-                    "text-sm text-text-secondary leading-relaxed mb-3",
-                  )}
-                >
-                  The Quick Search in Quote Detail supports exact match by Quote
-                  ID, exact match by Shopify Customer ID (with GID format
-                  normalization), and fuzzy search across name, email, and
-                  phone, with phone number normalization that strips dashes,
-                  spaces, parentheses, and plus signs.
-                </p>
                 <div
                   className={cn(
-                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
+                    "p-6 rounded-xl bg-bg-secondary border border-border",
                   )}
                 >
-                  <pre>{`// Phone normalization for fuzzy search
+                  <div className={cn("flex items-center gap-3 mb-3")}>
+                    <span
+                      className={cn(
+                        "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
+                      )}
+                    >
+                      3
+                    </span>
+                    <h4
+                      className={cn(
+                        "font-display font-semibold text-text-primary",
+                      )}
+                    >
+                      Real-time tax via California CDTFA API
+                    </h4>
+                  </div>
+                  <p
+                    className={cn(
+                      "text-sm text-text-secondary leading-relaxed",
+                    )}
+                  >
+                    Tax rates are fetched dynamically based on the
+                    customer&apos;s shipping address using California&apos;s
+                    official tax rate API. The rate updates live as the address
+                    changes, and per-item tax toggles let reps mark individual
+                    products as tax-exempt, the total recalculates with each
+                    toggle.
+                  </p>
+                </div>
+
+                <div
+                  className={cn(
+                    "p-6 rounded-xl bg-bg-secondary border border-border",
+                  )}
+                >
+                  <div className={cn("flex items-center gap-3 mb-3")}>
+                    <span
+                      className={cn(
+                        "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
+                      )}
+                    >
+                      4
+                    </span>
+                    <h4
+                      className={cn(
+                        "font-display font-semibold text-text-primary",
+                      )}
+                    >
+                      Normalized quote search
+                    </h4>
+                  </div>
+                  <p
+                    className={cn(
+                      "text-sm text-text-secondary leading-relaxed mb-3",
+                    )}
+                  >
+                    The Quick Search in Quote Detail supports exact match by
+                    Quote ID, exact match by Shopify Customer ID (with GID
+                    format normalization), and partial-match search across name,
+                    email, and phone, with phone number normalization that
+                    strips dashes, spaces, parentheses, and plus signs.
+                  </p>
+                  <div
+                    className={cn(
+                      "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
+                    )}
+                  >
+                    <pre>{`// Phone normalization for quote search
 const phoneExpr = sql\`
   replace(replace(replace(replace(replace(
     json_extract(customer, '$.phone'),
     '-',''),' ',''),'(',''),')',''),'+','')
 \`;
 // Matches "858-717-5278" when searching "8587175278"`}</pre>
+                  </div>
                 </div>
-              </div>
 
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    5
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Test coverage across the quote lifecycle
-                  </h4>
-                </div>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
+                <div
+                  className={cn(
+                    "p-6 rounded-xl bg-bg-secondary border border-border",
+                  )}
                 >
-                  Jest + React Testing Library covering the critical paths of
-                  the quote lifecycle: cart operations, form validation, pricing
-                  calculations, PDF generation, and email dispatch. Tests catch
-                  regressions across the complex interaction between Shopify
-                  GraphQL, Drizzle ORM, and the CDTFA tax API.
-                </p>
+                  <div className={cn("flex items-center gap-3 mb-3")}>
+                    <span
+                      className={cn(
+                        "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
+                      )}
+                    >
+                      5
+                    </span>
+                    <h4
+                      className={cn(
+                        "font-display font-semibold text-text-primary",
+                      )}
+                    >
+                      Test coverage across the quote lifecycle
+                    </h4>
+                  </div>
+                  <p
+                    className={cn(
+                      "text-sm text-text-secondary leading-relaxed",
+                    )}
+                  >
+                    Jest + React Testing Library covering the critical paths of
+                    the quote lifecycle: cart operations, form validation,
+                    pricing calculations, PDF generation, and email dispatch.
+                    Tests catch regressions across the complex interaction
+                    between Shopify GraphQL, Drizzle ORM, and the CDTFA tax API.
+                  </p>
+                </div>
               </div>
             </div>
-          </section>
+          </details>
         </FadeIn>
         {/* ============================================
             What I Learned
@@ -955,12 +1027,12 @@ const phoneExpr = sql\`
           )}
         >
           <Link
-            href="/projects/mti"
+            href="/#projects"
             className={cn(
               "text-sm text-text-tertiary hover:text-text-primary transition-colors",
             )}
           >
-            ← Previous: B2B E-commerce Platform
+            ← All work
           </Link>
           <Link
             href="/projects/tagwise-ai"
