@@ -36,15 +36,16 @@ export function Header() {
         )}
         aria-label="Main navigation"
       >
-        <Link
-          href="/"
-          className={cn(
-            "font-display font-semibold text-text-primary text-lg hover:text-accent transition-colors",
-          )}
-        >
-          {" "}
-          Zoe Meng
-        </Link>
+      <Link
+        href="/"
+        aria-label="Zoe Meng, home"
+        className={cn(
+          "font-display text-2xl font-bold tracking-tighter leading-none",
+          "text-text-primary hover:text-accent transition-colors",
+        )}
+      >
+        zm<span className={cn("text-accent")}>.</span>
+      </Link>
         <div className={cn("flex items-center gap-8")}>
           {navLinks.map((link) => (
             <a
