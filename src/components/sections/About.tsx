@@ -15,56 +15,34 @@ export function About() {
       <div className={cn("space-y-4 text-text-secondary leading-relaxed mt-1")}>
         <FadeIn>
           <p>
-            I'm Zoe, a frontend engineer who came from the design side. I hold
-            an M.A. in Web Design & New Media from the Academy of Art University
-            in San Francisco, where the coursework ran from interaction design
-            and visual prototyping through HTML, CSS, and JavaScript. I moved
-            into engineering because I wanted to build the interfaces I was
-            designing rather than hand them off. That foundation still shapes
-            how I approach code: I don't just think about whether something
-            works, but whether it feels right.
+            I came to engineering from design. My M.A. in Web Design & New
+            Media at the Academy of Art University covered interaction design
+            and prototyping, and I wanted to build the interfaces I was
+            designing rather than hand them off. So I spent two years in an
+            intensive software engineering program (LaiOffer) before joining
+            MTI in 2022.
           </p>
         </FadeIn>
+
         <FadeIn delay={0.1}>
           <p>
-            My focus is on the{" "}
-            <span className={cn("text-text-primary font-semibold")}>
-              React ecosystem
+            The part I care about most sits{" "}
+            <span className={cn("text-text-primary font-medium")}>
+              between the mock-up and the shipped product
             </span>
-            : TypeScript, Remix, Next.js, with a growing specialization in{" "}
-            <span className={cn("text-accent font-semibold")}>
-              AI-integrated frontend applications
-            </span>{" "}
-            from streaming UI pipelines to real-time AI workflows. I enjoy the
-            challenge of making complex interfaces feel simple and fast, whether
-            that's optimizing{" "}
-            <span className={cn("text-text-primary font-semibold")}>
-              Core Web Vitals
-            </span>{" "}
-            ,engineering{" "}
-            <span className={cn("text-text-primary font-semibold")}>
-              state management systems
-            </span>{" "}
-            that scale, or building intuitive{" "}
-            <span className={cn("text-accent font-semibold")}>
-              human-AI interaction patterns
-            </span>
-            .
+            : the loading state, the error state, what happens on the keyboard,
+            how a catalog of 30,000 things stays navigable. As the sole
+            engineer at MTI, I&apos;ve owned problems end to end, from sitting
+            with the sales team to see where they stalled to shipping and
+            maintaining the tool that replaced their spreadsheet.
           </p>
         </FadeIn>
+
         <FadeIn delay={0.2}>
           <p>
-            When I'm not coding, you'll find me exploring the intersection of
-            technology and creativity, always looking for ways to bridge the gap
-            between{" "}
-            <span className={cn("text-text-primary font-semibold")}>
-              engineering precision
-            </span>{" "}
-            and{" "}
-            <span className={cn("text-text-primary font-semibold")}>
-              design intuition
-            </span>
-            .
+            Lately I&apos;ve been working on AI interfaces, where the hard
+            problems are trust and legibility: showing what a model is doing
+            so people can check it before it touches anything real.
           </p>
         </FadeIn>
       </div>
