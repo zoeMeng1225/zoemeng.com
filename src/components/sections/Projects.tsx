@@ -8,86 +8,83 @@ import { ProjectCard } from "../ui/ProjectCard";
 
 const projects = [
   {
-    title: "B2B Quote Automation Ecosystem",
+    title: "B2B Quote — Replacing Excel with a two-sided flow",
     description:
-      "Dual-interface system bridging customers and sales teams. Engineered a decoupled quote cart, automated PDF generation, and event-driven email workflows.",
+      "Sales quoted by Excel and email. After watching where they stalled, I designed a cart-style builder for buyers and an admin for staff.",
     tags: [
-      "React",
+      "Product design",
       "Remix",
-      "Redux Toolkit",
       "GraphQL",
       "AWS SES",
-      "Polaris UI",
+      "Polaris",
     ],
     href: "/projects/b2b-quote",
     image: "/images/projects/b2b-quote/b2b-quote-hero1.webp",
     metrics: [
       { label: "Faster processing", value: "83%" },
-      { label: "Products searchable", value: "30k+" },
+      { label: "Products", value: "30K+" },
     ],
   },
   {
-    title: "TagWise AI — SEO Tagging Platform",
+    title: "TagWise AI — Designing trust into AI tagging",
     kind: "UX Case Study",
     description:
-      "AI-powered SEO tag generation with human-in-the-loop staging workflow. Designed a non-destructive staging system to ensure data integrity before committing via Shopify GraphQL API.",
+      "Merchants didn't trust AI writing to their live store. I designed a staging state where every AI tag is visible, editable, and reversible before it ships.",
     tags: [
-      "React 18",
-      "TypeScript",
-      "UX Research",
-      "Interaction Design",
-      "Prisma ORM",
-      "OpenAI API",
-      "Tailwind CSS",
-      "Shopify App Bridge",
+      "Interaction design",
+      "UX research",
+      "React",
     ],
     href: "/projects/tagwise-ai",
     image: "/images/projects/tagwise/tagwise.webp",
     metrics: [
-      { label: "Industry categories", value: "13" },
-      { label: "Scoring dimensions", value: "6" },
+      { label: "Lower perceived latency", value: "40%" },
+      { label: "At 100+ items", value: "60fps" },
     ],
   },
     {
     title: "AI Component Playground — Making streaming legible",
     description:
-      "A text-to-component tool where the hard part was the wait. A two-phase streaming display turns generation into readable progress, with a live, editable preview.",
+      "A text-to-component tool where the hard part was the wait. A two-phase display turns generation into readable progress.",
     tags: ["Interaction design", "Next.js", "Sandpack"],
     href: "/projects/ai-playground",
     image: "/images/projects/ai-playground/aiPlayground_hero.webp",
     metrics: [{ label: "First token", value: "<2s" }],
-  },
-  {
-    title: "AI Code Reviewer",
-    description:
-      "Paste code and get instant, structured AI feedback with real-time streaming. Supports three review modes (Quick, Deep, Security), severity-tagged issues, and a 0-100 code quality score.",
-    tags: [
-      "Next.js 14",
-      "TypeScript",
-      "OpenAI API",
-      "Streaming",
-      "Monaco Editor",
-    ],
-    href: "/projects/ai-code-reviewer",
-    image: "/images/projects/ai-code-reviewer/code-reviewer-hero.webp",
-    metrics: [
-      { label: "Review modes", value: "3" },
-      { label: "Languages", value: "8" },
-      { label: "Open source", value: "✓" },
-    ],
-  },
-  {
-    title: "MTI Storefront — Information architecture for 30K products",
-    description:
-      "Rebuilt a 30K-product B2B catalog on Shopify: modular sections marketing can edit on their own, multi-level navigation, search that understands industrial part numbers, and product pages that adapt to guests, verified customers, and staff.",
-    tags: ["Information architecture","Shopify","Liquid" ],
-    href: "/projects/mti",
-    image: "/images/projects/mti/mti_website.webp",
-    metrics: [
-      { label: "Products", value: "30K+" },
-    ],
-  },
+  }
 ];
+
+const moreWork = [
+  {
+      title: "AI Code Reviewer",
+      description:
+        "Paste code and get instant, structured AI feedback with real-time streaming. Supports three review modes (Quick, Deep, Security), severity-tagged issues, and a 0-100 code quality score.",
+      tags: [
+        "Next.js 14",
+        "TypeScript",
+        "OpenAI API",
+        "Streaming",
+        "Monaco Editor",
+      ],
+      href: "/projects/ai-code-reviewer",
+      image: "/images/projects/ai-code-reviewer/code-reviewer-hero.webp",
+      metrics: [
+        { label: "Review modes", value: "3" },
+        { label: "Languages", value: "8" },
+        { label: "Open source", value: "✓" },
+      ],
+    },
+    {
+      title: "MTI Storefront — Information architecture for 30K products",
+      description:
+        "Rebuilt a 30K-product B2B catalog on Shopify: modular sections marketing can edit on their own, multi-level navigation, search that understands industrial part numbers, and product pages that adapt to guests, verified customers, and staff.",
+      tags: ["Information architecture","Shopify","Liquid" ],
+      href: "/projects/mti",
+      image: "/images/projects/mti/mti_website.webp",
+      metrics: [
+        { label: "Products", value: "30K+" },
+      ],
+    },
+]
 
 export function Projects() {
   return (
@@ -103,6 +100,18 @@ export function Projects() {
           </FadeIn>
         ))}
       </div>
+      <FadeIn>
+      <div className={cn("mt-16")}>
+        <h3 className={cn("text-sm font-semibold text-text-primary mb-4")}>
+          More work
+        </h3>
+        <div className={cn("grid gap-6 md:grid-cols-2")}>
+          {moreWork.map((project) => (
+            <ProjectCard key={project.href} {...project} isCompact />
+          ))}
+        </div>
+      </div>
+    </FadeIn>
     </section>
   );
 }
