@@ -1,412 +1,234 @@
 // src/app/projects/tagwise-ai/page.tsx
-
 import { Metadata } from "next";
-import { ProjectImage } from "@/components/ui/ProjectImage";
 import Link from "next/link";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { cn } from "@/lib/utils";
+import { ProjectImage } from "@/components/ui/ProjectImage";
 import { MediaGrid } from "@/components/ui/MediaGrid";
 import { BackToHome } from "@/components/ui/BackToHome";
+import {
+  body,
+  Eyebrow,
+  SectionTitle,
+  Strong,
+  Card,
+  Metrics,
+  TagList,
+  TechCard,
+  DeepDive,
+} from "@/components/ui/CaseStudy";
 
 export const metadata: Metadata = {
-  title: "TagWise AI — SEO Tagging Platform — Zoe Meng",
+  title: "TagWise AI",
   description:
-    "AI-powered SEO tag generation and scoring platform for Shopify merchants. Human-in-the-loop workflow with proprietary scoring engine across 13 industry categories.",
+    "A Shopify app that drafts SEO tags with AI and lets merchants review them before anything goes live.",
 };
+
+const stateCode = `// Original -> AI draft (review) -> Final (saved)
+// productUpdate only runs when the merchant clicks "Confirm Tags"
+const mutation = \`
+  mutation productUpdate($input: ProductInput!) {
+    productUpdate(input: $input) {
+      product { id, tags }
+      userErrors { field, message }
+    }
+  }
+\`;`;
+
+const keywordCode = `// 13 industry keyword lists
+const KEYWORD_MAP = {
+  fashion: { function, material, scene },
+  electronics: { function, material, scene },
+  industrial: { function, material, scene },
+  // ...10 more
+};
+// The scorer picks the list for the product type
+const keywords = KEYWORD_MAP[productType] || generalKeywords;`;
+
+const tagCrawlCode = `// Collect every unique tag in the store, 100 products at a time
+const allTags = new Set();
+while (hasNextPage) {
+  const data = await admin.graphql(query, {
+    variables: { first: 100, after: cursor }
+  });
+  for (const edge of data.products.edges) {
+    edge.node.tags.forEach(tag => allTags.add(tag));
+    cursor = edge.cursor;
+  }
+  hasNextPage = data.products.pageInfo.hasNextPage;
+}`;
 
 export default function TagWise() {
   return (
     <main className={cn("max-w-3xl mx-auto px-6 pt-32 pb-16")}>
-      {/* return to nav*/}
-
       <BackToHome />
-      {/* ============================================
-          HERO
-          ============================================ */}
 
+      {/* ---------- Hero ---------- */}
       <FadeIn>
         <p className={cn("text-sm text-accent font-medium mb-3")}>
-          Personal Project · MVP in Beta
+          TagWise AI · Personal project · Beta
         </p>
         <h1
           className={cn(
             "font-display text-3xl md:text-4xl font-bold tracking-tight mb-4",
           )}
         >
-          TagWise AI — SEO Tagging Platform
+          AI tagging that waits for a yes
         </h1>
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <p className={cn("text-lg text-text-secondary leading-relaxed mb-6")}>
-          An AI-powered Shopify embedded app that generates, scores, and
-          optimizes product tags for SEO. Instead of blindly overwriting
-          metadata, TagWise uses a{" "}
-          <span className={cn("text-text-primary font-medium")}>
-            human-in-the-loop staging workflow
-          </span>{" "}
-          , AI-generated tags are reviewed and edited before they ever touch the
-          database.
+        <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
+          TagWise is a Shopify app that writes and scores SEO tags for products.
+          Merchants told me they didn&apos;t want AI changing their live store
+          without seeing it first, so every AI tag lands as a{" "}
+          <Strong>draft they can edit</Strong>, and nothing is saved until they
+          confirm.
         </p>
       </FadeIn>
-
       <FadeIn delay={0.15}>
         <p className={cn("text-text-secondary leading-relaxed mb-10")}>
-          The platform includes a{" "}
-          <span className={cn("text-text-primary font-medium")}>
-            proprietary scoring engine
-          </span>{" "}
-          with industry-specific keyword databases across 13 categories, giving
-          merchants actionable feedback on tag quality, not just a number, but
-          specific optimization suggestions.
+          It also scores existing tags out of 100, using my own rules and
+          keyword lists for 13 industries, and tells merchants what to fix.
         </p>
       </FadeIn>
 
-      {/* ---- Metrics ---- */}
       <FadeIn delay={0.2}>
-        <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-3 mb-8")}>
-          {[
+        <Metrics
+          items={[
             { value: "40%", label: "Lower perceived latency" },
             { value: "60fps", label: "At 100+ products" },
-            { value: "13", label: "Industry categories" },
-            { value: "6", label: "Scoring dimensions" },
-          ].map((m) => (
-            <div
-              key={m.label}
-              className={cn("text-center py-4 rounded-lg bg-bg-secondary")}
-            >
-              <div className={cn("text-xl font-display font-bold text-accent")}>
-                {m.value}
-              </div>
-              <div className={cn("text-xs text-text-tertiary mt-1")}>
-                {m.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </FadeIn>
-
-      {/* ---- Tags ---- */}
-      <FadeIn delay={0.25}>
-        <div className={cn("flex flex-wrap gap-2 mb-10")}>
-          {[
-            "React 18",
-            "Remix",
-            "TypeScript",
-            "Shopify Polaris",
-            "Shopify App Bridge",
-            "GraphQL",
-            "OpenAI API",
-            "Prisma ORM",
-            "Tailwind CSS",
-            "Vite",
-          ].map((tag) => (
-            <span
-              key={tag}
-              className={cn(
-                "text-xs px-2.5 py-1 rounded-full bg-accent-light text-accent-dark font-medium",
-              )}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </FadeIn>
-
-      {/* ---- Hero screenshot ---- */}
-      <FadeIn delay={0.3}>
-        <ProjectImage
-          src="/images/projects/tagwise/tagwise.webp"
-          alt="TagWise AI dashboard showing product list with tags, scores, and suggestions"
-          priority
-          caption="TagWise AI dashboard: search, filter, generate, and score tags for your entire product catalog"
+            { value: "13", label: "Industry keyword lists" },
+            { value: "6", label: "Scoring checks" },
+          ]}
         />
       </FadeIn>
 
-      {/* ============================================
-          CONTENT
-          ============================================ */}
+      <FadeIn delay={0.25}>
+        <TagList
+          tags={[
+            "Interaction design",
+            "UX research",
+            "React",
+            "Remix",
+            "Shopify Polaris",
+            "OpenAI API",
+          ]}
+        />
+      </FadeIn>
+
+      <FadeIn delay={0.3}>
+        <ProjectImage
+          src="/images/projects/tagwise/tagwise.webp"
+          alt="TagWise dashboard with a product list, tags, scores, and suggestions"
+          priority
+          caption="The TagWise dashboard: search, filter, generate tags, and score them."
+        />
+      </FadeIn>
+
       <article className={cn("space-y-16 mt-16")}>
-        {/* ---- The Problem ---- */}
+        {/* ---------- The problem ---------- */}
         <FadeIn>
           <section>
-            <h2 className={cn("font-display text-xl font-semibold mb-4")}>
-              The problem
-            </h2>
-            <p className={cn("text-text-secondary leading-relaxed mb-4")}>
-              For Shopify merchants with large catalogs, product tagging is a
-              nightmare. Manually tagging thousands of products is a time sink
-              that leads to inconsistency; humans tend to use spammy, generic
-              tags like &quot;hot&quot;, &quot;new&quot;, or
-              &quot;best-seller&quot; that actually hurt SEO. There&apos;s no
-              strategy behind the tags, no way to know which ones drive traffic,
-              and no quality control before they go live.
-            </p>
-            <p className={cn("text-text-secondary leading-relaxed")}>
-              Existing solutions either blindly overwrite tags with AI output (
-              risking data loss) or provide no intelligence at all. Merchants
-              need something in between: an AI that understands SEO, combined
-              with human oversight to ensure nothing breaks.
-            </p>
-          </section>
-        </FadeIn>
-
-        {/* ============================================
-            STORY 1: Product Discovery
-            ============================================ */}
-        <FadeIn>
-          <section>
-            <p
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
-              )}
-            >
-              Story 1
-            </p>
-            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Product discovery & filtering
-            </h2>
-            <p className={cn("text-sm text-accent mb-6")}>
-              Find the right products to optimize across a 30k+ catalog
-            </p>
-
-            <div
-              className={cn("space-y-4 text-text-secondary leading-relaxed")}
-            >
+            <Eyebrow>The problem</Eyebrow>
+            <SectionTitle title="Tagging a big catalog by hand doesn't work" />
+            <div className={body}>
               <p>
-                The dashboard provides four search and filter dimensions that
-                work together: search by{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  product name
-                </span>
-                , filter by{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  existing Shopify tags
-                </span>{" "}
-                (to find products that already use a specific tag), filter by{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  collection
-                </span>{" "}
-                (fetched live via Shopify GraphQL), and sort by{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  newest/oldest update or product name A-Z
-                </span>
-                . For a catalog of 20,000+ items, this makes it practical to
-                find and batch-process the products that need attention.
+                Shopify merchants use tags for collections, filters, and search,
+                so bad tags cause real problems. On a big catalog, tagging by
+                hand takes forever and gets inconsistent over time. People also
+                reach for vague tags like &quot;hot,&quot; &quot;new,&quot; or
+                &quot;best-seller,&quot; which don&apos;t help anyone find the
+                product.
               </p>
               <p>
-                Each row in the product table shows the product image, name,
-                description, current tags, SEO score (if scored), the top
-                optimization suggestion, and a &quot;View Report&quot; link for
-                the full analysis. This gives merchants a health check view of
-                their entire catalog at a glance — products with low scores or
-                missing data stand out immediately.
+                AI can write tags quickly, but merchants were nervous about
+                letting it change their live store. That worry ended up shaping
+                the whole app.
               </p>
             </div>
           </section>
         </FadeIn>
-        <FadeIn>
-          <ProjectImage
-            src="/images/projects/tagwise/tagwise_dashboard_filter.webp"
-            alt="Dashboard with search, sort, tag filter, and collection filter"
-            caption="Four-dimensional product search: by name, sort order, existing tags, and collection"
-          />
-        </FadeIn>
-        {/* ============================================
-            The decision behind Story 2
-            ============================================ */}
+
+        {/* ---------- Decision 1: the review step ---------- */}
         <FadeIn>
           <section>
-            <p
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
-              )}
-            >
-              Design decision
-            </p>
-            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Why the staging workflow exists
-            </h2>
-            <p className={cn("text-sm text-accent mb-6")}>
-              Trust, not speed, was the bottleneck
-            </p>
-
-            <div
-              className={cn(
-                "space-y-4 text-text-secondary leading-relaxed mb-6",
-              )}
-            >
+            <Eyebrow>Decision 1</Eyebrow>
+            <SectionTitle
+              title="Adding a review step on purpose"
+              subtitle="Merchants cared more about control than speed"
+            />
+            <div className={cn(body, "mb-6")}>
               <p>
-                My first sketch had no staging state at all: select products,
-                click Generate, tags written straight to the store. One click,
-                done. Talking to merchants changed the product. Their anxiety
-                wasn&apos;t efficiency — it was{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  control
-                </span>
-                . Tags drive their collections, filters, and search, so a silent
-                change from an AI they can&apos;t see is exactly the kind of
-                automation they&apos;ve learned not to trust. They wanted to see
-                what the AI would do <em>before</em> it did it.
+                My first sketch had no review step: pick products, click
+                Generate, and the tags go straight to the store. Talking to
+                merchants changed that. Speed wasn&apos;t what worried them.{" "}
+                <Strong>Control was.</Strong> Tags run their collections,
+                filters, and search, so an AI quietly changing them is exactly
+                the kind of automation they&apos;d learned not to trust. They
+                wanted to see what it would do <em>before</em> it did it.
               </p>
             </div>
 
             <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4 mb-6")}>
-              <div
-                className={cn(
-                  "p-5 rounded-lg bg-bg-secondary border border-border",
-                )}
-              >
-                <p
-                  className={cn(
-                    "text-xs uppercase tracking-wider text-text-tertiary mb-2",
-                  )}
-                >
-                  Considered
-                </p>
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-text-primary mb-2",
-                  )}
-                >
-                  Fully automatic
-                </h4>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  Fastest flow, and the one merchants said they wouldn&apos;t
-                  trust. A single bad batch could silently break collections and
-                  filters.
-                </p>
-              </div>
-              <div
-                className={cn(
-                  "p-5 rounded-lg bg-bg-secondary border border-border",
-                )}
-              >
-                <p
-                  className={cn(
-                    "text-xs uppercase tracking-wider text-text-tertiary mb-2",
-                  )}
-                >
-                  Considered
-                </p>
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-text-primary mb-2",
-                  )}
-                >
-                  Confirm everything
-                </h4>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  Safe on paper — but across 2,000 products the dialogs become
-                  noise, and users click through noise. Safety you stop reading
-                  isn&apos;t safety.
-                </p>
-              </div>
-              <div
-                className={cn(
-                  "p-5 rounded-lg bg-bg-primary border-2 border-accent",
-                )}
-              >
-                <p
-                  className={cn(
-                    "text-xs uppercase tracking-wider text-accent mb-2",
-                  )}
-                >
-                  Shipped
-                </p>
-                <h4
-                  className={cn(
-                    "font-display text-sm font-semibold text-text-primary mb-2",
-                  )}
-                >
-                  Batch staging
-                </h4>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  Generate for up to 10 products; results land in an editable
-                  staging state, visually distinct from live data. One
-                  deliberate Confirm commits the batch.
-                </p>
-              </div>
+              <Card label="Considered" title="Fully automatic">
+                The fastest option, and the one merchants said they
+                wouldn&apos;t use. One bad batch could quietly break collections
+                and filters.
+              </Card>
+              <Card label="Considered" title="Confirm every tag">
+                Safe in theory, but on a big catalog the pop-ups turn into
+                noise, and people click through without reading.
+              </Card>
+              <Card label="Shipped" title="Batch review" highlight>
+                Generate tags for up to 10 products at once. They show up as
+                drafts that look different from live tags, and one Confirm saves
+                the whole batch.
+              </Card>
             </div>
 
-            <p className={cn("text-text-secondary leading-relaxed mb-6")}>
-              The design bet:{" "}
-              <span className={cn("text-text-primary font-medium")}>
-                one well-placed step of friction builds more trust than zero
-                friction
-              </span>{" "}
-              , and causes far less fatigue than constant confirmation.
-              Interface-level decisions follow from it: staged tags render
-              orange against gray live tags, and state is carried by affordance
-              too (an &quot;×&quot; to remove, an input to add) rather than
-              color alone. Committing is explicit, never ambient, there is no
+            <p className={cn("text-text-secondary leading-relaxed")}>
+              I bet that one clear review step would earn more trust than no
+              step at all, and be less tiring than confirming everything. That
+              choice drove the rest of the UI. Draft tags are orange and live
+              tags are gray, and the state doesn&apos;t rely on color alone:
+              drafts have an &quot;×&quot; to remove them and an input to add
+              more. Saving only happens when you press Confirm. There&apos;s no
               autosave.
             </p>
 
-            {/* TODO(Figma): 流程对比图导出为
-                /public/images/projects/tagwise/flow-comparison.webp 后取消注释 */}
+            {/* TODO(Figma): export the flow comparison to
+                /public/images/projects/tagwise/flow-comparison.webp, then uncomment */}
             {/*
             <ProjectImage
               src="/images/projects/tagwise/flow-comparison.webp"
-              alt="Flow comparison: fully automatic vs per-item confirmation vs batch staging"
-              caption="The three flows side by side — made in Figma"
+              alt="Three flows compared: fully automatic, confirm every tag, batch review"
+              caption="The three options side by side, made in Figma."
             />
             */}
           </section>
         </FadeIn>
 
-        {/* ============================================
-            STORY 2: AI Tag Generation + Human-in-the-Loop
-            ============================================ */}
+        {/* ---------- How the review step works ---------- */}
         <FadeIn>
           <section>
-            <p
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
-              )}
-            >
-              Story 2
-            </p>
-            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              AI tag generation with human-in-the-loop
-            </h2>
-            <p className={cn("text-sm text-accent mb-6")}>
-              Safety first — AI suggests, humans decide
-            </p>
-
-            <div
-              className={cn("space-y-4 text-text-secondary leading-relaxed")}
-            >
+            <Eyebrow>How it works</Eyebrow>
+            <SectionTitle
+              title="Generating and reviewing tags"
+              subtitle="AI suggests, the merchant decides"
+            />
+            <div className={body}>
               <p>
-                Select up to 10 products and click &quot;Generate AI Tags.&quot;
-                The OpenAI API analyzes each product&apos;s title and
-                description to generate context-aware tags, understanding
-                material, usage, target audience, and SEO relevance. But
-                here&apos;s the key difference from other tools:{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  nothing is saved automatically
-                </span>
-                .
+                Pick up to 10 products and click &quot;Generate AI Tags.&quot;
+                The OpenAI API reads each product&apos;s title and description
+                and suggests tags for things like material, use, and who
+                it&apos;s for. Nothing is saved yet.
               </p>
               <p>
-                AI-generated tags appear in a{" "}
-                <span className={cn("text-accent font-medium")}>
-                  staging state
-                </span>{" "}
-                (shown in orange) alongside the existing tags (shown in gray).
-                Merchants can review each tag, delete ones they disagree with,
-                edit spelling or wording, and manually add their own tags via
-                the input field. Only when they click{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  &quot;Confirm Tags&quot;
-                </span>{" "}
-                does the Shopify{" "}
+                The new tags show up in orange next to the existing gray ones.
+                Merchants can delete any they don&apos;t like, fix the wording,
+                or type in their own. Only{" "}
+                <Strong>&quot;Confirm Tags&quot;</Strong> calls Shopify&apos;s{" "}
                 <code
                   className={cn(
                     "text-xs font-mono bg-bg-secondary px-1.5 py-0.5 rounded",
@@ -414,133 +236,68 @@ export default function TagWise() {
                 >
                   productUpdate
                 </code>{" "}
-                mutation fire. There&apos;s also a &quot;Replace Existing Tags
-                with AI Tags&quot; option for merchants who want a clean slate,
-                and a &quot;Cancel&quot; button that discards all changes.
+                mutation. There&apos;s also an option to replace all existing
+                tags with the AI ones, and Cancel throws away every change.
               </p>
             </div>
           </section>
         </FadeIn>
+
         <FadeIn>
           <ProjectImage
             src="/images/projects/tagwise/ai-tags-generated.webp"
-            alt="Product with AI-generated tags in orange staging state, editable before commit"
-            caption="Staging workflow: gray = existing tags, orange = AI-generated (editable). Nothing saves until you click Confirm."
+            alt="A product with orange AI draft tags next to gray live tags"
+            caption="Gray tags are already live. Orange tags are AI drafts you can edit. Nothing saves until you click Confirm."
           />
         </FadeIn>
 
         <FadeIn>
           <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4")}>
-            <div
-              className={cn(
-                "p-5 rounded-lg bg-bg-secondary border border-border",
-              )}
-            >
-              <h4
-                className={cn(
-                  "font-display text-sm font-semibold text-text-primary mb-2",
-                )}
-              >
-                Non-destructive staging
-              </h4>
-              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
-                AI tags stored in local frontend state first. Shopify API only
-                called on explicit &quot;Confirm&quot; zero risk of accidental
-                overwrites.
-              </p>
-            </div>
-            <div
-              className={cn(
-                "p-5 rounded-lg bg-bg-secondary border border-border",
-              )}
-            >
-              <h4
-                className={cn(
-                  "font-display text-sm font-semibold text-text-primary mb-2",
-                )}
-              >
-                Full user control
-              </h4>
-              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
-                Delete, edit, or add tags manually before committing. Each tag
-                has an &quot;x&quot; button; an input field allows custom
-                additions.
-              </p>
-            </div>
-            <div
-              className={cn(
-                "p-5 rounded-lg bg-bg-secondary border border-border",
-              )}
-            >
-              <h4
-                className={cn(
-                  "font-display text-sm font-semibold text-text-primary mb-2",
-                )}
-              >
-                Batch processing
-              </h4>
-              <p className={cn("text-sm text-text-secondary leading-relaxed")}>
-                Generate and commit tags for up to 10 products simultaneously.
-                Practical for large catalogs that need systematic optimization.
-              </p>
-            </div>
+            <Card title="Drafts stay in the app">
+              AI tags live in the app&apos;s state until Confirm. Shopify
+              isn&apos;t touched before that.
+            </Card>
+            <Card title="The merchant has the last word">
+              Each tag has an &quot;×&quot; to remove it, and there&apos;s an
+              input for adding your own.
+            </Card>
+            <Card title="Batches of 10">
+              Generate and save tags for up to 10 products at a time.
+            </Card>
           </div>
         </FadeIn>
 
-        {/* ============================================
-            STORY 3: Scoring Engine
-            ============================================ */}
+        {/* ---------- Decision 2: scoring by industry ---------- */}
         <FadeIn>
           <section>
-            <p
-              className={cn(
-                "text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-2",
-              )}
-            >
-              Story 3
-            </p>
-            <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Proprietary SEO scoring engine
-            </h2>
-            <p className={cn("text-sm text-accent mb-6")}>
-              Not just a number — actionable feedback across 6 dimensions
-            </p>
-
-            <div
-              className={cn("space-y-4 text-text-secondary leading-relaxed")}
-            >
+            <Eyebrow>Decision 2</Eyebrow>
+            <SectionTitle
+              title="Scoring tags by industry"
+              subtitle="A score, plus what to fix"
+            />
+            <div className={body}>
               <p>
-                Select products and click &quot;Score Selected Tags&quot; to run
-                the analysis. The scoring algorithm evaluates existing tags
-                across{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  six dimensions
-                </span>
-                : tag quantity (5-10 is optimal), duplicate detection, weak word
-                filtering (flags terms like &quot;hot&quot; or &quot;new&quot;
-                that hurt SEO), function/material/scene keyword coverage, title
-                keyword matching, and overall diversity.
+                Select products and click &quot;Score Selected Tags.&quot; Each
+                product gets a score out of 100 across six checks: how many tags
+                it has (5 to 10 is the target), duplicates, weak words like
+                &quot;hot&quot; or &quot;new,&quot; whether the tags cover
+                function, material, and use, whether they match the title, and
+                how varied they are.
               </p>
               <p>
-                What makes this more than a generic checker is the{" "}
-                <span className={cn("text-text-primary font-medium")}>
-                  industry-specific keyword databases
-                </span>
-                . I built 13 category-specific dictionaries, fashion,
-                electronics, industrial, beauty, sports, food, and more, each
-                containing curated lists of functional, material, and
-                scene-based keywords. The algorithm matches tags against the
-                relevant industry dictionary, so a &quot;waterproof&quot; tag
-                scores well for sports equipment but wouldn&apos;t be flagged as
-                missing for food products.
+                One set of rules can&apos;t work for every store. A good tag for
+                a snowboard looks nothing like a good tag for a lab instrument.
+                So I wrote <Strong>keyword lists for 13 industries</Strong>,
+                including fashion, electronics, industrial, beauty, sports, and
+                food, each split into function, material, and use keywords. That
+                way &quot;waterproof&quot; counts for sports gear, and food
+                products don&apos;t get marked down for missing it.
               </p>
               <p>
-                Scores and the top suggestion appear inline in the product list.
-                Clicking &quot;View Report&quot; opens a detailed breakdown page
-                with the full score and up to three specific optimization
-                recommendations, for example, &quot;Contains weak words (e.g.,
-                &apos;hot&apos;). Try using more specific terms&quot; or
-                &quot;Try including keywords from the product title.&quot;
+                Scores and the top suggestion show up right in the product list.
+                &quot;View Report&quot; opens the full breakdown with up to
+                three suggestions, like &quot;Contains weak words (e.g.,
+                &apos;hot&apos;). Try using more specific terms.&quot;
               </p>
             </div>
           </section>
@@ -551,15 +308,15 @@ export default function TagWise() {
             items={[
               {
                 src: "/images/projects/tagwise/scored-products.webp",
-                alt: "Products with SEO scores and inline suggestions",
+                alt: "Product list with SEO scores and suggestions",
               },
               {
                 src: "/images/projects/tagwise/score-report.webp",
-                alt: "Detailed SEO Tag Score Report with optimization suggestions",
+                alt: "Full score report with suggestions",
               },
             ]}
             columns={2}
-            caption="Left: Inline scores + suggestions in the product list — Right: Detailed score report with recommendations"
+            caption="Left: scores and suggestions in the product list. Right: the full report."
           />
         </FadeIn>
 
@@ -574,331 +331,154 @@ export default function TagWise() {
                 "font-display font-semibold text-text-primary mb-4",
               )}
             >
-              Scoring dimensions (100 points)
+              How the 100 points break down
             </h4>
             <div
               className={cn("grid grid-cols-2 md:grid-cols-3 gap-4 text-sm")}
             >
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  20
+              {[
+                { pts: 20, name: "Tag count", note: "5 to 10 tags" },
+                { pts: 15, name: "No duplicates", note: "Each tag is unique" },
+                {
+                  pts: 10,
+                  name: "No weak words",
+                  note: "No vague or spammy tags",
+                },
+                {
+                  pts: 15,
+                  name: "Keyword coverage",
+                  note: "Function, material, and use",
+                },
+                {
+                  pts: 20,
+                  name: "Matches the title",
+                  note: "Tags reflect the title",
+                },
+                { pts: 20, name: "Variety", note: "Covers different angles" },
+              ].map((d) => (
+                <div key={d.name}>
+                  <div
+                    className={cn(
+                      "text-accent font-body font-semibold tabular-nums text-lg",
+                    )}
+                  >
+                    {d.pts}
+                  </div>
+                  <div className={cn("text-text-primary font-medium")}>
+                    {d.name}
+                  </div>
+                  <div className={cn("text-text-tertiary text-xs")}>
+                    {d.note}
+                  </div>
                 </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Tag quantity
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  5-10 tags = optimal range
-                </div>
-              </div>
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  15
-                </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Uniqueness
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  No duplicate tags detected
-                </div>
-              </div>
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  10
-                </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Quality filter
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  No weak/spam words
-                </div>
-              </div>
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  15
-                </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Keyword coverage
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  Function + material + scene
-                </div>
-              </div>
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  20
-                </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Title matching
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  Tags reflect product title
-                </div>
-              </div>
-              <div>
-                <div
-                  className={cn("text-accent font-display font-bold text-lg")}
-                >
-                  20
-                </div>
-                <div className={cn("text-text-primary font-medium")}>
-                  Diversity
-                </div>
-                <div className={cn("text-text-tertiary text-xs")}>
-                  Broad category coverage
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </FadeIn>
 
-        {/* ============================================
-            Technical Deep Dive
-            ============================================ */}
+        {/* ---------- Details: finding products ---------- */}
         <FadeIn>
           <section>
-            <h2 className={cn("font-display text-xl font-semibold mb-6")}>
-              Technical deep dive
-            </h2>
-
-            <div className={cn("space-y-4")}>
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    1
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Three-state tag management
-                  </h4>
-                </div>
-                <p
-                  className={cn(
-                    "text-sm text-text-secondary leading-relaxed mb-3",
-                  )}
-                >
-                  The frontend manages three distinct tag states simultaneously:
-                  &quot;Original Tags&quot; (from Shopify), &quot;AI Draft
-                  Tags&quot; (staged, shown in orange), and &quot;Final
-                  Tags&quot; (committed). This state machine handles edge cases
-                  like re-generating tags for an already-staged product, adding
-                  manual tags alongside AI-generated ones, and reverting to
-                  original tags on cancel.
-                </p>
-                <div
-                  className={cn(
-                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
-                  )}
-                >
-                  <pre className="language-typescript">{`// State flow: Original → AI Draft (staging) → Final (committed)
-// Shopify productUpdate mutation ONLY fires on explicit confirm
-const mutation = \`
-  mutation productUpdate($input: ProductInput!) {
-    productUpdate(input: $input) {
-      product { id, tags }
-      userErrors { field, message }
-    }
-  }
-\`;
-// Called only when user clicks "Confirm Tags"`}</pre>
-                </div>
-              </div>
-
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    2
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Industry-specific keyword databases
-                  </h4>
-                </div>
-                <p
-                  className={cn(
-                    "text-sm text-text-secondary leading-relaxed mb-3",
-                  )}
-                >
-                  Built 13 curated keyword dictionaries (fashion, electronics,
-                  industrial, beauty, baby, sports, pet, food, craft, digital,
-                  home/kitchen, adult, general), each containing three
-                  categories: functional keywords, material keywords, and
-                  scene/usage keywords. The scoring algorithm loads the relevant
-                  dictionary based on product type and matches against it.
-                </p>
-                <div
-                  className={cn(
-                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
-                  )}
-                >
-                  <pre>{`// 13 industry keyword maps
-const KEYWORD_MAP = {
-  fashion: { function, material, scene },
-  electronics: { function, material, scene },
-  industrial: { function, material, scene },
-  // ... 10 more categories
-};
-// Scoring matches tags against relevant industry dictionary
-const keywords = KEYWORD_MAP[productType] || generalKeywords;`}</pre>
-                </div>
-              </div>
-
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    3
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Exhaustive tag aggregation via cursor pagination
-                  </h4>
-                </div>
-                <p
-                  className={cn(
-                    "text-sm text-text-secondary leading-relaxed mb-3",
-                  )}
-                >
-                  The tag search filter needs to know every unique tag across
-                  the entire product catalog. I built a paginated GraphQL
-                  crawler that fetches all products 100 at a time using
-                  cursor-based pagination, aggregates every tag into a Set (for
-                  O(1) dedup), and returns the complete unique tag list. For a
-                  30k+ catalog, this runs on the server via Remix loader to
-                  avoid blocking the UI.
-                </p>
-                <div
-                  className={cn(
-                    "rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto",
-                  )}
-                >
-                  <pre>{`// Cursor-paginated tag aggregation across entire catalog
-const allTags = new Set();
-while (hasNextPage) {
-  const data = await admin.graphql(query, {
-    variables: { first: 100, after: cursor }
-  });
-  for (const edge of data.products.edges) {
-    edge.node.tags.forEach(tag => allTags.add(tag));
-    cursor = edge.cursor;
-  }
-  hasNextPage = data.products.pageInfo.hasNextPage;
-}`}</pre>
-                </div>
-              </div>
-
-              <div
-                className={cn(
-                  "p-6 rounded-xl bg-bg-secondary border border-border",
-                )}
-              >
-                <div className={cn("flex items-center gap-3 mb-3")}>
-                  <span
-                    className={cn(
-                      "w-8 h-8 rounded-lg bg-accent-light flex items-center justify-center text-accent text-sm font-bold",
-                    )}
-                  >
-                    4
-                  </span>
-                  <h4
-                    className={cn(
-                      "font-display font-semibold text-text-primary",
-                    )}
-                  >
-                    Remix SSR for secure API handling
-                  </h4>
-                </div>
-                <p
-                  className={cn("text-sm text-text-secondary leading-relaxed")}
-                >
-                  All OpenAI API calls and Shopify admin authentication happen
-                  server-side via Remix loader/action patterns. API keys never
-                  touch the client. The Shopify App Bridge handles session
-                  authentication, and Prisma ORM provides local data persistence
-                  for settings and tag history. TypeScript interfaces enforce
-                  strict data validation between the Shopify GraphQL Admin API
-                  and the frontend, preventing runtime errors in the tagging
-                  workflow.
-                </p>
-              </div>
+            <Eyebrow>The details</Eyebrow>
+            <SectionTitle
+              title="Finding the products that need work"
+              subtitle="Search, filter, and sort a large catalog"
+            />
+            <div className={body}>
+              <p>
+                Merchants can search by product name, filter by tags a product
+                already has, filter by collection (loaded live from Shopify
+                GraphQL), and sort by last updated or by name. Together that
+                makes it practical to find a group of products and fix them in
+                batches.
+              </p>
+              <p>
+                Each row shows the product image, name, description, current
+                tags, SEO score if it has one, the top suggestion, and a
+                &quot;View Report&quot; link. Products with low scores or
+                missing info are easy to spot.
+              </p>
             </div>
           </section>
         </FadeIn>
 
-        {/* ============================================
-            What I Learned
-            ============================================ */}
+        <FadeIn>
+          <ProjectImage
+            src="/images/projects/tagwise/tagwise_dashboard_filter.webp"
+            alt="Dashboard with search, sort, tag filter, and collection filter"
+            caption="Search by name, sort, filter by existing tags, and filter by collection."
+          />
+        </FadeIn>
 
+        {/* ---------- Technical deep dive (collapsed) ---------- */}
+        <FadeIn>
+          <DeepDive>
+            <TechCard n={1} title="Three tag states" code={stateCode}>
+              The app keeps three versions of a product&apos;s tags at once: the
+              original tags from Shopify, the AI drafts, and the final tags that
+              get saved. That covers the messy cases, like generating again for
+              a product that already has drafts, mixing in manual tags, or going
+              back to the originals on Cancel.
+            </TechCard>
+            <TechCard
+              n={2}
+              title="Keyword lists for 13 industries"
+              code={keywordCode}
+            >
+              Fashion, electronics, industrial, beauty, baby, sports, pet, food,
+              craft, digital, home and kitchen, adult, and general. Each list is
+              split into function, material, and use keywords, and the scorer
+              picks the list based on product type.
+            </TechCard>
+            <TechCard
+              n={3}
+              title="Collecting every tag in the store"
+              code={tagCrawlCode}
+            >
+              The tag filter needs every unique tag in the store. A server-side
+              loop asks Shopify for products 100 at a time with cursor
+              pagination and adds each tag to a Set to drop duplicates. It runs
+              in a Remix loader, so the browser isn&apos;t doing the work.
+            </TechCard>
+            {/* TODO(Zoe): 加一张卡讲 40% 和 60fps 是怎么来的（虚拟列表用的什么、optimistic UI 怎么做、40% 怎么测的） */}
+            <TechCard n={4} title="Keeping keys on the server">
+              All OpenAI calls and Shopify admin requests run in Remix loaders
+              and actions, so API keys never reach the browser. Shopify App
+              Bridge handles the session, and Prisma stores settings and tag
+              history. TypeScript types describe the GraphQL responses, so shape
+              mismatches show up while I&apos;m writing code.
+            </TechCard>
+          </DeepDive>
+        </FadeIn>
+
+        {/* ---------- What I learned ---------- */}
         <FadeIn>
           <section>
-            <h2 className={cn("font-display text-xl font-semibold mb-4")}>
-              What I learned
-            </h2>
-            <p className={cn("text-text-secondary leading-relaxed mb-4")}>
-              Building TagWise taught me that AI features need more UX
-              guardrails, not fewer. The temptation was to make the flow as
-              frictionless as possible, &quot;click button, get tags,
-              done.&quot; But talking to merchants revealed that trust is the
-              bottleneck: they don&apos;t want AI silently changing their live
-              store data. The staging workflow adds one extra step, but
-              it&apos;s the step that makes merchants actually use the tool
-              instead of being afraid of it.
-            </p>
-            <p className={cn("text-text-secondary leading-relaxed")}>
-              The scoring engine was also a lesson in domain specificity. A
-              generic &quot;tag quality&quot; algorithm is nearly useless, what
-              makes a good tag for a snowboard is completely different from what
-              makes a good tag for a lab instrument. Building 13 keyword
-              databases was tedious, but it&apos;s what makes the scoring
-              genuinely useful rather than just a vanity metric.
-            </p>
+            <SectionTitle title="What I learned" />
+            <div className={body}>
+              <p>
+                The biggest lesson was that an AI feature needs extra care in
+                the interface. I wanted the flow to be &quot;click a button, get
+                tags, done.&quot; Merchants didn&apos;t trust that. The review
+                step adds one click, and it&apos;s the reason they&apos;re
+                willing to use the tool at all.
+              </p>
+              <p>
+                The scoring taught me how much the domain matters. Writing 13
+                keyword lists was tedious, but without them the score would just
+                be a number nobody trusts.
+              </p>
+            </div>
           </section>
         </FadeIn>
       </article>
 
       <FadeIn>
-        <div className="mt-20 pt-8 border-t border-border flex justify-between items-center">
+        <div
+          className={cn(
+            "mt-16 pt-8 border-t border-border flex justify-between items-center",
+          )}
+        >
           <Link
             href="/projects/b2b-quote"
             className={cn(
