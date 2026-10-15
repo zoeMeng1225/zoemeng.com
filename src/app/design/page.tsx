@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Design System — Zoe Meng",
   description:
-    "The design tokens, type scale, and component principles behind this portfolio — colors, typography, motion, and reusable UI.",
+    "Visual and interaction design work by Zoe Meng.",
 };
 
 const colors = [
