@@ -132,7 +132,6 @@ function TechCard({
 const body = cn("space-y-4 text-text-secondary leading-relaxed");
 
 /* ---------- code samples for the deep dive ---------- */
-
 const quoteCartCode = `// Separate slices, so the quote cart never touches the shopping cart
 const quoteCartSlice = createSlice({
   name: 'quoteCart',
@@ -200,7 +199,7 @@ export default function B2BQuotePage() {
       <FadeIn delay={0.2}>
         <div className={cn("grid grid-cols-2 gap-3 mb-8 max-w-sm")}>
           {[
-            { value: "83%", label: "Less time per quote" },
+            { value: "80%", label: "Less time per quote" },
             { value: "30K+", label: "Products in the catalog" },
           ].map((m) => (
             <div
@@ -253,7 +252,6 @@ export default function B2BQuotePage() {
       </FadeIn>
 
       <article className={cn("space-y-16 mt-16")}>
-        {/* ---------- The problem ---------- */}
         <FadeIn>
           <section>
             <Eyebrow>The problem</Eyebrow>
@@ -275,7 +273,7 @@ export default function B2BQuotePage() {
           </section>
         </FadeIn>
 
-        {/* ---------- Decision 1 ---------- */}
+
         <FadeIn>
           <section>
             <Eyebrow>Decision 1</Eyebrow>
@@ -283,7 +281,6 @@ export default function B2BQuotePage() {
               title="Keeping the quote cart separate from the shopping cart"
               subtitle="Buyer side · Order now and ask for a quote in the same visit"
             />
-            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
             <div className={body}>
               <p>
                 Buyers needed to ask for bulk pricing without messing up their
@@ -351,7 +348,7 @@ export default function B2BQuotePage() {
           </div>
         </FadeIn>
 
-        {/* ---------- Decision 2 ---------- */}
+
         <FadeIn>
           <section>
             <Eyebrow>Decision 2</Eyebrow>
@@ -359,7 +356,6 @@ export default function B2BQuotePage() {
               title="One page for the whole quote"
               subtitle="Staff side · Edit everything without leaving the page"
             />
-            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
             <div className={body}>
               <p>
                 Quote Detail is where staff do the actual work, so I kept
@@ -399,7 +395,6 @@ export default function B2BQuotePage() {
           />
         </FadeIn>
 
-        {/* ---------- Decision 3 ---------- */}
         <FadeIn>
           <section>
             <Eyebrow>Decision 3</Eyebrow>
@@ -407,7 +402,6 @@ export default function B2BQuotePage() {
               title="Making it clear who owns each quote"
               subtitle="Staff side · One owner per quote, no double replies"
             />
-            {/* TODO(Zoe): 补一句当时考虑过、后来没用的方案，和为什么没用。没有就删掉这行注释，不要编。 */}
             <div className={body}>
               <p>
                 Before, it was easy for two reps to answer the same customer
@@ -567,11 +561,11 @@ export default function B2BQuotePage() {
           </div>
         </FadeIn>
 
-        {/* ---------- Outcome ---------- */}
+
         <FadeIn>
           <section>
             <Eyebrow>Outcome</Eyebrow>
-            <SectionTitle title="83% less time per quote" />
+            <SectionTitle title="About 80% less time per quote" />
             <p className={cn("text-text-secondary leading-relaxed")}>
               Most of the time saved came from steps that disappeared. The email
               fills itself in, tax is already calculated, the PDF is already
@@ -580,7 +574,6 @@ export default function B2BQuotePage() {
           </section>
         </FadeIn>
 
-        {/* TODO(Zoe): 下面写的是约 10 分钟到 30 秒（约 95%），和 83% 对不上，确认后统一 */}
         <FadeIn>
           <div
             className={cn(
@@ -592,7 +585,7 @@ export default function B2BQuotePage() {
                 "font-display font-semibold text-text-primary mb-4",
               )}
             >
-              About 10 minutes down to 30 seconds
+              From about 10 minutes to 2 minutes
             </h4>
             <div
               className={cn(
@@ -635,7 +628,7 @@ export default function B2BQuotePage() {
                   <li>Click the reps to CC</li>
                   <li>Check the pre-filled email</li>
                   <li>Attach the generated PDF</li>
-                  <li>Send. About 30 seconds per quote</li>
+                  <li>Send. About 2 minutes per quote</li>
                 </ol>
               </div>
             </div>
