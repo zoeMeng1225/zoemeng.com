@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
-  title: "AI Component Playground — Zoe Meng",
+  title: "AI Component Playground",
   description:
     "Describe a UI in plain English, get a working React + Tailwind component with live preview. Built with Next.js, Vercel AI SDK, and Sandpack.",
 };
@@ -22,7 +22,7 @@ export default function AIPlaygroundPage() {
           ============================================ */}
       <FadeIn>
         <p className={cn("text-sm text-accent font-medium mb-3")}>
-          Personal Project · 2026
+          Self-initiated · 2026
         </p>
         <h1
           className={cn(
@@ -45,10 +45,11 @@ export default function AIPlaygroundPage() {
       </FadeIn>
       <FadeIn delay={0.15}>
         <p className={cn("text-text-secondary leading-relaxed mb-6")}>
-          Built to explore the intersection of AI code generation and frontend
-          developer tooling. The engineering challenge wasn&apos;t calling an
-          API, it was making the streaming output, code editor, and live preview
-          stay in sync without crashing on incomplete code.
+          The hard part wasn&apos;t calling an API. It was the wait. While code
+          streams in, it&apos;s broken most of the time, so a naive preview
+          flickers between errors. I designed a two-phase display so generation
+          reads as steady progress, and the editor and preview stay usable even
+          when the code is half-written.
         </p>
       </FadeIn>
 
@@ -119,21 +120,18 @@ export default function AIPlaygroundPage() {
               The idea
             </h2>
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
-              AI code generation tools like v0 and Bolt have shown that natural
-              language → UI is a real workflow. But most of them are closed
-              platforms, you can&apos;t see the code until you export, you
-              can&apos;t edit it in real time, and you can&apos;t understand how
-              the generation actually works.
+             Tools like v0 and Bolt have shown that describing a UI in plain English
+            is a real workflow. I wanted to understand how that works from the
+            inside, and to make the part where you wait for the code feel less
+            like waiting.
             </p>
             <p className={cn("text-text-secondary leading-relaxed")}>
-              I wanted to build an{" "}
+              So I built one where{" "}
               <span className={cn("text-text-primary font-medium")}>
-                open, transparent version
-              </span>{" "}
-              where the code streams in character by character, you can see and
-              edit it immediately, and the preview updates live as you type.
-              It&apos;s both a useful tool and a technical showcase of streaming
-              AI + real-time code compilation.
+                you can watch the code being written
+              </span>
+              , edit it as soon as it&apos;s done, and see the preview update
+              as you type.
             </p>
           </section>
         </FadeIn>
@@ -166,7 +164,7 @@ export default function AIPlaygroundPage() {
                 <span className={cn("text-text-primary font-medium")}>
                   streams token by token
                 </span>{" "}
-                into the code editor, you can watch the component being written
+                into the code editor, so you can watch the component being written
                 in real time. As soon as enough valid JSX accumulates, the
                 Sandpack preview compiles and renders it live.
               </p>
@@ -249,13 +247,12 @@ export default function AIPlaygroundPage() {
               className={cn("space-y-4 text-text-secondary leading-relaxed")}
             >
               <p>
-                The hardest engineering problem wasn&apos;t calling the OpenAI
-                API — it was managing the{" "}
+                While a component is generating, three things have to{" "}
                 <span className={cn("text-text-primary font-medium")}>
-                  three-way state synchronization
-                </span>{" "}
-                between the AI stream, the code editor, and the live preview.
-                During generation, the code is incomplete, it might have an
+                  stay in sync
+                </span>
+                : the AI stream, the code editor, and the live preview. During
+                generation, the code is incomplete. It might have an
                 unclosed tag, a missing bracket, or a half-written className.
                 The editor needs to display this partial code, but the preview
                 needs to handle compilation errors gracefully without crashing.
@@ -284,7 +281,7 @@ export default function AIPlaygroundPage() {
                 </code>{" "}
                 state (final result, editable). Sandpack&apos;s built-in error
                 boundary catches compilation failures during the streaming phase
-                and displays a clean error panel instead of a white screen, once
+                and displays a clean error panel instead of a white screen. Once
                 the code completes, it automatically recompiles successfully.
               </p>
             </div>
@@ -394,7 +391,7 @@ export default function AIPlaygroundPage() {
                 TypeScript in a sandboxed iframe. I chose Sandpack over a custom
                 iframe solution because it provides a complete React compilation
                 pipeline (Babel, module resolution, HMR), a built-in code editor
-                with syntax highlighting, and — critically — error boundaries
+                with syntax highlighting, and, most importantly, error boundaries
                 that prevent malformed code from crashing the entire page.
               </p>
               <p>
@@ -409,7 +406,7 @@ export default function AIPlaygroundPage() {
                 ) as an external resource in the Sandpack config, so
                 AI-generated components can use any Tailwind utility class
                 without build configuration. The generated components are
-                self-contained, no external imports beyond React, making them
+                self-contained, with no external imports beyond React, making them
                 portable and easy to copy into any project.
               </p>
             </div>
@@ -455,7 +452,7 @@ export default function AIPlaygroundPage() {
                   The API route uses Vercel AI SDK&apos;s{" "}
                   <code
                     className={cn(
-                      "text-sm text-text-secondary leading-relaxed mb-3",
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                     )}
                   >
                     streamText
@@ -464,7 +461,7 @@ export default function AIPlaygroundPage() {
                   client-side{" "}
                   <code
                     className={cn(
-                      "text-sm text-text-secondary leading-relaxed mb-3",
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                     )}
                   >
                     useCompletion
@@ -472,7 +469,7 @@ export default function AIPlaygroundPage() {
                   hook consumes this stream and exposes{" "}
                   <code
                     className={cn(
-                      "text-sm text-text-secondary leading-relaxed mb-3",
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                     )}
                   >
                     completion
@@ -480,7 +477,7 @@ export default function AIPlaygroundPage() {
                   (incrementally updated string),{" "}
                   <code
                     className={cn(
-                      "text-sm text-text-secondary leading-relaxed mb-3",
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                     )}
                   >
                     isLoading
@@ -488,13 +485,12 @@ export default function AIPlaygroundPage() {
                   , and{" "}
                   <code
                     className={cn(
-                      "text-sm text-text-secondary leading-relaxed mb-3",
+                      "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                     )}
                   >
                     complete()
                   </code>{" "}
-                  trigger. The API key stays server-side — never exposed to the
-                  client.
+                  trigger. The API key stays on the server and is never exposed to the client.
                 </p>
                 <div className="rounded-lg bg-bg-tertiary p-4 font-mono text-xs text-text-secondary overflow-x-auto">
                   <pre>{`// Server: API route streams OpenAI response
@@ -654,8 +650,8 @@ Rules:
                 <p
                   className={cn("text-sm text-text-secondary leading-relaxed")}
                 >
-                  During the streaming phase, the code is inherently incomplete
-                  :unclosed tags, missing brackets, partial classNames. Rather
+                  During the streaming phase, the code is inherently incomplete:
+                  unclosed tags, missing brackets, partial classNames. Rather
                   than suppressing errors or debouncing compilation, I rely on
                   Sandpack&apos;s built-in error boundary: it displays a clean
                   error panel while the code is invalid and automatically

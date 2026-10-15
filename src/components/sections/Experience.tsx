@@ -64,7 +64,7 @@ export function Experiences() {
 
       <FadeIn delay={0.2}>
         <a
-          href="/ZoeMeng_FrontEnd_Resume.pdf"
+          href="/DesignEngineer_ZoeMeng_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
