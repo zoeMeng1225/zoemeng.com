@@ -8,7 +8,7 @@ import { ProjectImage } from "@/components/ui/ProjectImage";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
-  title: "MTI Storefront — Information architecture for 30K products — Zoe Meng",
+  title: "MTI Storefront",
   description:
     "Rebuilding a 30K-product B2B catalog on Shopify: navigable categories, part-number search, modular sections marketing edits on its own, and pages that adapt to guests, customers, and staff.",
 };
@@ -31,50 +31,27 @@ export default function Mti() {
             "font-display text-3xl md:text-4xl font-bold tracking-tight mb-4",
           )}
         >
-          High-Performance B2B E-commerce Platform
+          MTI Storefront: 30,000 products on Shopify
         </h1>
       </FadeIn>
       <FadeIn delay={0.1}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
-          A custom Shopify theme architecture built to serve a catalog of{" "}
+          As the only engineer, I moved MTI&apos;s catalog of{" "}
           <span className={cn("text-text-primary font-medium")}>
-            30,000+ SKUs
+            30,000+ products
           </span>{" "}
-          of precision materials science equipment. I re-architected the
-          storefront using modular Liquid sections that let the marketing team
-          customize layouts, toggle features, and launch landing pages — without
-          touching code.
+          from Network Solutions to Shopify and rebuilt the storefront in
+          Liquid. I built it from modular sections, so the marketing team can
+          change layouts, turn features on and off, and launch landing pages
+          without touching code.
         </p>
       </FadeIn>
       <FadeIn delay={0.15}>
         <p className={cn("text-text-secondary leading-relaxed mb-6")}>
-          Beyond the theme, I built role-based access control for guests,
-          members, and employees on the same interface, a fuzzy search engine
-          for complex industrial part numbers, and an automated tax exemption
-          system at the cart level.
+          I also built a search that tolerates typos in part numbers,
+          multi-level categories with breadcrumbs, and pages that show
+          different content to guests, members, and employees.
         </p>
-      </FadeIn>
-
-      {/* ---- Metrics ---- */}
-      <FadeIn delay={0.2}>
-        <div className={cn("grid grid-cols-3 gap-3 mb-8")}>
-          {[
-            { value: "30k+", label: "SKUs managed" },
-            { value: "3", label: "Access roles" },
-          ].map((m) => (
-            <div
-              key={m.label}
-              className={cn("text-center py-4 rounded-lg bg-bg-secondary")}
-            >
-              <div className={cn("text-xl font-display font-bold text-accent")}>
-                {m.value}
-              </div>
-              <div className={cn("text-xs text-text-tertiary mt-1")}>
-                {m.label}
-              </div>
-            </div>
-          ))}
-        </div>
       </FadeIn>
 
       {/* ---- Tags ---- */}
@@ -135,8 +112,8 @@ export default function Mti() {
                 re-architecting the Shopify theme using{" "}
                 <span className="text-text-primary font-medium">
                   modular Liquid sections
-                </span>{" "}
-                — reusable, configurable UI blocks that the marketing team can
+                </span>
+                : reusable, configurable UI blocks that the marketing team can
                 drag-and-drop, toggle, and customize through the Shopify Theme
                 Editor without writing code.
               </p>
@@ -149,18 +126,14 @@ export default function Mti() {
                 blocks, link targets) as visual controls in the editor. For
                 example, the announcement bar section supports up to 12
                 configurable blocks, each with editable text, color scheme, and
-                optional link — all controlled via the visual editor.
+                optional link, all set in the visual editor.
               </p>
               <p>
                 I built custom sections including: Custom Product Collections,
                 Featured Collections, Carousel Announcement Bar, Super
                 Multicolumn layouts, Collage grids, and custom contact forms.
-                The result:{" "}
-                <span className="text-accent font-medium">
-                  60% reduction in frontend maintenance requests
-                </span>
-                , with non-technical staff launching landing pages
-                independently.
+                Now non-technical staff launch landing pages on their own,
+                without waiting for a developer.
               </p>
             </div>
           </section>
@@ -179,7 +152,7 @@ export default function Mti() {
               },
             ]}
             columns={2}
-            caption="Left: Drag-and-drop sections in the theme editor — Right: Liquid code with configurable schema"
+            caption="Left: Drag-and-drop sections in the theme editor. Right: Liquid code with configurable schema"
           />
         </FadeIn>
 
@@ -254,17 +227,21 @@ export default function Mti() {
                   custom fuzzy search algorithm
                 </span>{" "}
                 that handles typos and partial matches for industrial part
-                numbers — so searching &quot;IMCS 2000&quot; finds
+                numbers, so searching &quot;IMCS 2000&quot; finds
                 &quot;IMCS-2000A-LD&quot; correctly.
               </p>
               <p>
-                The multi-faceted filtering system handles 30k+ SKUs with
-                instant sort and filter by specs, availability, and category.
-                Product pages are built with rich detail views: high-resolution
-                images with component labels, variant selection, and inventory
-                status — all optimized for the B2B buyer who needs technical
-                specifications, not marketing fluff.
+                For buyers who are browsing, I set up multi-level categories,
+                breadcrumbs, and A to Z sorting, so they can narrow down from a
+                broad category to one product.
               </p>
+              {/* TODO(Zoe): 简历删了 PDP 那条。产品页如果没重做，删掉这一段和下面的 product-page 图 */}
+              <p>
+                Product pages show high-resolution images with component
+                labels, variant selection, and inventory status, for B2B buyers
+                who need technical specs.
+              </p>
+              {/* TODO(Zoe): 确认注册流程是你做的，不是就删掉这段 */}
               <p>
                 I also designed a{" "}
                 <span className={cn("text-text-primary font-medium")}>
@@ -287,7 +264,7 @@ export default function Mti() {
         </FadeIn>
 
         {/* ============================================
-            Story 3: RBAC
+            Story 3: Content by visitor type
             ============================================ */}
         <FadeIn>
           <section>
@@ -299,7 +276,7 @@ export default function Mti() {
               Story 3
             </p>
             <h2 className={cn("font-display text-xl font-semibold mb-2")}>
-              Role-based access & smart automation
+              Different content for different visitors
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
               Three audiences, one storefront
@@ -309,9 +286,8 @@ export default function Mti() {
               className={cn("space-y-4 text-text-secondary leading-relaxed")}
             >
               <p>
-                The storefront serves three distinct audiences — guests,
-                verified members, and internal employees — on the same
-                interface. I implemented{" "}
+                The storefront serves three audiences on the same pages:
+                guests, verified members, and internal employees. I implemented{" "}
                 <span className={cn("text-text-primary font-medium")}>
                   conditional content rendering
                 </span>{" "}
@@ -321,6 +297,7 @@ export default function Mti() {
                 directly on product pages where they can view internal notes and
                 collaborate without leaving the storefront.
               </p>
+              {/* TODO(Zoe): 确认 Special Instructions 真的同步到 fulfillment dashboard */}
               <p>
                 The cart also includes a &quot;Special Instructions&quot; module where
                 customers attach shipping or handling requests that sync directly to the
@@ -422,8 +399,8 @@ export default function Mti() {
                   Each modular section is built with a JSON schema that defines
                   editable settings, block types, and max block limits. The
                   schema acts as a contract between the developer and the theme
-                  editor — ensuring non-technical users can only make changes
-                  within safe boundaries.
+                  editor, so non-technical users can only make changes within
+                  safe limits.
                 </p>
                 <div
                   className={cn(
@@ -431,21 +408,22 @@ export default function Mti() {
                   )}
                 >
                   <pre>{`{% schema %}
-{
-  "name": "Announcement bar",
-  "max_blocks": 12,
-  "blocks": [{
-    "type": "announcement",
-    "settings": [
-      { "type": "text", "id": "text",
-        "default": "Welcome to our store" },
-      { "type": "select", "id": "text_alignment",
-        "options": ["left", "center", "right"] },
-      { "type": "color_scheme", "id": "color_scheme" }
-    ]
-  }]
-}
-{% endschema %}`}</pre>
+                    {
+                      "name": "Announcement bar",
+                      "max_blocks": 12,
+                      "blocks": [{
+                        "type": "announcement",
+                        "settings": [
+                          { "type": "text", "id": "text",
+                            "default": "Welcome to our store" },
+                          { "type": "select", "id": "text_alignment",
+                            "options": ["left", "center", "right"] },
+                          { "type": "color_scheme", "id": "color_scheme" }
+                        ]
+                      }]
+                    }
+                    {% endschema %}`}
+                  </pre>
                 </div>
               </div>
 
@@ -476,9 +454,9 @@ export default function Mti() {
                   )}
                 >
                   Shopify&apos;s Liquid templating allows conditional rendering
-                  based on customer tags. I used this to build the RBAC system
-                  without any external auth service — the same template renders
-                  different content based on who&apos;s logged in.
+                  based on customer tags. I used them to show each audience
+                  different content without a separate login system. The same
+                  template renders differently based on who&apos;s logged in.
                 </p>
                 <div
                   className={cn(
@@ -509,18 +487,17 @@ export default function Mti() {
             <p className={cn("text-text-secondary leading-relaxed mb-4")}>
               This project taught me the power of designing for non-technical
               users. The modular section architecture wasn&apos;t technically
-              complex — it was an exercise in empathy. Every schema setting had
-              to be named clearly, every default had to make sense, and every
-              block limit had to prevent the page from looking broken. The 60%
-              reduction in maintenance requests came not from clever code, but
-              from thoughtful configuration boundaries.
+              complex. Most of the work was thinking about the people using it.
+              Every schema setting had to be named clearly, every default had
+              to make sense, and every block limit had to keep the page from
+              looking broken.
             </p>
             <p className={cn("text-text-secondary leading-relaxed")}>
               Working with Shopify Liquid also gave me a deep appreciation for
               server-rendered templating and the constraints of a platform-based
-              architecture. Not every problem needs a React SPA — sometimes the
-              best frontend is the one that loads in under a second and lets the
-              client update it themselves.
+              architecture. Not every problem needs a React app. Sometimes the
+              best frontend is a server-rendered page the client can update on
+              their own.
             </p>
           </section>
         </FadeIn>

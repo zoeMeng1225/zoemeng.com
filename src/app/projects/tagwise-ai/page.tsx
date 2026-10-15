@@ -440,7 +440,6 @@ export default function TagWise() {
               pagination and adds each tag to a Set to drop duplicates. It runs
               in a Remix loader, so the browser isn&apos;t doing the work.
             </TechCard>
-            {/* TODO(Zoe): 加一张卡讲 40% 和 60fps 是怎么来的（虚拟列表用的什么、optimistic UI 怎么做、40% 怎么测的） */}
             <TechCard n={4} title="Keeping keys on the server">
               All OpenAI calls and Shopify admin requests run in Remix loaders
               and actions, so API keys never reach the browser. Shopify App
