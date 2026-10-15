@@ -15,12 +15,12 @@ export function About() {
       <div className={cn("space-y-4 text-text-secondary leading-relaxed mt-1")}>
         <FadeIn>
           <p>
-            I came to engineering from design. My M.A. in Web Design & New
-            Media at the Academy of Art University covered interaction design
-            and prototyping, and I wanted to build the interfaces I was
-            designing rather than hand them off. So I spent two years in an
-            intensive software engineering program (LaiOffer) before joining
-            MTI in 2022.
+           I came to engineering from design. My M.A. in Web Design & New Media at
+          the Academy of Art University covered interaction design and prototyping,
+          and I wanted to build the interfaces I was designing rather than hand them
+          off. That's why, after my master's, I spent a year in an intensive software
+          engineering program (LaiOffer), took on freelance projects, and joined MTI
+          in 2022.
           </p>
         </FadeIn>
 
