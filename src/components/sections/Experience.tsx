@@ -12,7 +12,7 @@ const experiences = [
     companyDetail:
       "Materials Science Equipment, Est. by MIT & UC Berkeley Researchers",
     summary:
-      "As the sole engineer, I migrated a 30K-product B2B site from a static host to Shopify, rebuilt the storefront and staff tools from scratch, and designed a two-sided quote flow that cut processing time 83%.",
+      "As the sole engineer, I moved a 30K-product B2B site from Network Solutions to Shopify, built the storefront in Liquid and the staff tools in Remix and Polaris, and designed a quoting tool that cut processing time by about 80%.",
   },
   {
     period: "May 2020 – Feb 2022",
