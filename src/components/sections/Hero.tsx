@@ -36,9 +36,9 @@ export function Hero() {
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
           Most recently I owned the front end of a 30K-product B2B site end to
-          end as the sole engineer, including a quote flow that cut processing
-          time 83%. I care about the details that make an interface feel
-          trustworthy: states, motion, and accessibility.
+          end  As the sole engineer at MTI, I built a quoting tool that cut processing
+          time by about 80%, and I care just as much about how an interface feels
+          as how it works.
         </p>
       </FadeIn>
 
