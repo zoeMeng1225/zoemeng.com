@@ -24,7 +24,7 @@ const projects = [
     meta: "MTI Corporation · 2022 – present",
     video: "/images/projects/b2b-quote/quote_flow_done.mp4",
     metrics: [
-      { label: "Faster processing", value: "83%" },
+      { label: "Faster processing", value: "80%" },
       { label: "Products", value: "30K+" },
     ],
   },
