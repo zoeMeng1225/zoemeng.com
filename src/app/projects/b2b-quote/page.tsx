@@ -544,9 +544,10 @@ export default function B2BQuotePage() {
               into a regular order, so nobody has to type the quote in again.
             </Card>
             <Card title="Download or print a PDF">
-              Made in the browser with jsPDF and html2canvas, so the PDF looks
+             Made in the browser with jsPDF and html2canvas, so the PDF looks
               like the quote on screen, with prices, tax, and customer info.
-              Lines marked &quot;Hide price&quot; stay hidden in the PDF.
+              Lines marked &quot;Hide price&quot; stay hidden in the PDF. The
+              same PDF goes out with the quote email through AWS SES.
             </Card>
             <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-4")}>
               <Card title="Duplicate">
@@ -565,11 +566,11 @@ export default function B2BQuotePage() {
         <FadeIn>
           <section>
             <Eyebrow>Outcome</Eyebrow>
-            <SectionTitle title="About 80% less time per quote" />
+            <SectionTitle title="about 80% less time per quote" />
             <p className={cn("text-text-secondary leading-relaxed")}>
-              Most of the time saved came from steps that disappeared. The email
-              fills itself in, tax is already calculated, the PDF is already
-              attached, and an approved quote becomes an order with one click.
+             Most of the time saved came from steps that disappeared. The email
+  fills itself in, tax is already calculated, the PDF attaches with one
+  click, and an approved quote turns into an order right from the same page.
             </p>
           </section>
         </FadeIn>
@@ -741,24 +742,23 @@ export default function B2BQuotePage() {
                   compared without dashes, spaces, parentheses, or plus signs.
                 </TechCard>
                 <TechCard n={5} title="Tests for the main quote flows">
-                  Jest and React Testing Library cover cart actions, form
-                  validation, pricing math, PDF generation, and sending email.
+                   Jest and React Testing Library cover cart actions, pricing math, and form
+                    validation.
                 </TechCard>
               </div>
             </div>
           </details>
         </FadeIn>
 
-        {/* ---------- What I learned ---------- */}
         <FadeIn>
           <section>
             <SectionTitle title="What I learned" />
             <div className={body}>
               <p>
-                I learned the most just by watching the sales team work. They
-                knew things about their process I would never have guessed. Some
-                features I thought mattered, they never used. Quick-Jump
-                Navigation, which I almost left out, is the one they use most.
+               I learned the most just by watching the sales team work. They knew things
+                about their process I would never have guessed. Some features I thought
+                mattered, they never used, and one small shortcut I almost left out became
+                the one they use most.
               </p>
               <p>
                 It also changed what I think of as performance work. In a tool
