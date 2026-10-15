@@ -81,9 +81,9 @@ const moreWork = [
       ],
     },
     {
-      title: "MTI Storefront — Information architecture for 30K products",
+      title: "MTI Storefront",
       description:
-        "Rebuilt a 30K-product B2B catalog on Shopify: modular sections marketing can edit on their own, multi-level navigation, search that understands industrial part numbers, and product pages that adapt to guests, verified customers, and staff.",
+        "Moved a 30K-product B2B catalog from Network Solutions to Shopify. Part-number search that tolerates typos, multi-level categories, and sections the marketing team can edit on their own.",
       tags: ["Information architecture","Shopify","Liquid" ],
       href: "/projects/mti",
       image: "/images/projects/mti/mti_website.webp",
