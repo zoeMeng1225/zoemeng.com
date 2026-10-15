@@ -64,7 +64,7 @@ const moreWork = [
   {
       title: "AI Code Reviewer",
       description:
-        "Paste code and get instant, structured AI feedback with real-time streaming. Supports three review modes (Quick, Deep, Security), severity-tagged issues, and a 0-100 code quality score.",
+        "Paste in code and get a review back as it streams in. Three modes (Quick, Deep, Security), issues tagged by severity, and a quality score from 0 to 100.",
       tags: [
         "Next.js 14",
         "TypeScript",
@@ -74,10 +74,10 @@ const moreWork = [
       ],
       href: "/projects/ai-code-reviewer",
       image: "/images/projects/ai-code-reviewer/code-reviewer-hero.webp",
+      meta: "Open source · 2026",
       metrics: [
         { label: "Review modes", value: "3" },
         { label: "Languages", value: "8" },
-        { label: "Open source", value: "✓" },
       ],
     },
     {

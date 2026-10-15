@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { BackToHome } from "@/components/ui/BackToHome";
 
 export const metadata: Metadata = {
-  title: "AI Code Reviewer — Instant AI-Powered Code Reviews — Zoe Meng",
+  title: "AI Code Reviewer",
   description:
     "An open-source AI code review tool with real-time streaming, structured feedback, and multiple review modes. Built with Next.js 14, TypeScript, and GPT-4o-mini.",
 };
@@ -42,7 +42,7 @@ export default function AICodeReviewer() {
           mode, and watch the AI analysis{" "}
           <span className={cn("text-text-primary font-medium")}>
             stream in real-time
-          </span>{" "}
+          </span>
           , token by token, into categorized, actionable review panels.
         </p>
       </FadeIn>
@@ -62,11 +62,10 @@ export default function AICodeReviewer() {
 
       {/* ---- Metrics ---- */}
       <FadeIn delay={0.2}>
-        <div className={cn("grid grid-cols-4 gap-3 mb-8")}>
+        <div className={cn("grid grid-cols-3 gap-3 mb-8")}>
           {[
             { value: "3", label: "Review modes" },
             { value: "8", label: "Languages supported" },
-            { value: "< 5s", label: "Avg review time" },
             { value: "10/hr", label: "Rate limit per IP" },
           ].map((m) => (
             <div
@@ -86,7 +85,7 @@ export default function AICodeReviewer() {
 
       {/* ---- Tags ---- */}
       <FadeIn delay={0.25}>
-        <div className={cn("flex flex-wrap gap-2 mb-10")}>
+        <div className={cn("flex flex-wrap gap-2 mb-4")}>
           {[
             "Next.js 14",
             "TypeScript",
@@ -108,6 +107,31 @@ export default function AICodeReviewer() {
           ))}
         </div>
       </FadeIn>
+      <FadeIn delay={0.28}>
+              <div className={cn("flex gap-6 mb-10")}>
+                <a
+                  href="https://aireviewer.zoemeng.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "text-sm font-medium text-accent hover:text-accent-dark transition-colors",
+                  )}
+                >
+                  Live demo →
+                </a>
+                <a
+                  href="https://github.com/zoeMeng1225/ai-code-reviewer.git"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "text-sm font-medium text-accent hover:text-accent-dark transition-colors",
+                  )}
+                >
+                  View on GitHub →
+                </a>
+              </div>
+            </FadeIn>
+
 
       {/* ---- Hero screenshot ---- */}
       <FadeIn delay={0.3}>
@@ -142,7 +166,7 @@ export default function AICodeReviewer() {
               hard to act on, or they&apos;re embedded in IDEs where the
               feedback loop is too tight to see the big picture. There&apos;s a
               gap for a focused, standalone tool that gives structured,
-              categorized feedback — the kind a senior engineer would give in a
+              categorized feedback ,the kind a senior engineer would give in a
               PR review.
             </p>
           </section>
@@ -164,7 +188,7 @@ export default function AICodeReviewer() {
               Real-time streaming review
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
-              Watch the AI think — token by token
+              Watch the review appear token by token
             </p>
 
             <div
@@ -172,7 +196,7 @@ export default function AICodeReviewer() {
             >
               <p>
                 The review result streams in real-time as GPT-4o-mini generates
-                it. Instead of waiting 5-10 seconds for a complete response,
+                it. Instead of waiting for the whole response to finish,
                 users see the analysis appear{" "}
                 <span className={cn("text-text-primary font-medium")}>
                   token by token
@@ -344,7 +368,7 @@ export default function AICodeReviewer() {
               Structured, actionable feedback
             </h2>
             <p className={cn("text-sm text-accent mb-6")}>
-              Not a wall of text — categorized issues with severity and
+              Not a wall of text: categorized issues with severity and
               suggestions
             </p>
 
@@ -804,7 +828,7 @@ function checkRateLimit(ip: string): boolean {
               "text-sm text-accent hover:text-accent-dark transition-colors",
             )}
           >
-            Next project: B2B E-commerce Platform →
+            Next project: MTI Storefront →
           </Link>
         </div>
       </FadeIn>
