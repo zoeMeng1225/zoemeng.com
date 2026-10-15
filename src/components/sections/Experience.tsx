@@ -20,7 +20,7 @@ const experiences = [
     company: "Independent projects",
     companyDetail: null,
     summary:
-      "Built marketing sites and real-time dashboards in React and Next.js alongside an intensive software engineering program (LaiOffer), and a WordPress blog for a community organization. Cut LCP 25% with route-based code splitting.",
+      "Built React and Next.js sites and dashboards, plus a book blog on WordPress for a client. Cut LCP by 25% on one of them. While finishing an intensive software engineering program (LaiOffer)",
   },
 ];
 
