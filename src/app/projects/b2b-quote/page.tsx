@@ -192,7 +192,7 @@ export default function B2BQuotePage() {
       <FadeIn delay={0.15}>
         <p className={cn("text-sm text-text-tertiary mb-6")}>
           I was the only engineer on the project. I watched how the team worked,
-          designed the flow, built both apps, and I still maintain them.
+          designed the flow, built both apps, and still maintain them.
         </p>
       </FadeIn>
 
@@ -299,8 +299,8 @@ export default function B2BQuotePage() {
               </p>
               <p>
                 Each request sends three emails through AWS SES: one to the reps
-                the buyer picked, with a link straight to the quote in the
-                admin, one to the admin team, and a confirmation to the buyer.
+                the buyer picked, with a link straight to the quote in the admin;
+                one to the admin team; and a confirmation to the buyer.
                 If the buyer is new, the app creates their Shopify account and
                 sends an activation email. They can also upload a tax exemption
                 form, which goes to the finance team.
@@ -322,7 +322,7 @@ export default function B2BQuotePage() {
               },
             ]}
             columns={2}
-            caption=""
+            caption="Left: the quote cart drawer. Right: picking which reps get copied."
           />
           <ProjectVideo
             src="/images/projects/b2b-quote/quote_review.mp4"
@@ -678,7 +678,7 @@ export default function B2BQuotePage() {
                     (
                     <code
                       className={cn(
-                        "text-sm font-mono bg-bg-secondary px-1.5 py-0.5 rounded",
+                        "text-xs font-mono bg-bg-tertiary px-1 py-0.5 rounded",
                       )}
                     >
                       api.shopify.jsx
