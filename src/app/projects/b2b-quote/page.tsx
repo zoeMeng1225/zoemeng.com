@@ -158,7 +158,7 @@ const phoneExpr = sql\`
     json_extract(customer, '$.phone'),
     '-',''),' ',''),'(',''),')',''),'+','')
 \`;
-// "858-717-5278" matches a search for "8587175278"`;
+// "555-123-4567" matches a search for "5551234567"`;
 
 export default function B2BQuotePage() {
   return (
