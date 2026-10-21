@@ -40,9 +40,9 @@ export function About() {
 
         <FadeIn delay={0.2}>
           <p>
-            Lately I&apos;ve been working on AI interfaces, where the hard
-            problems are trust and legibility: showing what a model is doing
-            so people can check it before it touches anything real.
+            Lately I&apos;ve been building AI features end to end: streaming
+            responses, keeping API calls on the server, and interfaces that let
+            people check what a model did before it touches anything real.
           </p>
         </FadeIn>
       </div>

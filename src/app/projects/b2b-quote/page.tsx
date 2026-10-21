@@ -566,7 +566,7 @@ export default function B2BQuotePage() {
         <FadeIn>
           <section>
             <Eyebrow>Outcome</Eyebrow>
-            <SectionTitle title="about 80% less time per quote" />
+            <SectionTitle title="About 80% less time per quote" />
             <p className={cn("text-text-secondary leading-relaxed")}>
              Most of the time saved came from steps that disappeared. The email
   fills itself in, tax is already calculated, the PDF attaches with one

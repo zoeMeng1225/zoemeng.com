@@ -5,7 +5,7 @@ import { BackToHome } from "@/components/ui/BackToHome";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Design System — Zoe Meng",
+  title: "Design System",
   description:
     "Visual and interaction design work by Zoe Meng.",
 };

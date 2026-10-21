@@ -13,10 +13,9 @@ export function Contact() {
 
       <FadeIn delay={0.1} className={cn("mt-1")}>
         <p className={cn("text-text-secondary leading-relaxed mb-6")}>
-          I&apos;m looking for my next design engineer, UI engineer, or
-          frontend role, hybrid in the Bay Area or remote. If you&apos;re
-          building a product where the details matter, I&apos;d love to hear
-          about it.
+          I&apos;m looking for my next frontend or full-stack role, hybrid in the
+          Bay Area or remote. If you&apos;re building a product where the details
+          matter, I&apos;d love to hear about it.
         </p>
       </FadeIn>
 
