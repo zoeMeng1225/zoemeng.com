@@ -59,7 +59,7 @@ export function Header() {
             </a>
           ))}
           <a
-            href="/DesignEngineer_ZoeMeng_Resume.pdf"
+            href="/FrontendEngineer_ZoeMeng_Resume.pdf"
             target="_blank"
             className={cn(
               "text-sm font-medium text-text-primary px-4 py-1.5 rounded-md border border-border",

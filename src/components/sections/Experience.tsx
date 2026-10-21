@@ -20,7 +20,7 @@ const experiences = [
     company: "Independent projects",
     companyDetail: null,
     summary:
-      "Built React and Next.js sites and dashboards, plus a book blog on WordPress for a client. Cut LCP by 25% on one of them. While finishing an intensive software engineering program (LaiOffer)",
+      "Built React and Next.js sites and dashboards while finishing an intensive software engineering program (LaiOffer), plus a book blog on WordPress for a client. Cut LCP by 25% on one of them.",
   },
 ];
 
@@ -64,7 +64,7 @@ export function Experiences() {
 
       <FadeIn delay={0.2}>
         <a
-          href="/DesignEngineer_ZoeMeng_Resume.pdf"
+          href="/FrontendEngineer_ZoeMeng_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
