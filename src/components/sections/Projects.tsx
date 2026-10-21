@@ -8,36 +8,26 @@ import { ProjectCard } from "../ui/ProjectCard";
 
 const projects = [
   {
-    title: "B2B Quote — Replacing Excel with a two-sided flow",
+    title: "B2B Quote Platform",
     description:
-      "Sales quoted by Excel and email. After watching where they stalled, I designed a cart-style builder for buyers and an admin for staff.",
-    tags: [
-      "Product design",
-      "Remix",
-      "GraphQL",
-      "AWS SES",
-      "Polaris",
-    ],
+      "Sales quoted with Excel and email. I built a quote cart for buyers and a Remix admin for staff, with live tax, one-click PDFs, and quotes that turn into Shopify orders.",
+    tags: ["Remix", "React", "GraphQL", "Redux Toolkit", "Cloudflare D1", "AWS SES"],
     href: "/projects/b2b-quote",
     image: "/images/projects/b2b-quote/b2b-quote-hero1.webp",
     kind: "Case study",
     meta: "MTI Corporation · 2022 – present",
     video: "/images/projects/b2b-quote/quote_flow_done.mp4",
     metrics: [
-      { label: "Faster processing", value: "80%" },
+      { label: "Less time per quote", value: "~80%" },
       { label: "Products", value: "30K+" },
     ],
   },
   {
-    title: "TagWise AI — Designing trust into AI tagging",
+    title: "TagWise AI",
     kind: "UX Case Study",
     description:
-      "Merchants didn't trust AI writing to their live store. I designed a staging state where every AI tag is visible, editable, and reversible before it ships.",
-    tags: [
-      "Interaction design",
-      "UX research",
-      "React",
-    ],
+      "A Shopify app that drafts SEO tags with AI. Merchants review every tag in a staging state before anything writes to their live store.",
+    tags: ["React", "Remix", "Shopify GraphQL", "Virtualization", "Interaction design"],
     meta: "2025",
     href: "/projects/tagwise-ai",
     image: "/images/projects/tagwise/tagwise.webp",
@@ -47,10 +37,10 @@ const projects = [
     ],
   },
     {
-    title: "AI Component Playground — Making streaming legible",
+    title: "AI Component Playground",
     description:
       "A text-to-component tool where the hard part was the wait. A two-phase display turns generation into readable progress.",
-    tags: ["Interaction design", "Next.js", "Sandpack"],
+    tags: ["Next.js", "Vercel AI SDK", "Streaming", "Sandpack"],
     href: "/projects/ai-playground",
     image: "/images/projects/ai-playground/aiPlayground_hero.webp",
     kind: "Case study",

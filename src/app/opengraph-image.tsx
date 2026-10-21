@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Zoe Meng — Frontend Engineer specializing in UX/UI";
+export const alt = "Zoe Meng, Frontend & Full Stack Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -63,7 +63,7 @@ export default async function Image() {
           marginTop: 16,
         }}
       >
-        Frontend Engineer · UX/UI Developer
+        Frontend & Full Stack Engineer
       </div>
       <div
         style={{
@@ -73,7 +73,7 @@ export default async function Image() {
           marginTop: 20,
         }}
       >
-        React · TypeScript · Design Systems
+        React · TypeScript · Node.js
       </div>
     </div>,
     { ...size },

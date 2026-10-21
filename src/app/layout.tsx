@@ -23,18 +23,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const description =
-  "Frontend and design engineer in the SF Bay Area. I design and build product interfaces in React and TypeScript, from user flow to shipped component.";
+  "Frontend and full-stack engineer in the SF Bay Area, building web apps in React, TypeScript, and Node.js. Background in design.";
   
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zoemeng.com"),
   title: {
-    default: "Zoe Meng — Frontend & Design Engineer",
-    template: "%s — Zoe Meng",
+    default: "Zoe Meng · Frontend & Full Stack Engineer",
+    template: "%s · Zoe Meng",
   },
   description,
   openGraph: {
-    title: "Zoe Meng — Frontend & Design Engineer",
+    title: "Zoe Meng · Frontend & Full Stack Engineer",
     description,
     url: "https://zoemeng.com",
     siteName: "Zoe Meng",

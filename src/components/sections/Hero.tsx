@@ -16,35 +16,32 @@ export function Hero() {
           Zoe Meng
         </h1>
         <p className={cn("text-sm font-medium text-accent mb-10")}>
-          Frontend & Design Engineer · San Francisco Bay Area
+            Frontend & Full Stack Engineer · San Francisco Bay Area
         </p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
-          I{" "}
+       <p className={cn("text-lg text-text-secondary leading-relaxed mb-4")}>
+          I build web apps in React and TypeScript, front to back. For the past
+          four years I&apos;ve been the{" "}
           <span className={cn("text-text-primary font-medium")}>
-            design and build product interfaces
+            sole engineer on a 30K-product B2B site
           </span>
-          . I trained as a designer (M.A., Web Design) and have spent four
-          years shipping React and TypeScript, so I work from the user flow
-          through to the shipped component instead of handing off in the
-          middle.
+          , where I built a quoting tool that cut processing time by about 80%.
         </p>
       </FadeIn>
 
       <FadeIn delay={0.2}>
         <p className={cn("text-lg text-text-secondary leading-relaxed mb-8")}>
-          Most recently I owned the front end of a 30K-product B2B site end to
-          end  As the sole engineer at MTI, I built a quoting tool that cut processing
-          time by about 80%, and I care just as much about how an interface feels
-          as how it works.
+          I came to engineering from design (M.A., Web Design), so I also care
+          about the parts people notice: the loading state, the error state, and
+          whether a flow makes sense to the person using it.
         </p>
       </FadeIn>
 
       <FadeIn delay={0.3}>
         <p className={cn("text-sm text-text-tertiary mb-4")}>
-          Open to design engineer, UI engineer, and frontend roles.
+          Open to frontend and full-stack roles.
         </p>
       </FadeIn>
 
